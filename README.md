@@ -44,7 +44,15 @@ chapter 4 : cookie 相关
 
 chapter 1 : servlet  待定
 
----第四部分 spring 技术内幕 ----
+---- 第四部分 Redis  ----
+
+chapter 1 : Redis 命令
+
+chapter 2 : redis 客户端类  e.g  jedis
+
+chapter 3 : spring data redis 整合
+
+---第五部分 spring 技术内幕 ----
 
 chapter 1 : spring IOC 控制反转  容器的概念
 
@@ -55,14 +63,6 @@ chapter 3 : AOP 代理
 chapter 4 : 拦截器
 
 chapter 5 : spring boot 开发   再细分
-
----- 第五部分 Redis  ----
-
-chapter 1 : Redis 命令
-
-chapter 2 : redis 客户端类
-
-chapter 3 : spring data redis 整合
 
 --- 第六部分 Mysql 优化---
 
