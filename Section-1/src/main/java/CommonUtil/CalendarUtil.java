@@ -2,9 +2,11 @@ package CommonUtil;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -72,36 +74,49 @@ public class CalendarUtil {
 
     //convert DateString  to date
     @Deprecated
-    public static Date parse2Date(String date,String pattern){
+    public static Date parse2Date(String date, String pattern) {
         LocalDate localDate = parse2LocalDate(date, pattern);
-        return  convert(localDate);
+        return convert(localDate);
     }
 
     //transform means : make a thorough or dramatic change in the form,
 
     /**
-     *
      * @param localDate
      * @param pattern
      * @return dateString with pattern form
      */
-    public static String transform(LocalDate localDate,String pattern){
+    public static String transform(LocalDate localDate, String pattern) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
         String dateString = localDate.format(dateTimeFormatter);
         return dateString;
     }
 
-    public static String transform(Date date ,String pattern){
+    public static String transform(Date date, String pattern) {
         LocalDate localDate = convert(date);
         String dateString = transform(localDate, pattern);
         return dateString;
     }
 
+    //返回2个date之间的时间间隔
+    public static final int diff(Date d1, Date d2) {
+        long d1Time = d1.getTime();
+        long d2Time = d2.getTime();
+        return ((int) (d1Time - d2Time / 1000));
+    }
 
+    //关于ZoneId, LocalDate ,Instant ,LocalDateTime之间的区别  参考链接 https://goo.gl/VzPz4F
+    public static final int diff(LocalDate d1, LocalDate d2) {
+        long d1Time = d1.atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();//ZoneOffSet 是不是会有问题 askme
+        long d2Time = d2.atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();
+        return ((int) (d1Time - d2Time / 1000));
+    }
 
-
-
-
-
+    //获取当前日期
+    public static String getCurrentDate(String pattern){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        String rs = LocalDate.now().format(dateTimeFormatter);
+        return rs;
+    }
 
 }
