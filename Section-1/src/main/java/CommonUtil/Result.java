@@ -40,76 +40,42 @@ public class Result<Value> implements Serializable {
     public static final int REGISTED = 7;
     //认证码错误
     public static final int AUTH_CODE_ERROR = 8;
-
     //全局Cookie没有
     public static final int NON_REQUIRED_COOKIE = 10;
-
     //扫码登陆uuid不存在
     public static final int UUID_NOT_EXIST = 11;
-
-
     //第三方平台登录uid不存在，参数不全
     public static final int PLATFORM_Uid_NULL = 12;
-
     //第三方登录失败
     public static final int PLATFORM_LOGIN_FAIL = 13;
-
     //参数不全 。全局token不存在
     public static final int NON_REQUIRED_TOKEN = 14;
-
     //注册信息数据格式异常
     public static final int REG_INFO_FORMAT_ERROR = 15;
-
     //第三方登陆信息异常
     public static final int LOGIN4_THIRD_PLATFORM_INFO_ERROR = 16;
-
     //找回密码信息数据格式异常
     public static final int FINDPWD_INFO_FORMAT_ERROR = 17;
-
     //参数类型不匹配
     public static final int PARAMATER_FORMAT_ERROR = 18;
-
     //短信发送限制（发送频率太快被限制）
     public static final int MSG_SEND_FREQUENCE_LIMIT = 19;
-
     //回复失败
     public static final int REPLY_FAIL = 20;
-
     //已经赞过
     public static final int LIKED = 21;
-
     //手机号码已经被绑定
     public static final int MOBILE_IS_BINDED = 22;
-
     //会员信息不匹配
     public static final int USER_NOT_FIT = 24;
-
     //原密码不正确
     public static final int ORI_PASSWORD_NOT_CORRECT = 25;
 
     public static final int ILEAGL_KEY = 26;
-
-    /**
-     * 用户余额不足
-     **/
-    public static final int MONEY_BALANCE_IS_NOT_ENOUGH = 27;
-
-
-    /**
-     * 提款失败
-     **/
-    public static final int GET_MONEY_FAIL = 28;
-
-    /**
-     * 数据签名错误
-     */
+    //数据签名错误
     public static final int REQ_SIGN_ERROR = 29;
-
-    /**
-     * 数据解析错误
-     */
+    //数据解析错误
     public static final int DATA_ERROR = 45;
-
     //没有找到对应值
     public static final int NOT_FOUND = 403;
     //非法的请求
