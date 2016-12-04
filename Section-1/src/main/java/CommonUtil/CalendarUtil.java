@@ -102,7 +102,7 @@ public final class CalendarUtil {
     public static final int diff(Date d1, Date d2) {
         long d1Time = d1.getTime();
         long d2Time = d2.getTime();
-        return ((int) (d1Time - d2Time / 1000));
+        return ((int) (d1Time - d2Time / SECOND_MILL));
     }
 
     //关于ZoneId, LocalDate ,Instant ,LocalDateTime之间的区别  参考链接 https://goo.gl/VzPz4F
