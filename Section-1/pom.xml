@@ -21,6 +21,19 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <!--lombook插件支持-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
+        </dependency>
+        <!--要想lombook插件支持@Slf4j注解,那么需要加上slf4j 依赖支持-->
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
 
     </dependencies>
 </project>
