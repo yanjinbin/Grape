@@ -2,7 +2,6 @@ package CommonUtil;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -13,6 +12,7 @@ import java.util.Date;
 
 /**
  * 采用java 8 重新设计引入的java.util.Time package
+ * https://goo.gl/OFVz7Z
  * Created by Silver & Bullet
  * since 2016-十二月
  */
