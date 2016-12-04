@@ -12,7 +12,7 @@ import java.util.Date;
  * @date 2013-1-4 上午11:06:09
  *
  */
-public class CheckIdCard {
+public final class CheckIdCard {
 
 
     private String cardNumber; // 完整的身份证号码

@@ -16,7 +16,7 @@ import java.util.Date;
  * Created by Silver & Bullet
  * since 2016-十二月
  */
-public class CalendarUtil {
+public final class CalendarUtil {
 
     static LocalDateTime localDateTime;
 

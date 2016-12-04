@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * Created by Silver & Bullet
  * since 2016-十二月
  */
-public class RegexUtil {
+public  final class RegexUtil {
 
     public static final String password = "^(?=.*\\d).(?=.*[a-z]).(?=.*[A-Z]).{8,10}$";
 

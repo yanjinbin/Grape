@@ -17,7 +17,7 @@ import java.security.SecureRandom;
  * since 2016-十二月
  */
 @Slf4j
-public class EncryptUtil {
+public final class EncryptUtil {
 
     /**
      * @param descript content  to be encrypted
