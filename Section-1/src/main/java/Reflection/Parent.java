@@ -7,6 +7,7 @@ package Reflection;
 public class Parent  implements Family {
     private int parentheight;
 
+    @Deprecated
     public int getParentheight() {
         return parentheight;
     }
