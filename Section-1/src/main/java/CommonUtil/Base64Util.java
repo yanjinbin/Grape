@@ -3,7 +3,6 @@ package CommonUtil;
 import java.nio.charset.Charset;
 
 /**
- *
  * https://goo.gl/xBaO7m
  * https://goo.gl/qJd6I4
  * Created by Silver & Bullet
@@ -60,6 +59,8 @@ public class Base64Util {
 
 
     public static byte[] decode(String str) {
+
+        //nextdo
         return null;
     }
 

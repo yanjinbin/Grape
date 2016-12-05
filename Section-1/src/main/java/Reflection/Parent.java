@@ -4,14 +4,45 @@ package Reflection;
  * Created by Silver & Bullet
  * since 2016-十一月
  */
-public class Parent {
-    private int height;
+public class Parent  implements Family {
+    private int parentheight;
 
-    public int getHeight() {
-        return height;
+    public int getParentheight() {
+        return parentheight;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setParentheight(int parentheight) {
+        this.parentheight = parentheight;
+    }
+
+    public int getParentage() {
+        return parentage;
+    }
+
+    public void setParentage(int parentage) {
+        this.parentage = parentage;
+    }
+
+
+    protected int parentage;
+
+    public String parentname;
+
+    public Parent(int parentheight, int parentage, String parentname) {
+        this.parentheight = parentheight;
+        this.parentage = parentage;
+        this.parentname = parentname;
+    }
+
+    public Parent(int parentheight, int parentage) {
+        this.parentheight = parentheight;
+        this.parentage = parentage;
+    }
+
+    public Parent(String parentname) {
+        this.parentname = parentname;
+    }
+
+    public Parent() {
     }
 }
