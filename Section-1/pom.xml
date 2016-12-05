@@ -99,6 +99,12 @@
             <artifactId>guava-testlib</artifactId>
             <version>20.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
 
         <!--常用工具包     end-->
 
