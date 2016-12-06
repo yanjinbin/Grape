@@ -46,4 +46,9 @@ public class Parent  implements Family {
 
     public Parent() {
     }
+
+    private Integer  print(String descript){
+        System.out.println("打印script字符-----"+descript);
+        return  1;
+    }
 }
