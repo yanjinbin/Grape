@@ -5,8 +5,10 @@
 
 # User-specific stuff:
 
-.idea/
+# Ignore everything in this directory
 
+# Except this file
+!.gitignore
 # Sensitive or high-churn files:
 .idea/dataSources/
 .idea/dataSources.ids
