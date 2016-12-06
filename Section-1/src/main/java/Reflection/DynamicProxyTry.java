@@ -6,4 +6,7 @@ package Reflection;
  *         since 2016-十二月
  */
 public class DynamicProxyTry {
+    public static void main(String[] args) {
+        System.out.println("-----------------进入动态代理时间----------------");
+    }
 }
