@@ -36,3 +36,5 @@ Java  数组和反射  需要另外参考 [戳我啊哟喂](https://goo.gl/1zJE4
 - 获取数组的Class对象
 - 获取数组的成员类型
 
+Class.forName() 使用实践
+
