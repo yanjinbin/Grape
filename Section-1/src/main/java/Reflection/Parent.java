@@ -1,13 +1,16 @@
 package Reflection;
 
+import Annotations.Preamble;
+
 /**
  * Created by Silver & Bullet
  * since 2016-十一月
  */
+@Preamble
 public class Parent  implements Family {
     private int parentheight;
 
-    @Deprecated
+    @Deprecated()
     public int getParentheight() {
         return parentheight;
     }
@@ -46,7 +49,7 @@ public class Parent  implements Family {
 
     public Parent() {
     }
-
+    @SuppressWarnings("rawtype")
     private Integer  print(String descript){
         System.out.println("打印script字符-----"+descript);
         return  1;
