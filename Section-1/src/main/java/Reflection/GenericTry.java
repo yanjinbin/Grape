@@ -70,6 +70,18 @@ public class GenericTry<K> {
                 }
             }
 
+            //java获取  泛型失败(特意和泛型化参数失败)
+            System.out.println("Reflection fetch generic type ");
+            Method fun = GenericTry.class.getMethod("fun");
+            Type genericReturnType1 = fun.getGenericReturnType();
+            if (genericReturnType1 instanceof ParameterizedType){//instanceof   为false
+                ParameterizedType genericReturnType11 = (ParameterizedType) genericReturnType1;
+                Type[] actualTypeArguments = genericReturnType11.getActualTypeArguments();
+                for (Type item :
+                        actualTypeArguments) {
+                    System.out.println(item.getTypeName());
+                }
+            }
 
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -82,8 +94,8 @@ public class GenericTry<K> {
 
     public static String[] array1 = {"a", "b", "c", "d", "e", "f"};
 
-    public K fun(K k) {
-        return k;
+    public K fun() {
+        return null;
     }
 
     public List<String> getStringList() {
