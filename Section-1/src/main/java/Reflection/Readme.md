@@ -9,3 +9,10 @@
 spring IOC container has the JAVA Reflection mechanism hint
 
 获取类的信息,往往是Java 反射机制 第一件要做的事情
+
+
+2  在获取私有变量和私有方法的时候 需要
+~~~
+    setAccessable(true)
+
+3
