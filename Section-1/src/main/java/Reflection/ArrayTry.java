@@ -44,6 +44,8 @@ public class ArrayTry {
 
     }
 
+
+    //根据数据类型 生成对应的Class
     public static Class getClass(String className){
         // 8  primitive data type handle
         if("int".equals(className) )return  int.class;
