@@ -5,6 +5,7 @@ package Foundation;
  * 逻辑与、逻辑或、逻辑非是对boolean值得操作，属于离散数学范畴。
  * 按位与、按位或、按位非是对计算机位的操作，属于计算机二进制位运算范畴。
  *
+ *  http://wiki.jikexueyuan.com/project/java/basic-operators.html
  *
  * 源码补码反码: https://goo.gl/eiPHFz
  * Java运算符大全的使用规则: https://goo.gl/A5vPcu
@@ -12,7 +13,7 @@ package Foundation;
  * @author Silver & Bullet
  *         since 2016-十二月
  */
-public class OperationTry {
+public class BasicOperatorTry {
 
     public static void main(String[] args) {
         //左移运算符
