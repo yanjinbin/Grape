@@ -9,6 +9,16 @@
     <version>1.0-SNAPSHOT</version>
     <!--父项目必须是pom-->
     <packaging>pom</packaging>
+
+    <modules>
+        <module>Section-1</module>
+        <module>Section-2</module>
+        <module>Section-3</module>
+        <module>Section-4</module>
+        <module>Section-5</module>
+        <module>Section-6</module>
+        <module>Section-7</module>
+    </modules>
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
