@@ -2,6 +2,7 @@ package GoogleGuava;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import com.google.common.collect.ComparisonChain;
 
 /**
  * @author Silver & Bullet
@@ -18,6 +19,18 @@ public class ObjectsTry {
         //重写toString方法 beautify code
         MoreObjects.ToStringHelper string = MoreObjects.toStringHelper(AvoidNullTry.class).add("I", 3).add("J", 4);
         System.out.println(string);
+
+
+        //出order之外的比较器
+        ComparisonChain.start().compare(i, j).compare(new Comparable<Object>() {
+            public int compareTo(Object o) {
+                return m.compareTo(n);
+            }
+        }, new Comparable<Object>() {
+            public int compareTo(Object o) {
+                return n.compareTo(m);
+            }
+        });
 
     }
 
