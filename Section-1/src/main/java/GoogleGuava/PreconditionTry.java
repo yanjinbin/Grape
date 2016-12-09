@@ -10,7 +10,7 @@ public class PreconditionTry {
     public static void main(String[] args) {
         try {
 
-           // Preconditions.checkElementIndex(1, 2); ENSURE IN RANGE FOR ARRAY LIST SET data structure
+            // Preconditions.checkElementIndex(1, 2); ENSURE IN RANGE FOR ARRAY LIST SET data structure
 
             // Preconditions.checkState() 类似 checkArgument方法 只不过抛出的异常不同而已
             Preconditions.checkArgument(PreconditionTry.i > j, "expected i > j ,but %s < %s ", PreconditionTry.i, j);
