@@ -38,13 +38,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.5</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava-testlib -->
-        <!--<dependency>-->
-        <!--<groupId>com.google.guava</groupId>-->
-        <!--<artifactId>guava-testlib</artifactId>-->
-        <!--<version>20.0</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -56,58 +49,13 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.21</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-        <!--<dependency>-->
-        <!--<groupId>com.google.code.gson</groupId>-->
-        <!--<artifactId>gson</artifactId>-->
-        <!--<version>2.8.0</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
-        <!--<dependency>-->
-        <!--<groupId>com.google.oauth-client</groupId>-->
-        <!--<artifactId>google-oauth-client</artifactId>-->
-        <!--<version>1.22.0</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
-        <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.10</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.netty/netty -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty</artifactId>
-            <version>3.10.6.Final</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>2.10.3</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.2</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
             <version>1.17</version>
         </dependency>
-        <!--常用工具包     end-->
+
 
     </dependencies>
 </project>
