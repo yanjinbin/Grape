@@ -10,6 +10,7 @@ import java.sql.SQLException;
 public class ExceptionTry {
     public static void main(String[] args) {
         //unchecked exception ,属于RuntimeException的之类,RuntimeException和Error,是unchecked exception 两大类,
+        //RuntimeException 一般是程序逻辑错误,可以不处理,但是原则上都应该去思考尽可能避免发生 defensive programming ,如果碰到了,那么应当需要try catch住
         throwNullExce("哈哈");
         try {//checked exception 编译时候就会不通过,必须程序自己处理好
             throwSQLEXEC("嘿嘿");
