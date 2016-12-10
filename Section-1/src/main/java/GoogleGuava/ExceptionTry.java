@@ -1,6 +1,10 @@
-package Foundation;
+package GoogleGuava;
+
+import com.google.common.base.Throwables;
 
 /**
+ *
+ * https://goo.gl/c9ZrSM
  * https://goo.gl/3Edt0L
  *
  * Created by yanjinbin on 16-12-10.
@@ -16,6 +20,17 @@ public class ExceptionTry {
         try {//checked exception 编译时候就会不通过,必须程序自己处理好
             throwSQLEXEC("嘿嘿");
         } catch (Exception e) {
+            Throwable rootCause = Throwables.getRootCause(e);
+            String stackTraceAsString = Throwables.getStackTraceAsString(e);
+            System.out.println(stackTraceAsString);
+            //List<Throwable> causalChain = Throwables.getCausalChain(e);
+            //for (Throwable item :causalChain
+            //     ) {
+            //    System.out.println("-----"+item.getClass().getName());
+            //}
+            //System.out.println(rootCause.getClass().getName());
+            Throwables.throwIfUnchecked(e);
+            Throwables.throwIfInstanceOf(e,RuntimeException.class);
             e.printStackTrace();
         }
     }
@@ -24,7 +39,9 @@ public class ExceptionTry {
         System.out.println("s的值   "+s);
     }
 
-    public static void throwSQLEXEC(String s) throws Exception {
+    public static void throwSQLEXEC(String s)  {
+        String m=null;
+        System.out.println(m.getBytes());
         System.out.println("s value is  " + s);
         throw new IllegalArgumentException("hah");
         //  throw new IOException("aauwuue");
