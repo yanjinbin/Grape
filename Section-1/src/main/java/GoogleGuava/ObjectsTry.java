@@ -21,7 +21,7 @@ public class ObjectsTry {
         System.out.println(string);
 
 
-        //出order之外的比较器
+        //除order之外的比较器
         ComparisonChain.start().compare(i, j).compare(new Comparable<Object>() {
             public int compareTo(Object o) {
                 return m.compareTo(n);
