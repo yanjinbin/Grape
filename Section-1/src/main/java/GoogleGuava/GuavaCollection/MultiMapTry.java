@@ -53,7 +53,7 @@ public class MultiMapTry {
         System.out.println("two objects is equal ?  " + Objects.equal(multimap, hashMultimap));
 
 
-        System.out.println("---------分割线在此-------");
+        System.out.println("--------E-分割线在此-------");
 
         Iterator<Map.Entry<Object, Object>> entryIterator = hashMultimap.entries().iterator();
         while (entryIterator.hasNext()) {
@@ -67,13 +67,13 @@ public class MultiMapTry {
             System.out.println(keyIterator.next());
         }
 
-        System.out.println("---------分割线在此-------");
+        System.out.println("--------A-分割线在此-------");
 
         Iterator<Object> valueIterator = hashMultimap.values().iterator();
         while (valueIterator.hasNext()) {
             System.out.println(valueIterator.next());
         }
-        System.out.println("--------aa-分割线在此-------");
+        System.out.println("--------B-分割线在此-------");
 
         Set<Object> keySet = hashMultimap.keySet();
         Iterator<Object> keySetIterator = keySet.iterator();
@@ -84,7 +84,7 @@ public class MultiMapTry {
         //    System.out.println(keySet.iterator().next());
         //}
 
-        System.out.println("---------分割线在此-------");
+        System.out.println("-------C--分割线在此-------");
 
         TreeSet<String> strings = new TreeSet<String>();
         strings.add("w");
@@ -96,7 +96,7 @@ public class MultiMapTry {
         }
 
 
-        System.out.println("---------分割线在此-------");
+        System.out.println("------D---分割线在此-------");
 
         Collection collection1 = multimap.replaceValues(2, strings);
         System.out.println(collection1.size());
