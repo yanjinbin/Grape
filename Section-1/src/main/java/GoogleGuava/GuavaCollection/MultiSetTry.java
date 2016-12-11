@@ -10,14 +10,14 @@ import java.util.Set;
 
 /**
  * 新的集合类型,概念上来说是从数学语义上的几何角度出发
- * 允许元素重复,顺序无关紧要
+ * 允许元素重复,顺序insensitive
  *
  * 所有multiset实现了随不重复元素的现象增长
  * Created by yanjinbin on 16-12-11.
  */
 public class MultiSetTry {
     public static void main(String[] args) {
-        HashMultiset<Object> hashMultiset = HashMultiset.create();
+        Multiset<Object> hashMultiset = HashMultiset.create();
         hashMultiset.add('a');
         hashMultiset.add("b");
         hashMultiset.add("a");
@@ -45,9 +45,14 @@ public class MultiSetTry {
         treeMultiset.add("b");
         treeMultiset.add("c");
         treeMultiset.add("d");
-        treeMultiset.setCount("a",5);
+        treeMultiset.setCount("b",5);
         //open意思的意思是下限a不考虑,closed反之
-        SortedMultiset<Comparable> comparableSortedMultiset = treeMultiset.subMultiset("a", BoundType.OPEN, "b", BoundType.CLOSED);
+        SortedMultiset<Comparable> comparableSortedMultiset = treeMultiset.subMultiset("c", BoundType.OPEN, "d", BoundType.CLOSED);
         System.out.println("ratio is  "+comparableSortedMultiset.size()+"/"+treeMultiset.size() );
     }
+
+
+
+
+
 }
