@@ -16,7 +16,6 @@ public class ImmutableCollectionTry {
 
         ImmutableList<? extends Serializable> immutableList = immutableSet.asList();
 
-
         Set treeSet = new TreeSet();
         treeSet.add("a");
         treeSet.add("b");
