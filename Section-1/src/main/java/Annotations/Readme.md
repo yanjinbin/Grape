@@ -13,5 +13,13 @@
 JDK1.7之后,javax.annotaion.processor 和 javax.lang.model  handler the Annotation
 
 JDK1.7之前的文章,可以参考这几篇文章来处理
-[深入理解Java：注解（Annotation）--注解处理器](http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html)
-[INFO-Q Java深度历险（六）——Java注解](http://www.infoq.com/cn/articles/cf-java-annotation)
+- [深入理解Java：注解（Annotation）--注解处理器](http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html)
+- [INFO-Q Java深度历险（六）——Java注解](http://www.infoq.com/cn/articles/cf-java-annotation)
+
+编写注解处理器的核心是AnnotationProcessorFactory(处理器工厂)和AnnotationProcessor(注解处理器)
+
+
+JDK1.7之后参考下列文章
+- [Hannes Dorfmann 中文译本](http://www.race604.com/annotation-processing/)
+还有这篇 ,[戳我](http://qiushao.net/2015/07/07/Annotation-Processing-Tool%E8%AF%A6%E8%A7%A3/)
+- [Hannes Dorfmann  英文版 ](http://hannesdorfmann.com/annotation-processing/annotationprocessing101)
