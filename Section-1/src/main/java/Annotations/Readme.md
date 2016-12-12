@@ -23,3 +23,9 @@ JDK1.7之后参考下列文章
 - [Hannes Dorfmann 中文译本](http://www.race604.com/annotation-processing/)
 还有这篇 ,[戳我](http://qiushao.net/2015/07/07/Annotation-Processing-Tool%E8%AF%A6%E8%A7%A3/)
 - [Hannes Dorfmann  英文版 ](http://hannesdorfmann.com/annotation-processing/annotationprocessing101)
+----
+
+开发自定义注解流程
+1 自定义注解
+2 实现注解处理器接口  获取默认值
+3 动态代理 反射机制  进行逻辑校验
