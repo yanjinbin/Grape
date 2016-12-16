@@ -49,6 +49,10 @@ public class MultiSetTry {
         //open意思的意思是下限a不考虑,closed反之
         SortedMultiset<Comparable> comparableSortedMultiset = treeMultiset.subMultiset("c", BoundType.OPEN, "d", BoundType.CLOSED);
         System.out.println("ratio is  "+comparableSortedMultiset.size()+"/"+treeMultiset.size() );
+
+
+
+
     }
 
 
