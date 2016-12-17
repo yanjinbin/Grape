@@ -84,9 +84,9 @@ public class GenericTry<K> {
             }
 
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+        //    e.printStackTrace();
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+        //    e.printStackTrace();
         }
     }
 
