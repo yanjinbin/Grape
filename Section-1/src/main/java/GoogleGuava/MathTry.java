@@ -8,6 +8,7 @@ import java.math.RoundingMode;
 /**
  * 首先guava math package 是对apache common MathUtil  补充,而不是替代
  *
+ * 另外,需要了解下java 二进制的加减乘除 https://goo.gl/zpiMW1
  *
  * @author Silver & Bullet
  *         on 十二月-16
@@ -16,7 +17,6 @@ public class MathTry {
     public static void main(String[] args) {
 
         System.out.println("subtract  check "+IntMath.checkedSubtract(1344, 234));
-
 
 
         //int i = IntMath.checkedMultiply(Integer.MAX_VALUE, Integer.MIN_VALUE);
@@ -39,8 +39,8 @@ public class MathTry {
 
         System.out.println("Prime  is ?    " + IntMath.isPrime(7));
 
-
-        //
+        //2 的 幂  指的是 入参 = 2的n次方
+        //  https://zh.wikipedia.org/wiki/2%E7%9A%84%E5%B9%82
         System.out.println("is Power of 2" + IntMath.isPowerOfTwo(234));
 
         System.out.println("pow result    " + IntMath.pow(3, 4));
