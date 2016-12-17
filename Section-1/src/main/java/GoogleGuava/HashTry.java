@@ -24,6 +24,8 @@ public class HashTry {
 
         HashFunction hashFunction = Hashing.md5();
 
+        synchronizedTest("你个2b");
+
 
         Hasher hasher = hashFunction.newHasher();
 
@@ -91,7 +93,7 @@ public class HashTry {
 
     }
 
-    public synchronized void synchronizedTest(String s) {
+    public static  synchronized void synchronizedTest(String s) {
         if (!StringUtils.isBlank(s)) {
             System.out.println(s + "你大爷的你输错了啊 ~~~~");
         }
