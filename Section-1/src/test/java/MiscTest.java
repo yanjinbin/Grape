@@ -1,3 +1,4 @@
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -65,6 +66,8 @@ public class MiscTest  extends BaseTest{
 
         System.out.println(CollectionUtils.isEmpty(arrayList));
 
+
+        Object aaaa = JSON.parse("AAAA");
 
     }
 }
