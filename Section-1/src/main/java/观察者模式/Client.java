@@ -1,4 +1,4 @@
-import 观察者模式.*;
+package 观察者模式;
 
 /**
  * @author Silver Bullet
