@@ -9,8 +9,8 @@ public class Client {
         Subject subject = new RealSubject();
         Observer observer1 = new ConcreteObserver();
         Observer observer2 = new ConcreteObserver2();
-        subject.addObserver(new ConcreteObserver());
-        subject.addObserver(new ConcreteObserver());
+        subject.addObserver(observer1);
+        subject.addObserver(observer2);
         subject.doSomething();
     }
 }

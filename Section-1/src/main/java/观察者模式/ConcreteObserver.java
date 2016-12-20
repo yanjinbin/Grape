@@ -7,6 +7,6 @@ package 观察者模式;
 public class ConcreteObserver implements Observer {
     @Override
     public void update() {
-        System.out.println("观察者1正在观察");
+        System.out.println("观察者1正在观察 subject realSubject");
     }
 }
