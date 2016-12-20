@@ -1,4 +1,4 @@
-package GoogleGuava.OverPeekingIterator;
+package GoogleGuava.Iterator;
 
 import com.google.common.collect.Lists;
 
