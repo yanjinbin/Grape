@@ -12,12 +12,12 @@ import java.util.List;
  * @author Silver Bullet
  * @since 十二月-20
  */
-public class ListWithDefault<E> extends ForwardingList<E> {
+public class ListWithDefaultValue<E> extends ForwardingList<E> {
     final E defaultValue;
 
     final List<E> delegate;
 
-    protected ListWithDefault(E defaultValue, List<E> delegate) {
+    protected ListWithDefaultValue(E defaultValue, List<E> delegate) {
         this.defaultValue = defaultValue;
         this.delegate = delegate;
     }
@@ -30,6 +30,7 @@ public class ListWithDefault<E> extends ForwardingList<E> {
 
     @Override
     public E get(int index) {
+        //return super.get(index);  不然的话,会和逾期不一致
         E v = super.get(index);
         return (v == null ? defaultValue : v);
     }
