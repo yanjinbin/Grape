@@ -1,4 +1,4 @@
-package GoogleGuava.OverPeekingIterator;
+package GoogleGuava.Iterator;
 
 import com.google.common.collect.Lists;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @author Silver Bullet
  * @since 十二月-20
  */
-public class PeekIngIteratorInAction {
+public class PeekIngIteratorTry {
     public static void main(String[] args) {
 //        ArrayList<Object> arrayList = Lists.newArrayList();
 //        PeekingIterator<Object> peekingIterator = Iterators.peekingIterator(arrayList.iterator());

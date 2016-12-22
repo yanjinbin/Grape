@@ -1,4 +1,4 @@
-package GoogleGuava;
+package GoogleGuava.Iterator;
 
 /**
  *
