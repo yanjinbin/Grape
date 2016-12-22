@@ -119,4 +119,10 @@ public class StringsTry {
     }
 
 
+    public static void printJoinerFun(){
+        Joiner joiner = Joiner.on(";").useForNull(null);
+        String join = joiner.join("Harry", "John");
+        System.out.println(join);
+    }
+
 }
