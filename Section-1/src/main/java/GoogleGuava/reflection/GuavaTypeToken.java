@@ -13,6 +13,7 @@ import java.util.Map;
  * @since 十二月-17
  */
 public class GuavaTypeToken {
+
     public static void main(String[] args) {
         //google use TypeToken to mainpulate generic type
 
