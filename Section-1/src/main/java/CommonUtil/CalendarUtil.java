@@ -8,6 +8,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -31,10 +32,10 @@ public final class CalendarUtil {
     public static final String SHANGHAI_ZONE = "Asia/Shanghai";
 
     //设置默认时区 上海
-    static {
-        ZoneId shangHaiZone = ZoneId.of(SHANGHAI_ZONE);
-        localDateTime.atZone(shangHaiZone);
-    }
+//    static {
+//        ZoneId shangHaiZone = ZoneId.of(SHANGHAI_ZONE);
+//        localDateTime.atZone(shangHaiZone);
+//    }
 
     public static class DateFormat {
         public static final String hyphenSeparate = "yyyy-MM-dd HH:mm:ss";
@@ -117,6 +118,16 @@ public final class CalendarUtil {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
         String rs = LocalDate.now().format(dateTimeFormatter);
         return rs;
+    }
+
+
+    public static void main(String[] args) {
+        Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
+        for (String s:availableZoneIds
+             ) {
+
+            System.out.println("值     "+s);
+        }
     }
 
 }
