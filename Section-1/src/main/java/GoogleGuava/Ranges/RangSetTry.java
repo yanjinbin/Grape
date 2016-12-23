@@ -14,6 +14,7 @@ import java.util.Set;
  *         on 十二月-20
  */
 public class RangSetTry {
+
     public static void main(String[] args) {
         RangeSet<Integer> treeRangeSet = TreeRangeSet.create();
         treeRangeSet.add(Range.closed(1,10));
@@ -129,5 +130,28 @@ public class RangSetTry {
         //ContiguousSet.create(integerRange,)
 
 
+        Range<Integer> range8 = Range.closed(5, 15);
+
+        System.out.println("------- discrete domain  in action ---------");
+        printRange(range8);
+
+
+        ImmutableSortedSet<Integer> set = ContiguousSet.create(Range.open(1, 5), DiscreteDomain.integers());
+// set contains [2, 3, 4]
+
+        ContiguousSet.create(Range.greaterThan(0), DiscreteDomain.integers());
+// set contains [1, 2, ..., Integer.MAX_VALUE]
+    }
+
+    //discrete domain
+    private static void printRange(Range<Integer> range) {
+
+        System.out.print("[ ");
+
+        for(int grade : ContiguousSet.create(range, DiscreteDomain.integers())) {
+            System.out.print(grade +" ");
+        }
+
+        System.out.println("]");
     }
 }
