@@ -20,6 +20,7 @@ public abstract class Subject {
 
 
     public void notifyObserver(){
+        //存储observer ,并且通知他
         for (Observer observer:observers){
             observer.update();
         }
