@@ -1,12 +1,14 @@
 package Reflection;
 
 import Annotations.Preamble;
+import lombok.Data;
 
 /**
  * Created by Silver & Bullet
  * since 2016-十一月
  */
 @Preamble
+@Data
 public class Parent  implements Family {
     private int parentheight;
 
