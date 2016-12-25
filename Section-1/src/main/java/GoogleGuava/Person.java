@@ -1,6 +1,9 @@
 package GoogleGuava;
 
+import Reflection.Parent;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author Silver & Bullet
@@ -11,6 +14,8 @@ public class Person implements Comparable<Person> {
     public Integer age;
 
     public String name;
+
+    public List<Parent> list;
 
     public int compareTo(Person o) {
         int cmp = age.compareTo(o.getAge());
