@@ -13,6 +13,8 @@ import java.util.TimeZone;
 
 
 /**
+ * http://www.importnew.com/15637.html
+ *
  * http://www.importnew.com/14140.html
  *
  * 采用java 8 重新设计引入的java.util.Time package
