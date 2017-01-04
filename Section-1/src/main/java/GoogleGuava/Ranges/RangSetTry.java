@@ -31,6 +31,14 @@ public class RangSetTry {
             System.out.println("Range的范围     "+item.toString());
         }
 
+        RangeSet<Integer> subRange = treeRangeSet.subRangeSet(Range.closedOpen(18, 33));
+        Set<Range<Integer>> subrangeset = subRange.asRanges();
+        for (Range item :
+                subrangeset) {
+            System.out.println("subRangeSet    ?"+item.toString());
+        }
+
+
         System.out.println("-----------我是长长的分割线- intersect judge ---------");
 
 
@@ -139,8 +147,8 @@ public class RangSetTry {
         ImmutableSortedSet<Integer> set = ContiguousSet.create(Range.open(1, 5), DiscreteDomain.integers());
 // set contains [2, 3, 4]
 
-        ContiguousSet.create(Range.greaterThan(0), DiscreteDomain.integers());
-// set contains [1, 2, ..., Integer.MAX_VALUE]
+        ContiguousSet<Integer> integers = ContiguousSet.create(Range.greaterThan(0), DiscreteDomain.integers());
+        // set contains [1, 2, ..., Integer.MAX_VALUE]
     }
 
     //discrete domain

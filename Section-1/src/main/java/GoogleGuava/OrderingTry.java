@@ -45,9 +45,9 @@ public class OrderingTry {
         Ordering<Iterable<Object>> lexicographicalOrder = objectOrdering.lexicographical();
 
         //基于返回值,按照当前排序器排序
-        objectOrdering.onResultOf(new Function<Object, Object>() {
+        objectOrdering.onResultOf(new Function<Object, Integer>() {
             @Nullable
-            public Object apply(@Nullable Object input) {
+            public Integer apply(@Nullable Object input) {
 
                 return 1;
             }

@@ -10,6 +10,7 @@ import com.google.common.collect.ComparisonChain;
  */
 public class ObjectsTry {
     public static void main(String[] args) {
+
         boolean equal = Objects.equal(i, j);
         System.out.println("is equal ?   " + equal);
         boolean newEqual = Objects.equal(m, n);
@@ -22,7 +23,7 @@ public class ObjectsTry {
 
 
         //除order之外的比较器
-        ComparisonChain.start().compare(i, j).compare(new Comparable<Object>() {
+        ComparisonChain compare = ComparisonChain.start().compare(i, j).compare(new Comparable<Object>() {
             public int compareTo(Object o) {
                 return m.compareTo(n);
             }
@@ -31,6 +32,7 @@ public class ObjectsTry {
                 return n.compareTo(m);
             }
         });
+
 
     }
 

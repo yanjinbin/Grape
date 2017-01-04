@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ *  http://wiki.jikexueyuan.com/project/google-guava-official-tutorial/expand-tools.html
+ *
  * @author Silver Bullet
  * @since 十二月-20
  */
