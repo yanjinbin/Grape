@@ -28,17 +28,11 @@
             <version>4.12</version>
         </dependency>
         <!--lombook插件支持-->
-        <!--<dependency>-->
-            <!--<groupId>org.projectlombok</groupId>-->
-            <!--<artifactId>lombok</artifactId>-->
-            <!--<version>1.16.8</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.12</version>
-            <!--<scope>provided</scope>-->
+            <scope>compile</scope>
         </dependency>
         <!--要想lombook插件支持@Slf4j注解,那么需要加上slf4j 依赖支持-->
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -98,6 +92,10 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.6.Final</version>
         </dependency>
+
+
+
+
 
     </dependencies>
 
