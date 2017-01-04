@@ -9,6 +9,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Set;
+import java.util.TimeZone;
 
 
 /**
@@ -19,7 +20,7 @@ import java.util.Set;
  */
 public final class CalendarUtil {
 
-    static LocalDateTime localDateTime;
+    static LocalDateTime localDateTime = LocalDateTime.now();
 
     public static final long DAY_MILL = 24 * 60 * 60 * 1000;
 
@@ -31,11 +32,9 @@ public final class CalendarUtil {
 
     public static final String SHANGHAI_ZONE = "Asia/Shanghai";
 
-    //设置默认时区 上海
-//    static {
-//        ZoneId shangHaiZone = ZoneId.of(SHANGHAI_ZONE);
-//        localDateTime.atZone(shangHaiZone);
-//    }
+
+    public static final ZoneId DEFAULT_ZONE = ZoneId.of(SHANGHAI_ZONE);
+
 
     public static class DateFormat {
         public static final String hyphenSeparate = "yyyy-MM-dd HH:mm:ss";
@@ -43,7 +42,6 @@ public final class CalendarUtil {
         public static final String hyphenSeparateDayEnd = "yyyy-MM-dd";
     }
 
-    //convert dateString to localDate
     public static LocalDate parse2LocalDate(String date, String pattern) {
 
         if (StringUtils.isEmpty(date) || StringUtils.isEmpty(pattern)) {
@@ -51,53 +49,36 @@ public final class CalendarUtil {
         }
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
-        LocalDateTime localDateTime = LocalDateTime.parse(pattern, dateTimeFormatter);
-        return localDateTime.toLocalDate();
+        LocalDate localDate = LocalDate.parse(pattern, dateTimeFormatter);
+        return localDate;
     }
 
+    public static LocalDateTime parse2LocalDateTime(String date,String pattern){
 
-    //convert date to localDate
-    public static LocalDate convert(Date date) {
-        if (date == null) {
+        if (StringUtils.isEmpty(date) || StringUtils.isEmpty(pattern)) {
             return null;
         }
-        return date.toInstant().
-                atZone(ZoneId.of(SHANGHAI_ZONE)).
-                toLocalDate();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        LocalDateTime parse = LocalDateTime.parse(date,dateTimeFormatter);
+        return parse;
     }
 
-    //convert localDate to date
-    public static Date convert(LocalDate localDate) {
-        return Date.from(
-                localDate.atStartOfDay(ZoneId.of(SHANGHAI_ZONE)).
-                        toInstant());
-    }
 
-    //convert DateString  to date
-    @Deprecated
-    public static Date parse2Date(String date, String pattern) {
-        LocalDate localDate = parse2LocalDate(date, pattern);
-        return convert(localDate);
-    }
-
-    //transform means : make a thorough or dramatic change in the form,
-
-    /**
-     * @param localDate
-     * @param pattern
-     * @return dateString with pattern form
-     */
     public static String transform(LocalDate localDate, String pattern) {
+        if (localDate==null){
+            return  null;
+        }
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
         String dateString = localDate.format(dateTimeFormatter);
         return dateString;
     }
 
-    public static String transform(Date date, String pattern) {
-        LocalDate localDate = convert(date);
-        String dateString = transform(localDate, pattern);
-        return dateString;
+    public static String transform(LocalDateTime localDateTime,String pattern){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        String format = localDateTime.format(dateTimeFormatter);
+        return format;
     }
+
 
     //返回2个date之间的时间间隔
     public static final int diff(Date d1, Date d2) {
@@ -106,28 +87,53 @@ public final class CalendarUtil {
         return ((int) (d1Time - d2Time / SECOND_MILL));
     }
 
-    //关于ZoneId, LocalDate ,Instant ,LocalDateTime之间的区别  参考链接 https://goo.gl/VzPz4F
-    public static final int diff(LocalDate d1, LocalDate d2) {
-        long d1Time = d1.atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();//ZoneOffSet 是不是会有问题 askme
-        long d2Time = d2.atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();
+
+    public static final int diff(LocalDateTime d1, LocalDateTime d2) {
+        long d1Time = d1.toInstant(ZoneOffset.UTC).toEpochMilli();//ZoneOffSet 是不是会有问题 askme
+        long d2Time = d2.toInstant(ZoneOffset.UTC).toEpochMilli();
         return ((int) (d1Time - d2Time / 1000));
     }
 
-    //获取当前日期
-    public static String getCurrentDate(String pattern){
+    public static String getCurrentDate(String pattern, ZoneId zoneId) {
+        LocalDate now = null;
+        if (zoneId != null) {
+            now = LocalDate.now(ZoneId.of(SHANGHAI_ZONE));
+        } else {
+            now = LocalDate.now();
+        }
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
-        String rs = LocalDate.now().format(dateTimeFormatter);
+        String rs = now.format(dateTimeFormatter);
         return rs;
     }
 
 
     public static void main(String[] args) {
         Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
-        for (String s:availableZoneIds
-             ) {
+        for (String s : availableZoneIds
+                ) {
 
-            System.out.println("值     "+s);
+            System.out.println("值     " + s);
         }
+        ZoneId zoneId = TimeZone.getDefault().toZoneId();
+        System.out.println(zoneId);
+
+
+        String currentDate = getCurrentDate(DateFormat.hyphenSeparateDayEnd, ZoneId.of(SHANGHAI_ZONE));
+        System.out.println(currentDate);
+        System.out.println("-------------------分割线---------------");
+        LocalDate parse = LocalDate.parse("2007-12-01 10:15:30", DateTimeFormatter.ofPattern(DateFormat.hyphenSeparate));
+        System.out.println(parse);
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
+        System.out.println(now.getHour());
+        System.out.println(now.getChronology());
+        System.out.println(now.getDayOfMonth());
+        System.out.println(now.getMinute());
+        System.out.println(now.getMonthValue());
+        System.out.println(now.getDayOfWeek());
+        System.out.println(now.getDayOfYear());
+        System.out.println(now.getSecond());
     }
+
 
 }
