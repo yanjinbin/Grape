@@ -31,7 +31,7 @@ public class OrderingTry {
                 return -1;
             }
         });
-        //获取语义上想法的类排序器
+        //获取语义上相反的类排序器
         Ordering<Object> reverseOrdering = objectOrdering.reverse();
 
         //遇到null值的排序的处理
