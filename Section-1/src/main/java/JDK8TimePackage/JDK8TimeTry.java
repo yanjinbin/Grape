@@ -66,10 +66,15 @@ public class JDK8TimeTry {
         DateTimeFormatter isoDate = DateTimeFormatter.ISO_DATE;
       // keystep
         String input = "2016-12-19 11:11:12";
-        LocalDate parse = LocalDate.parse(input, isoDate);
-        System.out.println(parse);
-        LocalDateTime isolocalDate = LocalDateTime.parse(input, isoDate);
-        System.out.println(isolocalDate);
+     //   LocalDate parse = LocalDate.parse(input, isoDate);
+    //    System.out.println(parse);
+//        LocalDateTime isolocalDate = LocalDateTime.parse(input, isoDate);
+//        System.out.println(isolocalDate);
+
+        LocalDate localDate = LocalDate.of(2016, 12, 11);
+        System.out.println(localDate);
+        LocalDateTime localDateTime1 = LocalDateTime.of(2015, 11, 11, 12, 13, 24, 25);
+        System.out.println(localDateTime1);
 
     }
 }
