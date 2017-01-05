@@ -1,4 +1,4 @@
-package GoogleGuava.FastJson;
+package FastJson;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package GoogleGuava.FastJson;
+package FastJson;
 
 import lombok.Data;
 

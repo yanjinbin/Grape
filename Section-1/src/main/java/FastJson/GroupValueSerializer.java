@@ -1,4 +1,4 @@
-package GoogleGuava.FastJson;
+package FastJson;
 
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.ObjectSerializer;
