@@ -117,7 +117,7 @@ public class AlibabaFastJsonTry {
 
         //序列化属性定制参加 User 和Group类
 
-        //custom enum serializable
+        //custom enum NIO.serializable
         System.out.println("---------enum custom srerializable ");
         Model model = new Model();
         model.id = 1001;
