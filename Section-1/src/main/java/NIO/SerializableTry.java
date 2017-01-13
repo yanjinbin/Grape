@@ -14,7 +14,8 @@ import java.io.File;
  */
 public class SerializableTry {
     public static void main(String[] args) {
-        File file = new File("application.yml");
+        File file = new File("/application.yml");
         System.out.println(file.exists());
+
     }
 }
