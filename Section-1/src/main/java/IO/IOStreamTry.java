@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * http://wiki.jikexueyuan.com/project/java/files-and-io.html
@@ -56,24 +57,38 @@ public class IOStreamTry {
         FileWriter fileWriter = null;
         try {
             fileReader = new FileReader(new File(filePath));
-            fileWriter = new FileWriter(new File(classPath+"/fileOut.txt"));
+            fileWriter = new FileWriter(new File(classPath + "/fileOut.txt"));
 
-            System.out.println("编码     "+fileReader.getEncoding());
+            System.out.println("编码     " + fileReader.getEncoding());
 
             int c = fileReader.read();
-            while (c!=-1){
+            while (c != -1) {
                 fileWriter.write(c);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
-        }
-        finally {
-            if (fileReader==null) {
+        } finally {
+            if (fileReader == null) {
                 fileReader.close();
             }
-            if (fileWriter==null) {
+            if (fileWriter == null) {
                 fileWriter.close();
             }
         }
+
+        //java 标准流处理  stand in  stand out   & stand error
+
+        InputStreamReader inputStreamReader = null;
+        inputStreamReader = (new InputStreamReader(System.in));
+        System.out.println("enter character ,'q' means quit ");
+        char c;
+        do {
+            c = ((char) inputStreamReader.read());
+            System.out.println(c);
+        } while (c != 'q');
+        if (inputStreamReader==null) {
+            inputStreamReader.close();
+        }
+
     }
 }
