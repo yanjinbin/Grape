@@ -14,7 +14,7 @@ import java.io.File;
  */
 public class SerializableTry {
     public static void main(String[] args) {
-        File file = new File("/application.yml");
+        File file = new File("/application.yml");//这样子是不对的,没有获取到当前文件的classpath,
         System.out.println(file.exists());
 
     }
