@@ -45,7 +45,7 @@ public class StringTry {
 
         System.out.println("codePointbefore       "+codePointBefore);
         int m = str.indexOf(1);
-        System.out.println("index of 1  m is      "+m);
+        System.out.println("index of 1  nullString is      "+m);
         int a = str.indexOf("a");
         System.out.println(a);
         int a1 = str.lastIndexOf("a");

@@ -17,7 +17,7 @@ public class PrimitiveAndWrapDataTry {
 
         int m = -1;
         int n = -1;
-        System.out.println("int compare m==n  "+(m==n));
+        System.out.println("int compare nullString==n  "+(m==n));
         int q=-129111;
         int r =-129111;
         System.out.println("int compare q==r   "+(q==r));

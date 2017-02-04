@@ -34,7 +34,7 @@ public class BasicOperatorTry {
         int k = noSymbolValue >>> 2;
         System.out.println("无符号右移运算结果-----   " + k);
         //无符号左移  没有无符号左移 运算符
-        //    int m = noSymbolValue <<< 2;
+        //    int nullString = noSymbolValue <<< 2;
 
         //位与
         System.out.println("位与运算结果-----   " + (5 & 3));

@@ -18,13 +18,15 @@ import java.util.Set;
 public class AvoidNullTry {
     public static void main(String[] args) {
         System.out.println("---guava实战--");
-        Optional<String> stringOptional = Optional.fromNullable(s); // s m
+        Optional<String> stringOptional = Optional.fromNullable(s); // s nullString
         System.out.println("is Present " + stringOptional.isPresent());
-        //     Optional<String> mOption = Optional.of(m);//快速抛出null pointer exception异常
+        //     Optional<String> mOption = Optional.of(nullString);//快速抛出null pointer exception异常
         Optional<String[]> stringOption = Optional.of(stringArray);
         Set<String[]> stringSet = stringOption.asSet();
-        Optional<String> mOptional = Optional.fromNullable(m);
-        boolean equals = Optional.absent().equals(mOptional);
+        Optional<String> mOptional = Optional.fromNullable(nullString);
+        boolean equals = Optional.absp
+        ent().equals(mOptional);
+        System.out.println("equals value is     "+equals);
 //        arrayList.add("1");
 //        arrayList.add("2");
 //        arrayList.add(null);
@@ -34,16 +36,16 @@ public class AvoidNullTry {
 //            System.out.println(iterator.next());
 //        }
         System.out.println("is Present ?  " + mOptional.isPresent());
-        String defaultStr = mOptional.or("默认值1");
+        String defaultStr = mOptional.or("默认值usa");
         System.out.println(defaultStr);
 
-        String s = MoreObjects.firstNonNull(m, AvoidNullTry.s);//取不为null的值,取不到 抛null pointer
+        String s = MoreObjects.firstNonNull(nullString, AvoidNullTry.s);//取不为null的值,取不到 抛null pointer
         System.out.println("返回 s的值   " + s.equals(s));
 
         String s1 = Optional.of(emptyString).orNull();
         System.out.println("s1 is null?  " + StringUtils.isEmpty(s1));
 
-        String s2 = Optional.fromNullable(m).orNull();
+        String s2 = Optional.fromNullable(nullString).orNull();
         System.out.println("s2 is null?  " + StringUtils.isEmpty(s2));
         System.out.println("s2 is null or empty " + Strings.isNullOrEmpty(s2));
         System.out.println("s2 is empty -----" + Strings.nullToEmpty(s2) + "----");
@@ -57,7 +59,9 @@ public class AvoidNullTry {
 
     public static String emptyString = "";
 
-    public static String m = null;
+    public static String blankString = "    ";
+
+    public static String nullString = null;
 
     public static String[] stringArray = {"a", "b", "n", "b"};
 
