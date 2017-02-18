@@ -40,9 +40,9 @@ public class IOStreamTry {
             }
         } catch (FileNotFoundException e) {
             log.error(e.getMessage());
-            e.printStackTrace();
+          //  e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
         } finally {
             if (in == null) {
                 in.close();
