@@ -1,5 +1,8 @@
 package IO;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.io.File;
 
 /**
@@ -11,6 +14,19 @@ import java.io.File;
  *
  * http://blog.csdn.net/kkdelta/article/details/5507799
  *
+ *
+ *
+ * spring boot 加载 yml 文件 2个雷  property 形式和 map形式
+ * 见: http://dwz.cn/5dfJAC
+ *
+ * http://blog.csdn.net/isea533/article/details/50281151
+ *
+ * classpath
+ *
+ *顾名思义, classpath 指的是类路径,也就是编译后类文件存放的根目录,*
+ ---
+ 普通的 java web 项目,一般资源文件编译打包之后在存放在在根路径一级目录下
+ ,类文件在则根据头部  package  关键字段
  *
  * maven 构建 java web 工程, classpath 路径读取问题
  * @author Silver & Bullet
@@ -37,8 +53,9 @@ public class FilePathTry {
         //方法2 从类加载路径出发,
         String resourceFilePath1  =  FilePathTry.class.getResource("/application.properties").getPath();//注意 getResource 区别  有 slash
         System.out.println("---          "+resourceFilePath1);
-
-
+        String classpathResource = "classpath:application.xml";
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(classpathResource);
+        System.out.println(ctx.getDisplayName());
 
         //URL resource = FilePathTry.class.getResource("/");
         //System.out.println(resource.getPath());
