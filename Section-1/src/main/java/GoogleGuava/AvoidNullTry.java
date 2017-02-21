@@ -24,8 +24,7 @@ public class AvoidNullTry {
         Optional<String[]> stringOption = Optional.of(stringArray);
         Set<String[]> stringSet = stringOption.asSet();
         Optional<String> mOptional = Optional.fromNullable(nullString);
-        boolean equals = Optional.absp
-        ent().equals(mOptional);
+        boolean equals = Optional.absent().equals(mOptional);
         System.out.println("equals value is     "+equals);
 //        arrayList.add("1");
 //        arrayList.add("2");
