@@ -7,4 +7,8 @@ import java.io.Serializable;
 public class Test implements Serializable {
 
     private static final long serialVersionUID = 2010307013874058143L;
+
+
+    // master 二〇一七年二月二十四日 10:34:37
+    //yanjinbin
 }
