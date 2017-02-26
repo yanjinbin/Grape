@@ -1,4 +1,4 @@
-package Annotations.httpclient;
+package httpclient;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
