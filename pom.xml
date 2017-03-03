@@ -18,15 +18,16 @@
         <module>Section-5</module>
         <module>Section-6</module>
         <module>Section-7</module>
+        <module>Section-8</module>
+        <module>springboot</module>
     </modules>
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-        <!--<dependency>-->
-            <!--<groupId>org.jsoup</groupId>-->
-            <!--<artifactId>jsoup</artifactId>-->
-            <!--<version>1.10.2</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.10.2</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
@@ -34,6 +35,13 @@
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
@@ -91,9 +99,9 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.errorprone/error_prone_annotations -->
         <!--<dependency>-->
-            <!--<groupId>com.google.errorprone</groupId>-->
-            <!--<artifactId>error_prone_annotations</artifactId>-->
-            <!--<version>2.0.15</version>-->
+        <!--<groupId>com.google.errorprone</groupId>-->
+        <!--<artifactId>error_prone_annotations</artifactId>-->
+        <!--<version>2.0.15</version>-->
         <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
         <dependency>
@@ -117,29 +125,24 @@
         </dependency>
 
 
-
-
-
     </dependencies>
-
-
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <compilerVersion>1.6</compilerVersion>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                    <!--编译插件声明,解决 maven 编码的时候,GBK 不可映射-->
+                    <!--设定项目编码方式和JDK版本-->
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
-
 
 
 </project>

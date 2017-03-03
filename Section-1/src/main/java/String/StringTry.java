@@ -60,5 +60,8 @@ public class StringTry {
 
         System.out.println(str.toUpperCase());
 
+        String rs = String.format("%s %d", "1111", 2222);
+        System.out.println(rs);
+
     }
 }
