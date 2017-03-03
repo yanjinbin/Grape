@@ -1,4 +1,4 @@
-import springboot.MultiTask;
+import com.yanjinbin.springboot.Async.MultiTask;
 
 import java.util.concurrent.Future;
 

@@ -1,4 +1,4 @@
-package springboot;
+package com.yanjinbin.springboot.ExceptionHandler;
 
 import lombok.Data;
 

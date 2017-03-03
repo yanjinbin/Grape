@@ -1,4 +1,4 @@
-package springboot;
+package com.yanjinbin.springboot.Util;
 
 
 import com.alibaba.fastjson.annotation.JSONField;

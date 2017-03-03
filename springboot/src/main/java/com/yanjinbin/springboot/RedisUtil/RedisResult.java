@@ -1,4 +1,4 @@
-package springboot.RedisUtil;
+package com.yanjinbin.springboot.RedisUtil;
 
 import lombok.Getter;
 

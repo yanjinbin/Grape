@@ -1,4 +1,4 @@
-package springboot;
+package com.yanjinbin.springboot.Async;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;

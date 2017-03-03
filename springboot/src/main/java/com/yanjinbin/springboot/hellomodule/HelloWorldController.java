@@ -1,5 +1,6 @@
-package springboot;
+package com.yanjinbin.springboot.hellomodule;
 
+import com.yanjinbin.springboot.Util.ViewResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

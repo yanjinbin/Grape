@@ -1,4 +1,4 @@
-package springboot;
+package com.yanjinbin.springboot.hellomodule;
 
 /**
  * @author Silver Bullet
