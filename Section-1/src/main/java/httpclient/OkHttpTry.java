@@ -1,4 +1,4 @@
-package Annotations.httpclient;
+package httpclient;
 
 import com.google.common.net.MediaType;
 
