@@ -32,5 +32,6 @@ public class CollectionTry {
             }
         }
         System.out.println(a);
+
     }
 }
