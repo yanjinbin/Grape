@@ -1,4 +1,4 @@
-package springboot;
+package com.yanjinbin.springboot.ExceptionHandler;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;

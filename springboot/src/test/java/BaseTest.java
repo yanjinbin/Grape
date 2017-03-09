@@ -1,3 +1,4 @@
+import com.yanjinbin.springboot.BaseApplication;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
