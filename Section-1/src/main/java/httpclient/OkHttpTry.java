@@ -1,6 +1,8 @@
 package httpclient;
 
-import com.google.common.net.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import java.io.IOException;
 
@@ -18,22 +20,22 @@ import java.io.IOException;
 public class OkHttpTry {
     public static void main(String[] args) throws IOException {
 
-//
-//        OkHttpClient okHttpClient = new OkHttpClient();
-//        String url = null;
-//        Request build = new Request.Builder().url(url).build();
-//        Response response = okHttpClient.newCall(build).execute();
-//        String string = response.body().string();
-//
-//String json =null;
-//        RequestBody requestBody = RequestBody.create(MediaType.parse("text/html"), json);
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        String url = null;
+        Request build = new Request.Builder().url(url).build();
+        Response response = okHttpClient.newCall(build).execute();
+        String string = response.body().string();
+
+String json =null;
+       // RequestBody requestBody = RequestBody.create(MediaType.parse("text/html"), json);
 //
 //        Request post = new Request.Builder().url(url).post(requestBody).build();
 //        String postString = okHttpClient.newCall(post).execute().body().string();
 //        String userAgent = HTTP.USER_AGENT;
 //        String connClose = HTTP.CONN_CLOSE;
-        String s = MediaType.JSON_UTF_8.toString();
-        String type = s;
-        System.out.println(type);
+//        String s = MediaType.JSON_UTF_8.toString();
+//        String type = s;
+//        System.out.println(type);
     }
 }
