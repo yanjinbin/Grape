@@ -1,11 +1,14 @@
+/*
 import com.yanjinbin.springboot.Async.MultiTask;
 
 import java.util.concurrent.Future;
 
+*/
 /**
  * @author Silver & Bullet
  *         on 三月-04
- */
+ *//*
+
 public class AsyncTest extends BaseTest{
 
     public void asyncTest() throws InterruptedException {
@@ -26,3 +29,4 @@ public class AsyncTest extends BaseTest{
 
     }
 }
+*/
