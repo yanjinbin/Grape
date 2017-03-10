@@ -1,4 +1,4 @@
-package com.yanjinbin.springboot.RedisSessionManag;
+package com.yanjinbin.springboot.RedisUtil;
 
 /**
  * http://blog.didispace.com/springbootcache2/

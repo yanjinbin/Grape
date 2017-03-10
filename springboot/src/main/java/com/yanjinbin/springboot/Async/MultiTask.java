@@ -1,3 +1,4 @@
+/*
 package com.yanjinbin.springboot.Async;
 
 import org.springframework.scheduling.annotation.Async;
@@ -7,10 +8,12 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 import java.util.concurrent.Future;
 
+*/
 /**
  * @author Silver & Bullet
  *         on 三月-04
- */
+ *//*
+
 @Component
 public class MultiTask {
     public static Random random =new Random();
@@ -47,3 +50,4 @@ public class MultiTask {
     }
 
 }
+*/

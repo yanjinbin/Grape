@@ -1,3 +1,4 @@
+/*
 package com.yanjinbin.springboot.RedisUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,12 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+*/
 /**
  * @author Silver Bullet
  * @since 十二月-28
- */
+ *//*
+
 @Component
 public class RedisClient {
 
@@ -105,3 +108,4 @@ public class RedisClient {
 
     }
 }
+*/
