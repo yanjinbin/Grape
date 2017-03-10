@@ -1,8 +1,19 @@
 package com.yanjinbin.springboot.hellomodule;
 
+import com.alibaba.fastjson.JSON;
 import com.yanjinbin.springboot.Util.ViewResult;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.apache.http.entity.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Silver Bullet
@@ -23,8 +34,34 @@ public class UserController {
     }
 
     @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
-    private ViewResult<User> get(@PathVariable Integer id) {
+    private ViewResult<User> get(@PathVariable Integer id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Enumeration<String> headerNames = request.getHeaderNames();
+        System.out.println("HeaderNames   " + JSON.toJSONString(headerNames));
+        Enumeration<String> parameterNames = request.getParameterNames();
+        System.out.println("ParameterNames    "+JSON.toJSONString(parameterNames));
+        System.out.println("localPort    " + request.getLocalPort());
+        System.out.println("contentType    " + request.getContentType());
+        System.out.println("AuthType   " + request.getAuthType());
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        Set<Map.Entry<String, String[]>> entries = parameterMap.entrySet();
+        Iterator<Map.Entry<String, String[]>> iterator = entries.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        int i = 0;
+        Enumeration<String> attributeNames = request.getAttributeNames();
+        if (attributeNames.hasMoreElements()) {
+            System.out.println((i++) + "    " + attributeNames.nextElement());
+        }
         User user = userRepository.get(id);
+
+        response.setStatus(HttpStatus.OK.value());
+        response.setHeader("coke","可口可乐");
+        response.setContentType(ContentType.APPLICATION_JSON.toString());
+        response.sendRedirect("localhost:8080/hello/world");
+
+
         if (user != null) {
             return ViewResult.createSuccess();
         }
