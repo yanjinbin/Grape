@@ -111,11 +111,30 @@
         <!--<version>2.0.15</version>-->
         <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
+
+
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+        </dependency>
+
+
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>3.0.1</version>
         </dependency>
+        junit
+        <dependency>
+            <groupId>pl.pragmatists</groupId>
+            <artifactId>JUnitParams</artifactId>
+            <version>1.0.6</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->

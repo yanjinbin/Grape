@@ -1,13 +1,18 @@
 package com.yanjinbin.springboot.hellomodule;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Value;
 
 /**
  * @author Silver Bullet
  * @since 三月-03
  */
 @Data
+@Builder
+@Value
 public class User {
+
     private Integer id;
     private String name;
     private Integer age;
