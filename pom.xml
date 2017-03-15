@@ -127,7 +127,7 @@
             <artifactId>jsr305</artifactId>
             <version>3.0.1</version>
         </dependency>
-        junit
+
         <dependency>
             <groupId>pl.pragmatists</groupId>
             <artifactId>JUnitParams</artifactId>
