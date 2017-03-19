@@ -7,6 +7,7 @@ package NIO;
  *         on 一月-15
  */
 public class NIOTry {
-    public static void main(String[] args) {System.out.println("haha");
+    public static void main(String[] args) {
+        System.out.println("haha");
     }
 }
