@@ -1,7 +1,10 @@
 package Foundation;
 
 /**
- * java char int
+ * 彻底理解java 基本数据类型 byte char short int float long double
+ *
+ * http://dwz.cn/5ziPsq
+ *
  * @author Silver & Bullet
  *         on 三月-19
  */
