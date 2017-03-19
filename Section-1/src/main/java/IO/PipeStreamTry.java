@@ -45,6 +45,8 @@ public class PipeStreamTry {
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
+                    // java io 异常处理标准流程
+                    // http://ifeve.com/java-io-exception/
                     try {
                         inputStream.close();
                     } catch (IOException e) {
