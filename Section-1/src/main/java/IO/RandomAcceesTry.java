@@ -14,6 +14,7 @@ public class RandomAcceesTry {
 
         file.seek(200);
         long filePointer = file.getFilePointer();
+        file.write("hello world ".getBytes());
         file.close();
 
     }
