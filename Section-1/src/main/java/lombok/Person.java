@@ -2,7 +2,7 @@ package lombok;
 
 /**
  *
- * lombok 注解@Builder 的风骚写法
+ * lombok 注解@Builder 的风骚写法内部实现
  * @author Silver & Bullet
  *         on 三月-21
  */
