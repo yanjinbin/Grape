@@ -21,6 +21,10 @@ import java.util.Arrays;
 @Aspect
 @Slf4j
 public class WebLogAspect {
+
+    //AspectJ 语法 http://dwz.cn/5uLEWY  http://dwz.cn/5uLHVu
+
+    //定义切点. 在方法执行的时候 切入
     @Pointcut("excution(public * com.yanjinbin.springboot..*.*(..))")
     public void weblog() {
     }
