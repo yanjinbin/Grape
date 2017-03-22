@@ -1,6 +1,7 @@
 import org.junit.Assert;
 import org.junit.Ignore;
 
+
 /**
  * @author Silver & Bullet
  *         on 二月-18
@@ -30,16 +31,15 @@ public class JunitTryTest {
         System.out.println("-----以下文字说明该测试并没有被忽略----");
         System.out.println("=====忽略测试正在生成===");
     }
-
-
     @org.junit.Test
-    public void assertTest(){
+   public void assertTest(){
       //  Assert.assertNull(null);
         Assert.assertFalse(false);
         Assert.assertNotNull(null);
     }
 
 
+    // https://github.com/Pragmatists/JUnitParams/blob/master/src/test/java/junitparams/usage/SamplesOfUsageTest.java
 
 
     //以下为未学习部分  1 参数化测试  2 其他测试框架 3 chapter 5  重要的 API 学习
