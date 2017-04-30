@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent;
+package com.yanjinbin.concurrent.thread1;
 
 /**
  * Created by yanjinbin on 2017/4/29.

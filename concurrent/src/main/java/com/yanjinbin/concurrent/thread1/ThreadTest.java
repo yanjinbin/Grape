@@ -1,7 +1,5 @@
 package com.yanjinbin.concurrent.thread1;
 
-import com.yanjinbin.concurrent.MyThread;
-
 /**
  * Created by yanjinbin on 2017/4/29.
  */
@@ -15,13 +13,6 @@ public class ThreadTest {
         thread2.start();
         thread3.start();
 
-
-//        Thread t1 = new Thread(mt);
-//        Thread t2 = new Thread(mt);
-//        Thread t3 = new Thread(mt);
-//        t1.start();
-//        t2.start();
-//        t3.start();
 
 
     }
