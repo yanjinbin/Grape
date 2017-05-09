@@ -32,8 +32,12 @@ public class CLHLock {
 
     }
 
-    public void  unlock(){
-
+    public void unlock() {
+        CLHNode node = LOCAL.get();
+        if (!UPDATER.compareAndSet(this, node, null)) {
+            node.isLocked = false;
+        }
+        node = null;
     }
 
 
