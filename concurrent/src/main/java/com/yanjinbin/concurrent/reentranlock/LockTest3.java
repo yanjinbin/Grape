@@ -40,6 +40,7 @@ class Depot_3 {
                 left -= inc;
                 System.out.printf("%s produce(%3d) --> left=%3d, inc=%3d, size=%3d\n",
                         Thread.currentThread().getName(), val, left, inc, size);
+
                 // 通知“消费者”可以消费了。
                 emptyCondtion.signal();
             }

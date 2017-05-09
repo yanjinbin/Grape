@@ -8,26 +8,26 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 class Depot_2 {
-    private int size;        // 仓库的实际数量
+    private int actual_size;        // 仓库的实际数量
     private Lock lock;        // 独占锁
 
     public Depot_2() {
-        this.size = 0;
+        this.actual_size = 0;
         this.lock = new ReentrantLock();// 可以重入的锁
     }
 
     public void produce(int val) {
 
-        size += val;
-        System.out.printf("%s produce(%d) --> size=%d\n",
-                Thread.currentThread().getName(), val, size);
+        actual_size += val;
+        System.out.printf("%s produce(%d) --> actual_size=%d\n",
+                Thread.currentThread().getName(), val, actual_size);
 
     }
 
     public void consume(int val) {
-        size -= val;
-        System.out.printf("%s consume(%d) <-- size=%d\n",
-                Thread.currentThread().getName(), val, size);
+        actual_size -= val;
+        System.out.printf("%s consume(%d) <-- actual_size=%d\n",
+                Thread.currentThread().getName(), val, actual_size);
     }
 };
 
@@ -79,6 +79,8 @@ public class LockTest2 {
         mCus.consume(90);
         mCus.consume(150);
         mPro.produce(110);
+      //   110+120+60-90-150 = 50 （实际是180） 与实际情况相反
+
 
 
     }
