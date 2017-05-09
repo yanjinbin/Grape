@@ -1,6 +1,6 @@
 package com.yanjinbin.concurrent;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 
 /**
