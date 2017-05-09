@@ -24,11 +24,11 @@ public class LockTest1 {
 
 }
 
-class Depot {
+class Depot_1 {
     private int size;        // 仓库的实际数量
     private Lock lock;        // 独占锁
 
-    public Depot() {
+    public Depot_1() {
         this.size = 0;
         this.lock = new ReentrantLock();
     }
@@ -57,11 +57,11 @@ class Depot {
 };
 
 // 生产者
-class Producer {
+class Producer_1 {
 
     private Depot_2 depot2;
 
-    public Producer(Depot_2 depot2) {
+    public Producer_1(Depot_2 depot2) {
         this.depot2 = depot2;
     }
 
@@ -76,18 +76,18 @@ class Producer {
 }
 
 // 消费者
-class Customer {
-    private Depot_2 depot2;
+class Customer_1 {
+    private Depot_2 depot_2;
 
-    public Customer(Depot_2 depot2) {
-        this.depot2 = depot2;
+    public Customer_1(Depot_2 depot_2) {
+        this.depot_2 = depot_2;
     }
 
     // 消费产品：新建一个线程从仓库中消费产品。
     public void consume(final int val) {
         new Thread() {
             public void run() {
-                depot2.consume(val);
+                depot_2.consume(val);
             }
         }.start();
     }
