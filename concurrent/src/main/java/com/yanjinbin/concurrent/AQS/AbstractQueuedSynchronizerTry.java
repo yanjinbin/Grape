@@ -232,7 +232,6 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
 
     public final Thread geyFirstQueuedThread() {
         return null;
-        // return head == tail ? null :
     }
 
 }

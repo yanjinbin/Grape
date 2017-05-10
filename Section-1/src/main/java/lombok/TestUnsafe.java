@@ -54,6 +54,7 @@ public class TestUnsafe {
 
         static {
             try {
+                //keystep
                 UNSAFE = getUnsafe();
                 Class<?> k = Node.class;
                 // nextoffset 代表 Node 成员变量 Node next

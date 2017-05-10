@@ -9,7 +9,7 @@ import java.io.*;
  * @author Silver & Bullet
  *         on 三月-19
  */
-public class MiscIOtry {
+public class MiscIOTry {
     public static void main(String[] args) throws IOException {
         String filepath = "";
         PushbackInputStream inputStream = new PushbackInputStream(new FileInputStream(new File(filepath)), 8 * 1024);
