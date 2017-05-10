@@ -7,9 +7,8 @@ import lombok.experimental.Accessors;
  *         on 三月-21
  */
 @Data
-@Accessors(chain = true)// 链式调用
-@RequiredArgsConstructor(staticName = "build")
-@Builder//builder 风格
+@Builder
+@Accessors(chain = true)
 public class Student {
 
     private int age;

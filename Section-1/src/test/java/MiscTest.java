@@ -1,7 +1,9 @@
 import com.alibaba.fastjson.JSON;
+import lombok.Person;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import sun.misc.Unsafe;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,8 +31,18 @@ public class MiscTest  extends BaseTest{
         //下面演示2者的区别
 
         System.out.println(StringUtils.isEmpty(blankStr)==StringUtils.isBlank(blankStr));
+        Person person = new Person();
+        person.setAge(11);
+        person.setName("xiaoming");
+        Person person1 = new Person();
+        person1.setName("xiaoli");
+        person1.setAge(12);
+
+        boolean b = Unsafe.getUnsafe().compareAndSwapObject(person, 11, null, person1);
+        System.out.println(b);
 
     }
+
 
 
     @Test
