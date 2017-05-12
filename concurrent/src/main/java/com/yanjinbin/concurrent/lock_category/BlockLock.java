@@ -11,15 +11,9 @@ import java.util.concurrent.locks.LockSupport;
  */
 public class BlockLock {
 
-    private static class CLHNode {
-        private volatile Thread isLocked;
-    }
-
-    private volatile CLHNode tail;
-
     private static final ThreadLocal<CLHNode> LOCAL = new ThreadLocal<CLHNode>();
-
     private static final AtomicReferenceFieldUpdater<BlockLock, CLHNode> UPDATER = AtomicReferenceFieldUpdater.newUpdater(BlockLock.class, CLHNode.class, "tail");
+    private volatile CLHNode tail;
 
     public void lock() {
         CLHNode node = new CLHNode();
@@ -35,7 +29,6 @@ public class BlockLock {
 
     }
 
-
     public void unlock() {
         CLHNode node = LOCAL.get();
         if (UPDATER.compareAndSet(this, node, null)) {
@@ -44,7 +37,11 @@ public class BlockLock {
         }
     }
 
-    //在这里我们使用了LockSupport.unpark()的阻塞锁。 该例子是将CLH锁修改而成。
+    private static class CLHNode {
+        private volatile Thread isLocked;
+    }
+
+    //在这里我们使用了LockSupport.unlock()的阻塞锁。 该例子是将CLH锁修改而成。
 
 //    阻塞锁的优势在于，阻塞的线程不会占用cpu时间， 不会导致 CPu占用率过高，但进入时间以及恢复时间都要比自旋锁略慢。
 //

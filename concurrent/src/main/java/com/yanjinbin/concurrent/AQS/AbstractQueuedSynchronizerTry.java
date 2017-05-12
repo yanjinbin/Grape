@@ -53,8 +53,11 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     //为什么要加transient  ,todo 不需要序列化?
     private transient volatile CLHNode head;
     private transient volatile CLHNode tail;
-
     protected AbstractQueuedSynchronizerTry() {
+    }
+
+    public void selfInterrupt() {
+        Thread.currentThread().interrupt();
     }
 
     public int getState() {
@@ -98,12 +101,46 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
             }
         }
     }*/
+//    private AbstractQueuedSynchronizer.Node addWaiter(AbstractQueuedSynchronizer.Node mode) {
+//        AbstractQueuedSynchronizer.Node node = new AbstractQueuedSynchronizer.Node(Thread.currentThread(), mode);
+//        // Try the fast path of enq; backup to full enq on failure
+//        AbstractQueuedSynchronizer.Node pred = tail;
+//        if (pred != null) {
+//            node.prev = pred;
+//            if (compareAndSetTail(pred, node)) {
+//                pred.next = node;
+//                return node;
+//            }
+//        }
+//        enq(node);
+//        return node;
+//    }
+
+
+    private CLHNode addWaiter(CLHNode mode) {
+        CLHNode node = new CLHNode(Thread.currentThread(), mode);
+        CLHNode prev = tail;
+        if (prev != null) {
+            node.prev = prev;
+            if (CASTail(prev, node)) {
+                //还是需要理解CAS函数 为什么需要这么操作呢  CAS确保了原子操作
+                prev.next = node;
+                return node;
+            }
+        }
+
+        enq(node);
+        return node;
+    }
+
+
     private CLHNode enq(final CLHNode node) {
         for (; ; ) {
             CLHNode t = tail;
             if (t == null) {// initialize for no queue thread exists
                 if (CASHead(new CLHNode())) {
                     tail = head;
+                    // 注意 return 语句
                 }
             } else {
                 node.prev = t;
@@ -113,6 +150,20 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
                 }
             }
         }
+    }
+
+    public final void acquire(int arg) {
+        if (!tryAcquire(arg) && acquireQueue(addWaiter(CLHNode.EXCLUSIVE), arg)) {
+            selfInterrupt();
+        }
+    }
+
+    public final boolean tryAcquire(int arg) {
+        return false;
+    }
+
+    public final boolean acquireQueue(CLHNode node, int arg) {
+        return false;
     }
 
     public final Collection<Thread> getExclusiveQueuedThreads() {
