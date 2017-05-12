@@ -8,3 +8,17 @@ http://mydailyjava.blogspot.com/2013/12/sunmiscunsafe.html
 ----
 这篇比较更直接  直接根除unsafe文档
 http://www.docjar.com/html/api/sun/misc/Unsafe.java.html
+
+
+----
+
+permit 
+
+http://blog.csdn.net/hengyunabc/article/details/28126139
+
+
+---
+
+LockSupport 
+
+http://blog.csdn.net/hengyunabc/article/details/28126139

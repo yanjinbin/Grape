@@ -26,6 +26,7 @@ public class TestUnsafe {
         System.out.println(node.next);
         boolean flag = node.casNext(null, new Node());
         System.out.println(flag);
+        System.out.println(node);
         System.out.println(node.next);
     }
 

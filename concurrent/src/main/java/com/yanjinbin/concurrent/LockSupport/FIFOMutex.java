@@ -19,11 +19,11 @@ public class FIFOMutex {
     public void lock() {
         boolean wasInterrupted = false;
         Thread current = Thread.currentThread();
-        // 获取当前线程,放入头部实现 First in First Out
+        // 获取当前线程,放入Queued队列头部实现 First in First Out
         waiters.add(current);
 
-        //Block while not first in queue or can not acquire lock
-
+        //Block while not first in queue    or    can not acquire lock
+        // locked 是 true和waiter head不是current时候 执行while循环体内code block
         while (waiters.peek() != current || !locked.compareAndSet(false, true)) {
             LockSupport.park(this);
             if (Thread.interrupted()) {

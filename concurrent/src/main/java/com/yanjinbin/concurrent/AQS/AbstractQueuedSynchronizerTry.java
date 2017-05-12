@@ -53,6 +53,7 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     //为什么要加transient  ,todo 不需要序列化?
     private transient volatile CLHNode head;
     private transient volatile CLHNode tail;
+
     protected AbstractQueuedSynchronizerTry() {
     }
 
@@ -143,8 +144,9 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
                     // 注意 return 语句
                 }
             } else {
-                node.prev = t;
+                // node.prev = t;
                 if (CASTail(t, node)) {
+                    node.prev = t;
                     t.next = node;
                     return t;
                 }
