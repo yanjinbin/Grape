@@ -40,6 +40,9 @@ public class MiscTest  extends BaseTest{
 
         boolean b = Unsafe.getUnsafe().compareAndSwapObject(person, 11, null, person1);
         System.out.println(b);
+        if (true && true) {
+            System.out.println("nishiduide");
+        }
 
     }
 
