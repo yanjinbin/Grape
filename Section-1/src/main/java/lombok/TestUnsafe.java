@@ -1,6 +1,8 @@
 package lombok;
 
 /**
+ * http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/sun/misc/Unsafe.java
+
  * @Author Silver bullet
  * @Since 2017/5/10.
  */
@@ -29,7 +31,39 @@ public class TestUnsafe {
 
     private static class Node {
 
+        private static final sun.misc.Unsafe UNSAFE;
+        private static final long nextOffset;
+
+        static {
+            try {
+                //keystep
+                UNSAFE = getUnsafe();
+                Class<?> k = Node.class;
+                // nextoffset 代表 Node 成员变量 Node next
+                nextOffset = UNSAFE.objectFieldOffset
+                        (k.getDeclaredField("next"));
+            } catch (Exception e) {
+                throw new Error(e);
+            }
+        }
+
         volatile Node next;
+
+        /**
+         * 获取Unsafe的方法
+         * 获取了以后就可以愉快的使用CAS啦
+         *
+         * @return
+         */
+        public static Unsafe getUnsafe() {
+            try {
+                Field f = Unsafe.class.getDeclaredField("theUnsafe");
+                f.setAccessible(true);
+                return (Unsafe) f.get(null);
+            } catch (Exception e) {
+                return null;
+            }
+        }
 
         /**
          * 使用Unsafe CAS方法
@@ -47,38 +81,6 @@ public class TestUnsafe {
              * var4 更新值
              */
             return UNSAFE.compareAndSwapObject(this, nextOffset, cmp, val);
-        }
-
-        private static final sun.misc.Unsafe UNSAFE;
-        private static final long nextOffset;
-
-        static {
-            try {
-                //keystep
-                UNSAFE = getUnsafe();
-                Class<?> k = Node.class;
-                // nextoffset 代表 Node 成员变量 Node next
-                nextOffset = UNSAFE.objectFieldOffset
-                        (k.getDeclaredField("next"));
-            } catch (Exception e) {
-                throw new Error(e);
-            }
-        }
-
-        /**
-         * 获取Unsafe的方法
-         * 获取了以后就可以愉快的使用CAS啦
-         *
-         * @return
-         */
-        public static Unsafe getUnsafe() {
-            try {
-                Field f = Unsafe.class.getDeclaredField("theUnsafe");
-                f.setAccessible(true);
-                return (Unsafe) f.get(null);
-            } catch (Exception e) {
-                return null;
-            }
         }
     }
 }
