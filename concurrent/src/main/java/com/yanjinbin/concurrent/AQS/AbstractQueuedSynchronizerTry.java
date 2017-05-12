@@ -27,14 +27,13 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     //
     static final long spinForTimeoutThreshold = 1000L;
     private static final Unsafe unSafe = Unsafe.getUnsafe();
-    private static long stateOffset;
-    private static long headOffset;
-    private static long tailOffset;
-
+    private static final long stateOffset;
+    private static final long headOffset;
+    private static final long tailOffset;
 
     // field
-    private static long waitStatusOffset;
-    private static long nextOffset;
+    private static final long waitStatusOffset;
+    private static final long nextOffset;
 
     static {
         try {
@@ -45,14 +44,13 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
             waitStatusOffset = unSafe.objectFieldOffset(AbstractQueuedSynchronizerTry.class.getDeclaredField("waitStatus"));
             nextOffset = unSafe.objectFieldOffset(AbstractQueuedSynchronizerTry.class.getDeclaredField("next"));
 
-
         } catch (Exception ex) {
-            //  throw new Error(ex);
+            throw new Error(ex);
         }
     }
 
     private volatile int state;
-    //为什么要加transient
+    //为什么要加transient  ,todo 不需要序列化?
     private transient volatile CLHNode head;
     private transient volatile CLHNode tail;
 
@@ -68,6 +66,7 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     }
 
     public final int getQueueLength() {
+        //尾到头计算长度
         int n = 0;
         for (AbstractQueuedSynchronizerTry.CLHNode p = tail; p != null; p = p.prev) {
             if (p.thread != null) {
@@ -82,32 +81,6 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
         head.thread = null;
         head.prev = null;
         // 为什么不需要设置head.next = null 需要好好理解下这个方法  场景是把等待的queue 设置成head
-    }
-
-    private AbstractQueuedSynchronizerTry.CLHNode enq(final AbstractQueuedSynchronizerTry.CLHNode node) {
-        for (; ; ) {
-            AbstractQueuedSynchronizerTry.CLHNode t = tail;
-            if (t == null) {
-                if (true) {
-
-                }
-            } else {
-
-            }
-        }
-    }
-
-    public final Collection<Thread> getExclusiveQueuedThreads() {
-        ArrayList<Thread> list = Lists.newArrayList();
-        for (AbstractQueuedSynchronizerTry.CLHNode p = tail; p != null; p = p.prev) {
-            if (!p.isShared()) {
-                Thread t = p.thread;
-                if (t != null) {
-                    list.add(t);
-                }
-            }
-        }
-        return list;
     }
 
     /*private AbstractQueuedSynchronizer.Node enq(final AbstractQueuedSynchronizer.Node node) {
@@ -125,6 +98,36 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
             }
         }
     }*/
+    private CLHNode enq(final CLHNode node) {
+        for (; ; ) {
+            CLHNode t = tail;
+            if (t == null) {// initialize for no queue thread exists
+                if (CASHead(new CLHNode())) {
+                    tail = head;
+                }
+            } else {
+                node.prev = t;
+                if (CASTail(t, node)) {
+                    t.next = node;
+                    return t;
+                }
+            }
+        }
+    }
+
+    public final Collection<Thread> getExclusiveQueuedThreads() {
+        ArrayList<Thread> list = Lists.newArrayList();
+        for (AbstractQueuedSynchronizerTry.CLHNode p = tail; p != null; p = p.prev) {
+            if (!p.isShared()) {
+                Thread t = p.thread;
+                if (t != null) {
+                    list.add(t);
+                }
+            }
+        }
+        return list;
+    }
+
 
     public final Collection<Thread> getSharedQueuedThreads() {
         ArrayList<Thread> list = new ArrayList<Thread>();
@@ -138,9 +141,6 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
         return list;
     }
 
-    public final Thread geyFirstQueuedThread() {
-        return null;
-    }
 
     private final boolean CASHead(CLHNode update) {
         return unSafe.compareAndSwapObject(this, headOffset, null, update);
@@ -148,6 +148,83 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
 
     private final boolean CASTail(CLHNode expect, CLHNode update) {
         return unSafe.compareAndSwapObject(this, tailOffset, expect, update);
+    }
+
+
+    private final boolean CASState(int expect, int update) {
+        return unSafe.compareAndSwapInt(this, stateOffset, expect, update);
+    }
+
+    private final boolean CASNext(CLHNode node, CLHNode expect, CLHNode update) {
+        return unSafe.compareAndSwapObject(node, nextOffset, expect, update);
+    }
+
+    private final boolean CASWaitStatus(CLHNode node, int expect, int update) {
+        return unSafe.compareAndSwapInt(node, waitStatusOffset, expect, update);
+
+    }
+
+    /**
+     * return true if node is on synchronize Queue CLHNode
+     *
+     * @param node
+     * @return
+     */
+    protected boolean hasNodeFromTail(CLHNode node) {
+        CLHNode t = tail;
+        while (true) {
+            if (t == node) {
+                return true;
+            }
+            if (t == null) {
+                return false;
+            }
+            t = t.prev;
+        }
+
+    }
+
+    public final boolean hasContend() {
+        return head != null;
+    }
+
+    protected boolean isHeldExclusively() {
+        throw new UnsupportedOperationException("subclass of AQS will implement this method ");
+    }
+
+    public final Thread getFirstQueuedThred() {
+        // handle only fast path , else relay
+        return head == tail ? null : fullGetFirstQueuedThread();
+    }
+
+    private Thread fullGetFirstQueuedThread() {
+        CLHNode h, s;
+        Thread st;
+        if (((h = head) != null) &&
+                ((s = h.next) != null) &&
+                (s.prev == head) &&
+                ((st = s.thread) != null) ||// 为什么要来2次呢? twice
+                (
+                        (h = head) != null &&
+                                (s = h.next) != null &&
+                                s.prev == head && (st = s.thread) != null)
+                ) {
+            return st;
+        }
+
+
+        CLHNode initNode = tail;
+        Thread firstThread = null;
+        while (firstThread != null && initNode != head) {
+            Thread temp = initNode.thread;
+            if (temp != null) {
+                firstThread = temp;
+            }
+            initNode = initNode.prev;
+        }
+        return firstThread;
+
+
     }
 
     //AQS CLHNode 队列
