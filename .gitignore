@@ -1,3 +1,4 @@
 .idea/
 SilverBullet.iml
 /springboot/springboot.iml
+!.idea/vcs.xml
