@@ -8,11 +8,12 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockTest1 {
     public static void main(String[] args) {
-        Depot_2 mDepot2 = new Depot_2();
-        Producer_2 mPro = new Producer_2(mDepot2);
-        Customer_2 mCus = new Customer_2(mDepot2);
+        Depot_1 mDepot1 = new Depot_1();
+        Producer_1 mPro = new Producer_1(mDepot1);
+        Customer_1 mCus = new Customer_1(mDepot1);
 
         mPro.produce(60);
+
         mPro.produce(120);
         mCus.consume(90);
         mCus.consume(150);
@@ -59,17 +60,17 @@ class Depot_1 {
 // 生产者
 class Producer_1 {
 
-    private Depot_2 depot2;
+    private Depot_1 depot1;
 
-    public Producer_1(Depot_2 depot2) {
-        this.depot2 = depot2;
+    public Producer_1(Depot_1 depot1) {
+        this.depot1 = depot1;
     }
 
     // 消费产品：新建一个线程向仓库中生产产品。
     public void produce(final int val) {
         new Thread() {
             public void run() {
-                depot2.produce(val);
+                depot1.produce(val);
             }
         }.start();
     }
@@ -77,17 +78,17 @@ class Producer_1 {
 
 // 消费者
 class Customer_1 {
-    private Depot_2 depot_2;
+    private Depot_1 depot_1;
 
-    public Customer_1(Depot_2 depot_2) {
-        this.depot_2 = depot_2;
+    public Customer_1(Depot_1 depot_1) {
+        this.depot_1 = depot_1;
     }
 
     // 消费产品：新建一个线程从仓库中消费产品。
     public void consume(final int val) {
         new Thread() {
             public void run() {
-                depot_2.consume(val);
+                depot_1.consume(val);
             }
         }.start();
     }
