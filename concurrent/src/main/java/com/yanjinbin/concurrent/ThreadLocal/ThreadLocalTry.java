@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * todo ThreadLocal 用法
  * https://goo.gl/3QZvv8 ThreadLocal 用法 示例
  *
@@ -17,58 +16,16 @@ import java.util.Map;
 
 
 public class ThreadLocalTry {
+    //
+    static ThreadLocal<HashMap> threadLocal = new ThreadLocal<HashMap>() {
 
-// static ThreadLocal<HashMap> threadLocal = new ThreadLocal<HashMap>(){
-
-// @Override
-
-// protected HashMap initialValue() {
-
-// System.out.println(Thread.currentThread().getName()+”initialValue”);
-
-// return new HashMap();
-
-// }
-
-// };
-
-
-    public static class T1 implements Runnable {
-
-        private final static Map map = new HashMap();
-
-        int id;
-
-
-        public T1(int id) {
-
-            this.id = id;
-
+        @Override
+        protected HashMap initialValue() {
+            System.out.println(Thread.currentThread().getName() + "initialValue");
+            return new HashMap();
         }
-
-        public void run() {
-
-// Map map = threadLocal.get();
-
-            for (int i = 0; i < 20; i++) {
-
-                map.put(i, i + id * 100);
-
-                try {
-
-                    Thread.sleep(100);
-
-                } catch (Exception ex) {
-
-                }
-
-            }
-
-            System.out.println(Thread.currentThread().getName() + "#map.size()=" + map.size() + "#" + map);
-
-        }
-
-    }
+    };
+    //
 
     public static void main(String[] args) {
 
@@ -85,6 +42,43 @@ public class ThreadLocalTry {
         for (int i = 0; i < runs.length; i++) {
 
             runs[i].start();
+
+        }
+
+    }
+
+    public static class T1 implements Runnable {
+
+        //    private final static Map map = new HashMap();
+
+        int id;
+
+
+        public T1(int id) {
+
+            this.id = id;
+
+        }
+
+        public void run() {
+
+            Map map = threadLocal.get(); //
+
+            for (int i = 0; i < 20; i++) {
+
+                map.put(i, i + id * 100);
+
+                try {
+
+                    Thread.sleep(100);
+
+                } catch (Exception ex) {
+
+                }
+
+            }
+
+            System.out.println(Thread.currentThread().getName() + "#map.size()=" + map.size() + "#" + map);
 
         }
 
