@@ -19,6 +19,7 @@ import java.util.concurrent.locks.Condition;
  * http://www.cnblogs.com/zhanjindong/p/java-concurrent-package-aqs-AbstractQueuedSynchronizer.html
  * http://www.cnblogs.com/go2sea/p/5618628.html
  * http://www.cs.rochester.edu/wcms/research/systems/high_performance_synch/
+ * http://coderbee.net/index.php/concurrent/20131115/577/comment-page-1
  *
  * @Author Silver bullet
  * @Since 2017/5/9.
@@ -124,6 +125,7 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
         if (prev != null) {
             node.prev = prev;
             if (CASTail(prev, node)) {
+                // 这是一步优化操作
                 //还是需要理解CAS函数 为什么需要这么操作呢  CAS确保了原子操作
                 prev.next = node;
                 return node;
@@ -163,10 +165,68 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     public final boolean tryAcquire(int arg) {
         return false;
     }
+    // 需要看清楚acquireQueue() 的for循环,只有一个return 语句
+    //每个Node 都有一个节点
 
     public final boolean acquireQueue(CLHNode node, int arg) {
+        boolean failed = true;
+        try {
+            boolean interrupted = false;
+            for (; ; ) {
+                final AbstractQueuedSynchronizerTry.CLHNode p = node.predecessor();
+                if (p == head && tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = null;
+                    failed = false;// 为了避免执行final句子的cancelAquire() 方法
+                    return interrupted;// interrupted 返回true 时候是什么状态?  ;
+                }
+
+                if (shouldParkAfterFailAcquired(p, node) && parkAndCheckInterrupt()) {
+                    interrupted = true;// Interrupted 重置为true
+                }
+            }
+        } finally {
+            if (failed) {// failed = true
+                cancelAquired(node);
+            }
+
+        }
+
+    }
+
+    private void cancelAquired(CLHNode node) {
+
+    }
+
+    private boolean parkAndCheckInterrupt() {
+        return false;// todo
+    }
+
+    private boolean shouldParkAfterFailAcquired(CLHNode p, CLHNode node) {
+        // todo
         return false;
     }
+//    final boolean acquireQueued(final AbstractQueuedSynchronizer.Node node, int arg) {
+//        boolean failed = true;
+//        try {
+//            boolean interrupted = false;
+//            for (;;) {
+//                final AbstractQueuedSynchronizer.Node p = node.predecessor();
+//                if (p == head && tryAcquire(arg)) {
+//                    setHead(node);
+//                    p.next = null; // help GC
+//                    failed = false;
+//                    return interrupted;
+//                }
+//                if (shouldParkAfterFailedAcquire(p, node) &&
+//                        parkAndCheckInterrupt())
+//                    interrupted = true;
+//            }
+//        } finally {
+//            if (failed)
+//                cancelAcquire(node);
+//        }
+//    }
 
     public final Collection<Thread> getExclusiveQueuedThreads() {
         ArrayList<Thread> list = Lists.newArrayList();
