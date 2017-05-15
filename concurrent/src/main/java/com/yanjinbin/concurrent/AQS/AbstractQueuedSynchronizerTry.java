@@ -12,6 +12,9 @@ import java.util.concurrent.locks.AbstractOwnableSynchronizer;
 import java.util.concurrent.locks.Condition;
 
 /**
+ * 这个网址的逻辑流程很清晰的概括了acquire()方法的流程
+ * http://ifeve.com/introduce-abstractqueuedsynchronizer/
+ *
  * http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer
  * http://www.infoq.com/cn/articles/java8-abstractqueuedsynchronizer
  * https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html

@@ -13,7 +13,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ConditionTest1 {
-
+    // keystep  condition 实现原理
     private static Lock lock = new ReentrantLock();
     private static Condition condition = lock.newCondition();
 
