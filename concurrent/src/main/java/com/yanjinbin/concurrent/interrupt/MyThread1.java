@@ -5,9 +5,9 @@ package com.yanjinbin.concurrent.interrupt;
  */
 
 // Demo1.java的源码
-class MyThread extends Thread {
+class MyThread1 extends Thread {
 
-    public MyThread(String name) {
+    public MyThread1(String name) {
         super(name);
     }
 
