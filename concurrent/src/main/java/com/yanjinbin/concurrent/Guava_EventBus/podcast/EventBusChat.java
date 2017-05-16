@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.EventBus.podcast;
+package com.yanjinbin.concurrent.Guava_EventBus.podcast;
 
 import com.google.common.eventbus.EventBus;
 

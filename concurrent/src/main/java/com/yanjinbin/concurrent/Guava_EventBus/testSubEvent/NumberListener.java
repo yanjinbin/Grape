@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.EventBus.testSubEvent;
+package com.yanjinbin.concurrent.Guava_EventBus.testSubEvent;
 
 import com.google.common.eventbus.Subscribe;
 
@@ -6,19 +6,18 @@ import com.google.common.eventbus.Subscribe;
  * @Author Silver bullet
  * @Since 2017/5/16.
  */
-public class IntegerListener {
 
+public class NumberListener {
 
-    private Integer lastMessage;
+    private Number lastMessage;
 
     @Subscribe
-    public void listen(Integer integer) {
+    public void listen(Number integer) {
         lastMessage = integer;
         System.out.println("Message:" + lastMessage);
     }
 
-    public Integer getLastMessage() {
+    public Number getLastMessage() {
         return lastMessage;
     }
-
 }

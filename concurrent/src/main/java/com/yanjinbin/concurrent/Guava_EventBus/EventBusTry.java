@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.EventBus;
+package com.yanjinbin.concurrent.Guava_EventBus;
 
 import com.google.common.eventbus.EventBus;
 
