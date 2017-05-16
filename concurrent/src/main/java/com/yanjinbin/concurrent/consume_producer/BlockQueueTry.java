@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @Since 2017/5/16.
  */
 public class BlockQueueTry {
-    // TODO: queue是LinkedList对象时，程序会出错。 Fail-fast 机制
+    //  queue是LinkedList对象时，程序会出错。 Fail-fast 机制
 
     // private static Queue<String> queue = new LinkedList<String>();
     // private static Queue<String> queue = new ArrayBlockingQueue<String>(20);
