@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * todo
+ *  http://fangjian0423.github.io/2016/03/22/java-threadpool-analysis/
  *
  * @Author Silver bullet
  * @Since 2017/5/16.
@@ -78,15 +79,18 @@ public class ExcutorPoolExecutorTry {
         System.out.println(TERMINATED);
         System.out.println(Integer.toBinaryString(TERMINATED));
         System.out.println("---------------");
-        int j = -1 << 29;
+
+        //  http://www.cnblogs.com/skywang12345/p/3509960.html
+        //  todo 这篇文真很好的分析了 位运算是如何保存线程数量信息以及状态信息的 http://fangjian0423.github.io/2016/03/22/java-threadpool-analysis/
+        int j = -1 << 29; // RUNNING 1110  高3位   111
         System.out.println(Integer.toBinaryString(j).substring(0, 4));
-        j = 0 << 29;
+        j = 0 << 29;// SHUTDOWN 0000 高3位  000
         System.out.println(Integer.toBinaryString(j));
-        j = 1 << 29;
+        j = 1 << 29;// STOP  0010  高3位 001
         System.out.println(Integer.toBinaryString(j).substring(0, 3));
-        j = 2 << 29;
+        j = 2 << 29;//TIDYING 0100 高3位 010
         System.out.println(Integer.toBinaryString(j).substring(0, 4));
-        j = 3 << 29;
+        j = 3 << 29;//TERMINATED 1000 高3位 100
         System.out.println(Integer.toBinaryString(j).substring(0, 4));
 
 
