@@ -28,9 +28,9 @@ public class CallableTest1 {
         //创建有返回值的任务
         Callable c1 = new MyCallable();
         //执行任务并获取Future对象
-        // 实际返回的 FutureTask
-        Future f1 = pool.submit(c1);
+        // 实际返回的 FutureTask  这个需要自己去挖掘
         // 输出结果
+        Future f1 = pool.submit(c1);
         System.out.println(f1.get());
         //关闭线程池 
         pool.shutdown();
