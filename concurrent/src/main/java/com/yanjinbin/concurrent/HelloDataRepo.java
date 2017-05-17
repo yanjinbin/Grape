@@ -11,6 +11,7 @@ public class HelloDataRepo {
     private ConcurrentHashMap<String, Student> concurrentHashMap;
 
     public HelloDataRepo() {
+        //   Student student = new Student();
         Student student1 = Student.builder().id(1).name("小明").phone("15757538011").build();
         Student student2 = Student.builder().id(2).name("小李").phone("13511453802").build();
         Student student3 = Student.builder().id(3).name("小张").phone("13586272308").build();
