@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent;
+package CommonUtil;
 
 /******************************************************************************
  *  Compilation:  javac Alphabet.java

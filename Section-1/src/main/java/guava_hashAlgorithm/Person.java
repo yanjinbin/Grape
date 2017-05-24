@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.guava_hashAlgorithm;
+package guava_hashAlgorithm;
 
 import lombok.Builder;
 import lombok.Data;

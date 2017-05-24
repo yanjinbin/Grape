@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.GuavaConcurrency;
+package GuavaConcurrency;
 
 /**
  * todo  这个暂时不学洗了 暂时停止

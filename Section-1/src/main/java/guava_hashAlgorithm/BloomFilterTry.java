@@ -1,10 +1,10 @@
-package com.yanjinbin.concurrent.guava_hashAlgorithm;
+package guava_hashAlgorithm;
 
+import CommonUtil.Alphabet;
 import com.google.common.base.Charsets;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnel;
 import com.google.common.hash.PrimitiveSink;
-import com.yanjinbin.concurrent.Alphabet;
 
 import java.util.Random;
 

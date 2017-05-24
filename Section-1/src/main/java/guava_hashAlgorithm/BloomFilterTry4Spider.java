@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.guava_hashAlgorithm;
+package guava_hashAlgorithm;
 
 /**
  * http://www.cnblogs.com/heaad/archive/2011/01/02/1924195.html

@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.guava_hashAlgorithm;
+package guava_hashAlgorithm;
 
 import com.google.common.base.Charsets;
 import com.google.common.hash.*;
