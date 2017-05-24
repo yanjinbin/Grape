@@ -15,8 +15,7 @@ public class Misc {
 
 
     public static boolean tryAcquire(int arg) {
-        if (arg > 10) return true;
-        else return false;
+        return arg > 10;
     }
 
     public static boolean acquireQueue(int arg) {

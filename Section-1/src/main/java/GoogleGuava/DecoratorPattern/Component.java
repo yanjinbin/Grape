@@ -5,5 +5,5 @@ package GoogleGuava.DecoratorPattern;
  * @since 十二月-20
  */
 public interface Component {
-    public void operation();
+    void operation();
 }

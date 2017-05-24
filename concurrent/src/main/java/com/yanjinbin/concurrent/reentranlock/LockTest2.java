@@ -29,7 +29,7 @@ class Depot_2 {
         System.out.printf("%s consume(%d) <-- actual_size=%d\n",
                 Thread.currentThread().getName(), val, actual_size);
     }
-};
+}
 
 // 生产者
 class Producer_2 {

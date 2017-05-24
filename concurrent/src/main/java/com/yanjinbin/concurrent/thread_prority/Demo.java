@@ -11,8 +11,8 @@ class MyThread extends Thread{
                     +"("+Thread.currentThread().getPriority()+ ")"
                     +", loop "+i);
         }
-    } 
-}; 
+    }
+}
 
 public class Demo {  
     public static void main(String[] args) {  

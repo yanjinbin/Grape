@@ -15,9 +15,9 @@ public class ConstructorTry {
     public static void main(String[] args) {
         Class<Parent> parentClass = Parent.class;
         try {
-            Constructor c1 = parentClass.getConstructor(new Class[]{String.class});
-            Constructor c2 = parentClass.getConstructor(new Class[]{int.class, int.class});
-            Constructor c3 = parentClass.getConstructor(new Class[]{int.class, int.class, String.class});
+            Constructor c1 = parentClass.getConstructor(String.class);
+            Constructor c2 = parentClass.getConstructor(int.class, int.class);
+            Constructor c3 = parentClass.getConstructor(int.class, int.class, String.class);
            /* System.out.println("c1 Name is ===="+c1.getClass().toString());
             System.out.println("c2 Name is ===="+c2.getClass().toString());
             System.out.println("c3 Name is ===="+c3.getClass().toString());*/

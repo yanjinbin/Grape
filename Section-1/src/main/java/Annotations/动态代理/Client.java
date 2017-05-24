@@ -30,10 +30,10 @@ public class Client {
         Constructor ct = null;
         try {
             //3 一个InvocationHadnler 把所有的方法调用都转到了代理上了
-            ct = c.getConstructor(new Class[]{InvocationHandler.class});
+            ct = c.getConstructor(InvocationHandler.class);
 
             //handler对象指向的是dynamicSubject 因此
-            Subject subject = ((Subject) ct.newInstance(new Object[]{handler}));
+            Subject subject = ((Subject) ct.newInstance(handler));
             subject.request();//当调用此方法的时候,dynamicSubject代理了Subject的实现→realSubject
             //因此方法会进入InvocationHandler的 invoke方法 ,此方法代理了 Subject接口的实现
         } catch (NoSuchMethodException e) {

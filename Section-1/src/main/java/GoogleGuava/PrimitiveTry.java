@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class PrimitiveTry {
     public static void main(String[] args) {
-        String join = Ints.join("-", new int[]{1, 2, 3, 4, 5});
+        String join = Ints.join("-", 1, 2, 3, 4, 5);
         System.out.println(join);
         List<Integer> integers = Ints.asList(1, 2, 3, 5, 989, 293);
         for (Integer item :
@@ -44,7 +44,7 @@ public class PrimitiveTry {
         boolean b = saturatedCast == Integer.MAX_VALUE;
         System.out.println("is integer max value     "+b);
         //无符号原生类型 in action
-        int max1 = UnsignedInts.max(new int[]{-222, 221, 0, 23, -24});
+        int max1 = UnsignedInts.max(-222, 221, 0, 23, -24);
         System.out.println("max   is     "+max1);
         int i1 = 2 ^ 2;
         System.out.println(Integer.toBinaryString(2));

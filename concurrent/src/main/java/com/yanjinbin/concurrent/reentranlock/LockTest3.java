@@ -4,9 +4,9 @@ package com.yanjinbin.concurrent.reentranlock;
  * Created by yanjinbin on 2017/5/3.
  */
 
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.Condition;
 
 class Depot_3 {
     private int capacity;    // 仓库的容量
@@ -78,7 +78,7 @@ class Depot_3 {
     public String toString() {
         return "capacity:" + capacity + ", actual size:" + size;
     }
-};
+}
 
 // 生产者
 class Producer_3 {

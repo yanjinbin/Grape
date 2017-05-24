@@ -5,5 +5,5 @@ package 观察者模式;
  * @since 十二月-20
  */
 public interface Observer {
-    public void update();
+    void update();
 }

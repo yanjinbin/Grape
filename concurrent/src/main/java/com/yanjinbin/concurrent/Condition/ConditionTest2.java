@@ -33,7 +33,7 @@ class BoundedBuffer {
             notEmpty.signal();
 
             // 打印写入的数据
-            System.out.println(Thread.currentThread().getName() + " put  " + (Integer) x);
+            System.out.println(Thread.currentThread().getName() + " put  " + x);
         } finally {
             lock.unlock();    // 释放锁
         }
@@ -55,7 +55,7 @@ class BoundedBuffer {
             notFull.signal();
 
             // 打印取出的数据
-            System.out.println(Thread.currentThread().getName() + " take " + (Integer) x);
+            System.out.println(Thread.currentThread().getName() + " take " + x);
             return x;
         } finally {
             lock.unlock();    // 释放锁

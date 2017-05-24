@@ -21,7 +21,7 @@ public  enum OrderType implements JSONSerializable {
     public final int    value;
     public final String remark;
 
-    private OrderType(int value, String remark){
+    OrderType(int value, String remark) {
         this.value = value;
         this.remark = remark;
     }

@@ -14,11 +14,11 @@ public class Demo2 {
             System.out.println(t2.getName() + " (" + t2.getState() + ") is started.");
 
             //  Thread.sleep(300);
-            System.out.println(t2.interrupted());
+            System.out.println(Thread.interrupted());
             System.out.println(t2.isInterrupted());
             t2.interrupt();
             System.out.println("interrupted twice \t here ");
-            System.out.println(t2.interrupted());
+            System.out.println(Thread.interrupted());
             System.out.println(t2.isInterrupted());
 
 

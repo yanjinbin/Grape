@@ -13,9 +13,9 @@ public class NullTry {
         x.greetInstance();
 
 
-        x.greet(); //(1)
-        ((NullTry)x).greet();// (2)
-        ((NullTry) null).greet(); //(3)
+        greet(); //(1)
+        greet();// (2)
+        greet(); //(3)
 
 
     }

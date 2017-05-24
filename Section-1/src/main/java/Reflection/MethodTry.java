@@ -29,7 +29,7 @@ public class MethodTry {
         try {
             Method getNameMethod = personClass.getMethod("getName", null);//第二个参数为参数类型,需要一一对应
             System.out.println("getMethod方法获取getName方法成功-----success!!!!----" + getNameMethod);
-            Method setNameMethod = personClass.getMethod("setName", new Class[]{String.class});
+            Method setNameMethod = personClass.getMethod("setName", String.class);
 
             Class<?>[] setNameMethodParameterTypes = setNameMethod.getParameterTypes();
 
@@ -78,19 +78,13 @@ public class MethodTry {
         if (method.getParameterTypes().length != 0) {
             return false;
         }
-        if (void.class.equals(method.getReturnType())) {
-            return false;
-        }
-        return true;
+        return !void.class.equals(method.getReturnType());
     }
 
     public static boolean isSetterMethod(Method method) {
         if (!method.getName().startsWith("set")) {
             return false;
         }
-        if (method.getParameterTypes().length != 1) {
-            return false;
-        }
-        return true;
+        return method.getParameterTypes().length == 1;
     }
 }

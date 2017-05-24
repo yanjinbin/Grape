@@ -31,7 +31,6 @@ public class HashTry {
 
         hasher.putInt(1).putObject(new Person(), new Funnel<Person>() {
             public void funnel(Person from, PrimitiveSink into) {
-                ;
             }
         });
 

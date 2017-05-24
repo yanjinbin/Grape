@@ -16,10 +16,7 @@ public class IFELSETry {
             return false;
         }
         /* else */
-        if (i == 10 && j != 1) {
-            return true;
-        }
-        return false;
+        return i == 10 && j != 1;
 
     }
 }

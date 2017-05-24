@@ -5,5 +5,5 @@ package com.yanjinbin.springboot.hellomodule;
  * @since 三月-03
  */
 public interface HelloService {
-    public String sayHello(String a);
+    String sayHello(String a);
 }

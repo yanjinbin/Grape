@@ -55,7 +55,7 @@ class Depot_1 {
             lock.unlock();//解锁
         }
     }
-};
+}
 
 // 生产者
 class Producer_1 {

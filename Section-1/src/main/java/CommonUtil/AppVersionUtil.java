@@ -27,11 +27,8 @@ public class AppVersionUtil {
         int cv =getNumberVersion(currentVersion);
         int tv = getNumberVersion(targetVersion);
 
-        if(cv > tv) {
-            return true;
-        }
+        return cv > tv;
 
-        return false;
     }
 
     public static boolean isGreaterOrEqualVersion(String currentVersion, String targetVersion){
@@ -49,11 +46,8 @@ public class AppVersionUtil {
         int cv =getNumberVersion(currentVersion);
         int tv = getNumberVersion(targetVersion);
 
-        if(cv >= tv) {
-            return true;
-        }
+        return cv >= tv;
 
-        return false;
     }
 
     public static int getNumberVersion(String version) {

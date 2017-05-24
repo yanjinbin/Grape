@@ -14,13 +14,16 @@ import java.util.Comparator;
  *         since 2016-十二月
  */
 public class OrderingTry {
+    public static Integer m = new Integer(3);
+    public static Integer n = new Integer(4);
+
     public static void main(String[] args) {
         Ordering<String> byLengthOrdering = new Ordering<String>() {
             public int compare(String left, String right) {
                 return Ints.compare(left.length(), right.length());
             }
         };
-        Ordering<Object> objectOrdering = byLengthOrdering.usingToString();
+        Ordering<Object> objectOrdering = Ordering.usingToString();
         //对可排序类型做自然排序,如数字大小,日期先后
         Ordering<Comparable> natural = Ordering.natural();
         //lexicographical ordering  字典排序
@@ -54,8 +57,4 @@ public class OrderingTry {
         });
         //   Ordering<Person> personOrdering = new Ordering<Person>();
     }
-
-    public static Integer m = new Integer(3);
-
-    public static Integer n = new Integer(4);
 }
