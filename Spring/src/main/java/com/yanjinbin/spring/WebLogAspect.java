@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
+ * 需要好好理解以下几个类 ProxyFactoryBean  ReflectiveMethodInterceptor AopProxy  getObject() proceed() AdviceSupport   JDK OR CGLIB  AopProxy invoke() 方法 MethodPointCunt MethodMatcher
+ *
  * @Author Silver bullet
  * @Since 2017/5/31.
  */
@@ -22,11 +24,12 @@ import java.util.Arrays;
 @Slf4j
 public class WebLogAspect {
 
-
+    // 定位切点
     @Pointcut("execution(public * com.yanjinbin.spring.*.*(..))")
     public void weblog() {
     }
 
+    // 锚定切点的 advice
     @Before("weblog()")
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
