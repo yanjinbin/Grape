@@ -1,3 +1,5 @@
+package ExecOrder;
+
 /**
  * @Author Silver bullet
  * @Since 2017/6/22.
@@ -8,7 +10,7 @@ public class Test {
         son.show();
         son.showFamily();
         System.out.println(Son.age);
-      //  System.out.println(Son.name);  jvm 虚拟机具体实现更加严格 不允许 不明确匹配
+      //  System.out.println(ExecOrder.Son.name);  jvm 虚拟机具体实现更加严格 不允许 不明确匹配
         System.out.println(Son.age);
 
         System.out.println("a------");
