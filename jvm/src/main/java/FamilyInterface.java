@@ -5,4 +5,7 @@
 public interface FamilyInterface {
     int age = 9;
     String name = "哈哈接口来了";
+//    static{
+//
+//    }
 }

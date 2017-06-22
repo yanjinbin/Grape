@@ -10,5 +10,8 @@ public class Test {
         System.out.println(Son.age);
       //  System.out.println(Son.name);  jvm 虚拟机具体实现更加严格 不允许 不明确匹配
         System.out.println(Son.age);
+
+        System.out.println("a------");
+        System.out.println(Son.a);
     }
 }
