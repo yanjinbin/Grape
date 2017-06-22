@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent.WeakReference;
+package GC.WeakReference;
 
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
