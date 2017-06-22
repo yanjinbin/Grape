@@ -19,14 +19,14 @@ import java.util.Map;
 
 public class ThreadLocalTry {
     //
-    static ThreadLocal<HashMap> threadLocal = new ThreadLocal<HashMap>() {
-
-        @Override
-        protected HashMap initialValue() {
-            System.out.println(Thread.currentThread().getName() + "initialValue");
-            return new HashMap();
-        }
-    };
+//    static ThreadLocal<HashMap> threadLocal = new ThreadLocal<HashMap>() {
+//
+//        @Override
+//        protected HashMap initialValue() {
+//            System.out.println(Thread.currentThread().getName() + "initialValue");
+//            return new HashMap();
+//        }
+//    };
     //
 
     public static void main(String[] args) {
@@ -51,7 +51,7 @@ public class ThreadLocalTry {
 
     public static class T1 implements Runnable {
 
-        //    private final static Map map = new HashMap();
+        private final static Map map = new HashMap();
 
         int id;
 
@@ -62,9 +62,10 @@ public class ThreadLocalTry {
 
         }
 
+        @Override
         public void run() {
 
-            Map map = threadLocal.get(); //
+            // Map map = threadLocal.get(); //
 
             for (int i = 0; i < 20; i++) {
 

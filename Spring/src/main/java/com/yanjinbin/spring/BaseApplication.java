@@ -16,10 +16,13 @@ public class BaseApplication {
     }
 
 
+
     //会抛出异常
 //    @Bean
 //    public  FileInputStream  newBean() throws FileNotFoundException {
 //        FileInputStream fileInputStream = new FileInputStream("/nothing");
 //        return fileInputStream;
 //    }
+
+
 }

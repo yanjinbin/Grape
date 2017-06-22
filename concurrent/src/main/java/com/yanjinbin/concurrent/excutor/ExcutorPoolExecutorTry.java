@@ -3,7 +3,8 @@ package com.yanjinbin.concurrent.excutor;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * todo
+ *  这篇文章 解决的是 ctl 存储 线程池状态和worker 数量问题
+ *
  *  http://fangjian0423.github.io/2016/03/22/java-threadpool-analysis/
  *
  * @Author Silver bullet
