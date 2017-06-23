@@ -21,6 +21,7 @@
         <module>Section-8</module>
         <module>io</module>
         <module>jvm</module>
+        <module>effectiveJava</module>
     </modules>
     <!--统一管理版本,避免版本冲突-->
     <dependencyManagement>
