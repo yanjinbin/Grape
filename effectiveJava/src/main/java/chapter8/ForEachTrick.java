@@ -16,7 +16,7 @@ public class ForEachTrick {
 
         List<Card> arrayList = new ArrayList<Card>();
 
-        // 错误的原因在于
+        // 同步前移
         for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
             for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
                 System.out.println(i.next());// i和 j 迭代器对的 next
@@ -42,6 +42,25 @@ public class ForEachTrick {
                 arrayList) {
             System.out.println(card);
         }
+
+
+        //for each 循环 的三个缺点  P186  1 过滤元素 2 转换元素 3 平行迭代（同步前移）  那么就需要换成同步的迭代器
+
+
+        List<Integer> integers = Arrays.asList(1, 23, 4, 66, 234);
+        for (Integer i :
+                integers) {
+            if (i == 23) {
+                i = 11;//不能更新元素
+            }
+        }
+        System.out.println("i 的值是");
+        for (Integer i :
+                integers) {
+            System.out.println(i);
+        }
+
+
     }
 }
 
