@@ -7,6 +7,8 @@
     <groupId>com.yanjinbin.effectiveJava</groupId>
     <artifactId>effectiveJava</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
