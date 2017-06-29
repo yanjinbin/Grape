@@ -15,13 +15,14 @@
         <module>Section-2</module>
         <module>Section-3</module>
         <module>Section-4</module>
-        <!--<module>Section-5</module>-->
+
         <module>Section-6</module>
         <module>Section-7</module>
         <module>Section-8</module>
         <module>io</module>
         <module>jvm</module>
         <module>effectiveJava</module>
+
     </modules>
     <!--统一管理版本,避免版本冲突-->
     <dependencyManagement>
