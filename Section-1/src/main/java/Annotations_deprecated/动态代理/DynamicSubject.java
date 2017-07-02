@@ -1,6 +1,6 @@
-package Annotations.动态代理;
+package Annotations_deprecated.动态代理;
 
-import Annotations.Preamble;
+import Annotations_deprecated.Preamble;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

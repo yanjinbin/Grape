@@ -1,4 +1,4 @@
-package Annotations;
+package Annotations_deprecated;
 
 import java.lang.annotation.*;
 

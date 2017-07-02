@@ -1,4 +1,4 @@
-package Annotations.动态代理;
+package Annotations_deprecated.动态代理;
 
 /**
  * @author 颜巾斌
