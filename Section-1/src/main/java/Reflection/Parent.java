@@ -1,6 +1,6 @@
 package Reflection;
 
-import Annotations.Preamble;
+import Annotations_deprecated.Preamble;
 import lombok.Data;
 
 /**
