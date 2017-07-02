@@ -3,6 +3,13 @@ package JMM;
 /**
  * JVM 12/3/3
  *
+ * P930 说明了 volatile 使用的时候并不能保证 并发安全
+ *
+ *
+ * “从字节码层面上很容易就分析出并发失败的原因了：当getstatic指令把race的值取到操作栈顶时，volatile关键字保证了race的值在此时是正确的，但是在执行iconst_1、iadd这些指令的时候，其他线程可能已经把race的值加大了，而在操作栈顶的值就变成了过期的数据，所以putstatic指令执行后就可能把较小的race值同步回主内存之中。”
+
+ 摘录来自: 周志明. “深入理解Java虚拟机：JVM高级特性与最佳实践[第2版]”。 iBooks.
+ *
  * @Author Silver bullet
  * @Since 2017/7/2.
  */
