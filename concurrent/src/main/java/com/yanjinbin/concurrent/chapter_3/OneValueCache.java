@@ -1,6 +1,7 @@
 package com.yanjinbin.concurrent.chapter_3;
 
-import java.lang.reflect.Array;
+
+import javax.annotation.concurrent.Immutable;
 import java.math.BigInteger;
 import java.util.Arrays;
 
@@ -8,6 +9,7 @@ import java.util.Arrays;
  * @Author Silver bullet
  * @Since 2017/6/30.
  */
+@Immutable
 public class OneValueCache {
     private final BigInteger lastNumber;
     private final BigInteger[] lastFactors;
