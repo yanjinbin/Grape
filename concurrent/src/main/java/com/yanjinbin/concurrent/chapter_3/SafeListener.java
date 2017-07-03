@@ -6,11 +6,11 @@ package com.yanjinbin.concurrent.chapter_3;
  * @Author Silver bullet
  * @Since 2017/7/1.
  */
-public class SafeConstruct {
+public class SafeListener {
 
     private final EventListener eventListener;
 
-    private SafeConstruct() {
+    private SafeListener() {
         eventListener = new EventListener() {
             @Override
             public void listen(Event e) {
@@ -20,10 +20,10 @@ public class SafeConstruct {
     }
 
 
-    public SafeConstruct newInstance(EventSource eventSource) {
-        SafeConstruct safeConstruct = new SafeConstruct();
-        eventSource.registerListener(safeConstruct);
-        return safeConstruct;
+    public SafeListener newInstance(EventSource eventSource) {
+        SafeListener safeListener = new SafeListener();
+        eventSource.registerListener(safeListener);
+        return safeListener;
 
     }
 
@@ -34,14 +34,14 @@ public class SafeConstruct {
 }
 
 class EventSource {
-    public void registerListener(SafeConstruct safeConstruct) {
+    public void registerListener(SafeListener safeListener) {
         System.out.println("registering\t");
     }
 }
 
 class EventListener implements Listener {
 
-    private SafeConstruct safeConstruct;
+    private SafeListener safeListener;
 
     @Override
     public void listen(Event e) {
