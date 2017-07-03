@@ -20,7 +20,7 @@ public class ThisEscape {
             @Override
             public void onEvent(Event e) {
                 // 通过ThisEscape.this就可以引用外围类对象, 但是此时外围类对象可能还没有构造完成, 即发生了外围类的this引用的逃逸
-                doSomething(e);
+                ThisEscape.this.doSomething(e);//
             }
         });
     }
