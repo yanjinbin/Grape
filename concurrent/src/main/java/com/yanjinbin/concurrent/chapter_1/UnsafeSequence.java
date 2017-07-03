@@ -11,6 +11,11 @@ public class UnsafeSequence {
     private int value;
 
     private int getNext() {
-        return value++; //
+        return value++; // 复合操作
     }
+
+    //线程安全
+//    private synchronized int getNext(){
+//        return value++;
+//    }
 }
