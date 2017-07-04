@@ -8,6 +8,11 @@ ConcurrentHashMap的弱一致性模型(分段锁的缘故)
 
 CopyOnArrayList
 
+http://www.cnblogs.com/xujian2014/p/5359684.html 
+http://blog.csdn.net/lmj623565791/article/details/26626391
 
 
 闭锁 CountDownLatch 信号量Semaphore 栅栏CyclicBarrier
+
+
+利用 Semaphore 将任何一种容器 变成有界的容器  P82
