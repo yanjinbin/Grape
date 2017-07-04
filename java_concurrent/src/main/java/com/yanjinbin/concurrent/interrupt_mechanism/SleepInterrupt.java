@@ -1,4 +1,4 @@
-package com.yanjinbin.concurrent;
+package com.yanjinbin.concurrent.interrupt_mechanism;
 
 /**
  * @Author Silver bullet
@@ -13,6 +13,7 @@ public class SleepInterrupt implements Runnable {
             System.out.println("in run wakeup()");
 
         } catch (InterruptedException e) {
+            System.out.println("interuptted :\t"+(Thread.currentThread().isInterrupted()));
             System.out.println("in run interrupted while sleeping()");
             e.printStackTrace();
             return;
