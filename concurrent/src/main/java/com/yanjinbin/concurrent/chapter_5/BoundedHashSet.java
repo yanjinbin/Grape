@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.concurrent.Semaphore;
 
 /**
- *
  * 构造有界阻塞的容器
  *
  * @Author Grape
@@ -34,5 +33,15 @@ public class BoundedHashSet<V> {
                 semaphore.release();
             }
         }
+    }
+
+
+    // nextodo  为什么这里不需要 acquire 了呢?
+    public boolean remove(V v) {
+        boolean wasRemoved = set.remove(v);
+        if (wasRemoved) {
+            semaphore.release();
+        }
+        return wasRemoved;
     }
 }
