@@ -15,7 +15,7 @@ class MyCallable implements Callable {
         for (int i = 0; i < 100; i++)
             sum += i;
         //return sum; 
-        return Integer.valueOf(sum);
+        return sum;
     }
 }
 
