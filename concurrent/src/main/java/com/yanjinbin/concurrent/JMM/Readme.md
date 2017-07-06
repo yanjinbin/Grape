@@ -13,3 +13,20 @@ JMM 规定了 JVM 必须遵循的一组最小保证： 规定变量的写入操�
 
 
 java 内存模型 
+
+--------
+
+[深入理解 java 内存模型 PDF 版本]( http://www.infoq.com/resource/minibooks/java_memory_model/zh/pdf/think_deep_in_java_mem_model.pdf)
+
+http://www.infoq.com/cn/articles/java-memory-model-1
+http://www.infoq.com/cn/articles/java-memory-model-2
+http://www.infoq.com/cn/articles/java-memory-model-3
+http://www.infoq.com/cn/articles/java-memory-model-4
+http://www.infoq.com/cn/articles/java-memory-model-5
+http://www.infoq.com/cn/articles/java-memory-model-6
+http://www.infoq.com/cn/articles/java-memory-model-7
+
+--------
+
+
+

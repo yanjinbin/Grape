@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
+ * http://www.cnblogs.com/everSeeker/p/5105842.html
+ *
  * todo ThreadLocal 用法
  * https://goo.gl/3QZvv8 ThreadLocal 用法 示例
  *
