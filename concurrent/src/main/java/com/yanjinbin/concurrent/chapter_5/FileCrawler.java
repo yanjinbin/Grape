@@ -5,6 +5,8 @@ import java.io.FileFilter;
 import java.util.concurrent.BlockingQueue;
 
 /**
+ * producer--consumer 队列
+ *
  * @Author Grape
  * @Since 2017/7/4.
  */
