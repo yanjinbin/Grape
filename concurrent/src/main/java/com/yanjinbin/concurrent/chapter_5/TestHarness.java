@@ -3,7 +3,7 @@ package com.yanjinbin.concurrent.chapter_5;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 闭锁 CountingDownLatch
+ * 闭锁 CountingDownLatch  一次性对象
  * http://www.importnew.com/15731.html
  *
  * @Author Grape
