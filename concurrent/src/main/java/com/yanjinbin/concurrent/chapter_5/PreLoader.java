@@ -3,7 +3,8 @@ package com.yanjinbin.concurrent.chapter_5;
 import java.util.concurrent.*;
 
 /**
- * Preloader
+ * FutureTask 任务
+ *
  * <p>
  * Using FutureTask to preload data that is needed later
  *
