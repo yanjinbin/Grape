@@ -25,11 +25,11 @@ public class WebLogAspect {
     //AspectJ 语法 http://dwz.cn/5uLEWY  http://dwz.cn/5uLHVu
 
     //定义切点. 在方法执行的时候 切入
-    @Pointcut("excution(public * com.yanjinbin.springboot..*.*(..))")
+   // @Pointcut("excution(public * com.yanjinbin.springboot..*.*(..))")
     public void weblog() {
     }
 
-    @Before("webLog()")
+   // @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         //接收到请求,记录请求内容
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -46,9 +46,8 @@ public class WebLogAspect {
 
     }
 
-
     //切点增强  记录请求返回的对象
-    @AfterReturning(returning = "ret", pointcut = "weblog()")
+   // @AfterReturning(returning = "ret", pointcut = "weblog()")
     public void doAfterReturning(Object ret) throws Throwable {
         // 处理完请求,返回内容
         log.info("response: " + ret);
