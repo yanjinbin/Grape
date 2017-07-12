@@ -1,4 +1,4 @@
-package 并发;
+package chapter10_并发;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +17,7 @@ public class StopThread {
 //                int i = 0;
 //                while (!stopRequested) {
 //                    i++;
-//                    System.out.println("i值\t"+i);
+//                    System.out.println("i值\t"+i);j
 //                }
 //            }
 //        });

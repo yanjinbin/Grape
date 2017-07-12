@@ -1,4 +1,4 @@
-package 并发;
+package chapter10_并发;
 
 import java.util.concurrent.TimeUnit;
 

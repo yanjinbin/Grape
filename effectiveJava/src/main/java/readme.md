@@ -1,3 +1,7 @@
+effective-java source code  地址: 
+
+https://github.com/marhan/effective-java-examples
+
 建造工厂 重用实例来实现不可变对象
 
 P80  设计子类基层父类的时候 不允许构造方法或者 cloneable 以及 seriliazable 接口 调用 可覆盖的方法
