@@ -30,12 +30,12 @@ public class StudentServiceTest {
 
     @Autowired
     private StudentMapper studentMapper;
-//
-//    @Before
-//    public void setUp() {
-//        // 准备，清空user表
-//        studentService.deleteAllUsers();
-//    }
+
+    @Before
+    public void setUp() {
+        // 准备，清空user表
+        studentService.deleteAllUsers();
+    }
 
     @Test
     public void test() throws Exception {
