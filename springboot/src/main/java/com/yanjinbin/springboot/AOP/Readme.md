@@ -1,0 +1,1 @@
+AOP实现机制 http://www.cnblogs.com/davidwang456/p/5732607.html

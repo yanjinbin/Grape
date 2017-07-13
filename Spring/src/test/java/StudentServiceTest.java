@@ -3,12 +3,17 @@ import com.yanjinbin.spring.Student;
 import com.yanjinbin.spring.StudentMapper;
 import com.yanjinbin.spring.StudentService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
 
 /**
  * @Author Grape
@@ -18,19 +23,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = BaseApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UserServiceTest {
+public class StudentServiceTest {
 
     @Autowired
     private StudentService studentService;
 
     @Autowired
     private StudentMapper studentMapper;
-
-    @org.junit.Before
-    public void setUp() {
-        // 准备，清空user表
-        studentService.deleteAllUsers();
-    }
+//
+//    @Before
+//    public void setUp() {
+//        // 准备，清空user表
+//        studentService.deleteAllUsers();
+//    }
 
     @Test
     public void test() throws Exception {
@@ -50,11 +55,13 @@ public class UserServiceTest {
     }
 
     @Test
-    @Rollback
     public void findByName() throws Exception {
-        studentMapper.insert("AAA", 20);
+        LocalDateTime ldt = LocalDateTime.now();
+        Date now = Date.from(ldt.toInstant(ZoneOffset.UTC));
+        studentMapper.insert("AAA", 20, now, now);
         Student u = studentMapper.findByName("AAA");
         Assert.assertEquals(20, u.getAge());
+        studentMapper.deleteByName("AAA");
     }
 
 }

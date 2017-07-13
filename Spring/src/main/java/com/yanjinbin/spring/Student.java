@@ -8,7 +8,7 @@ import lombok.Data;
  * @Since 2017/7/13.
  */
 @Data
-@Builder
+//@Builder
 public class Student {
     private int id;
     private String name;
