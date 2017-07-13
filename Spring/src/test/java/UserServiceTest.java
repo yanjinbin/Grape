@@ -1,10 +1,13 @@
 import com.yanjinbin.spring.BaseApplication;
+import com.yanjinbin.spring.Student;
+import com.yanjinbin.spring.StudentMapper;
 import com.yanjinbin.spring.StudentService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
@@ -14,32 +17,45 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = BaseApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = BaseApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserServiceTest {
 
     @Autowired
-    private StudentService userSerivce;
+    private StudentService studentService;
+
+    @Autowired
+    private StudentMapper studentMapper;
 
     @org.junit.Before
     public void setUp() {
         // 准备，清空user表
-        userSerivce.deleteAllUsers();
+        studentService.deleteAllUsers();
     }
+
     @Test
     public void test() throws Exception {
         // 插入5个用户
-        userSerivce.create("a", 1);
-        userSerivce.create("b", 2);
-        userSerivce.create("c", 3);
-        userSerivce.create("d", 4);
-        userSerivce.create("e", 5);
+        studentService.create("a", 1);
+        studentService.create("b", 2);
+        studentService.create("c", 3);
+        studentService.create("d", 4);
+        studentService.create("e", 5);
         // 查数据库，应该有5个用户
-        Assert.assertEquals(5, userSerivce.getAllUsers().intValue());
+        Assert.assertEquals(5, studentService.getAllUsers().intValue());
         // 删除两个用户
-        userSerivce.deleteByName("a");
-        userSerivce.deleteByName("e");
+        studentService.deleteByName("a");
+        studentService.deleteByName("e");
         // 查数据库，应该有5个用户
-        Assert.assertEquals(3, userSerivce.getAllUsers().intValue());
+        Assert.assertEquals(3, studentService.getAllUsers().intValue());
     }
+
+    @Test
+    @Rollback
+    public void findByName() throws Exception {
+        studentMapper.insert("AAA", 20);
+        Student u = studentMapper.findByName("AAA");
+        Assert.assertEquals(20, u.getAge());
+    }
+
 }
 
