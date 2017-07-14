@@ -1,6 +1,9 @@
 package com.yanjinbin.spring;
 
 import org.apache.ibatis.annotations.*;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -9,6 +12,7 @@ import java.util.Date;
  * @Since 2017/7/13.
  */
 @Mapper
+@Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
 public interface StudentMapper {
 
     @Select("SELECT * FROM student WHERE NAME = #{name}")
