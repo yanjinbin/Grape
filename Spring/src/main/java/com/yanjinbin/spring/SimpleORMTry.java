@@ -10,13 +10,13 @@ import java.util.List;
  * @Since 2017/7/14.
  */
 public class SimpleORMTry {
-    public static void main(String[] args) {
-        try {
-            System.out.println(getStudent(11));
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            System.out.println(getStudent(11));
+//        } catch (NotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static Student getStudent(Integer id) throws NotFoundException {
         CustomerMappingQuery customerMappingQuery = new CustomerMappingQuery(null);
