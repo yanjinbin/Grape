@@ -9,16 +9,13 @@ import java.lang.reflect.Method;
  */
 public class RunTest {
     public static void main(String[] args) {
-        int tests = 0;
-        int passed = 0;
-        Herb herb = new Herb(Herb.Type.ANNUAL.name(),Herb.Type.ANNUAL);
+        Herb herb = new Herb(Herb.Type.ANNUAL.name(), Herb.Type.ANNUAL);
         Method[] declaredMethods = herb.getClass().getDeclaredMethods();
-        for (Method method :
-
-                declaredMethods) {
+        for (Method method : declaredMethods) {
             if (method.isAnnotationPresent(Override.class)) {
                 try {
                     Object invoke = method.invoke(herb, herb.type);
+                    System.out.println(invoke);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
