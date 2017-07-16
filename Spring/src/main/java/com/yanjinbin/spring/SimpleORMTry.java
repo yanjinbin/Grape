@@ -17,14 +17,14 @@ public class SimpleORMTry {
 //            e.printStackTrace();
 //        }
 //    }
-
-    public static Student getStudent(Integer id) throws NotFoundException {
-        CustomerMappingQuery customerMappingQuery = new CustomerMappingQuery(null);
-        Object[] params = new Object[1];
-        params[0] = id;
-        List rs = customerMappingQuery.execute(params);
-        if (rs.size() > 0) {
-            return ((Student) rs.get(0));
-        } else throw new NotFoundException("差无结果");
-    }
+//
+//    public static Student getStudent(Integer id) throws NotFoundException {
+//        CustomerMappingQuery customerMappingQuery = new CustomerMappingQuery(null);
+//        Object[] params = new Object[1];
+//        params[0] = id;
+//        List rs = customerMappingQuery.execute(params);
+//        if (rs.size() > 0) {
+//            return ((Student) rs.get  (0));
+//        } else throw new NotFoundException("差无结果");
+//    }
 }

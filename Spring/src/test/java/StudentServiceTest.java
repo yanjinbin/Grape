@@ -58,7 +58,8 @@ public class StudentServiceTest {
     public void findByName() throws Exception {
         LocalDateTime ldt = LocalDateTime.now();
         Date now = Date.from(ldt.toInstant(ZoneOffset.UTC));
-        studentMapper.insert("AAA", 20, now, now);
+//        studentMapper.insert("AAA", 20, now, now);
+        studentMapper.insert("BBB",21,null,null);
         Student u = studentMapper.findByName("AAA");
         Assert.assertEquals(20, u.getAge());
         studentMapper.deleteByName("AAA");

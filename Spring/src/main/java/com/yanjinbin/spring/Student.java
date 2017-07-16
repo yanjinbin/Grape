@@ -19,13 +19,13 @@ import javax.persistence.Id;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
-@Entity
+//@Entity
 public class Student {
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private int id;
-    @Column(nullable = false, length = 5)
+   // @Column(nullable = false, length = 5)
     private String name;
-    @Column(nullable = false, precision = 2)
+   // @Column(nullable = false, precision = 2)
     private int age;
 }

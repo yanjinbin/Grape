@@ -21,11 +21,13 @@ public interface StudentMapper {
     @Insert("INSERT INTO " +
             "student (name, age,gmt_create,gmt_modified) " +
             "VALUES " +
-            "(#{name}, #{age},#{gmt_create},#{gmt_modified})")
+            "('XXX','100','2017-07-16 20:34:51','2017-07-16 20:34:51'),(#{name}, #{age},#{gmt_create},#{gmt_modified})")
     int insert(@Param("name") String name, @Param("age") Integer age, @Param("gmt_create") Date gmt_Create, @Param("gmt_modified") Date gmt_modified);
 
     @Delete("delete from student where name = #{name}")
     int deleteByName(String name);
+
+
 
 }
 
