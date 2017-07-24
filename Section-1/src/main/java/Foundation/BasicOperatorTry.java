@@ -41,7 +41,7 @@ public class BasicOperatorTry {
         //位或
         System.out.println("位或运算结果------   " + (5 | 3));
         //位非 ,注意位非是一元操作符
-        System.out.println("位非运算结果-------   " + (~5));
+        System.out.println("位非运算结xx果-------   " + (~5));
         //位异或
         System.out.println("位异或结果-----    " + (5 ^ 3));
         //短语与 逻辑与  按位与 按位或 https://goo.gl/KYRNtd
