@@ -18,6 +18,6 @@ public class ConcurrentHashMapTry {
         map.put(s1.getName(), s1);
         map.put(s2.getName(), s3);
         map.put(s3.getName(), s3);
-
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 }

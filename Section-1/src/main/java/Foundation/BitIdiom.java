@@ -9,9 +9,7 @@ package Foundation;
  */
 public class BitIdiom {
     public static void main(String[] args) {
-
-        int intMax = getIntMax();
-        System.out.println(Integer.toBinaryString(getIntMin()));
+        System.out.println(addOne(1));
     }
 
     public static int getIntMax() {
@@ -74,7 +72,7 @@ public class BitIdiom {
     public static int getBit(int n, int m) {
         return (n >> (m - 1)) & 1;
     }
-
+    //将
     public static int setBitToOne(int n, int m) {
         return n | (1 << (m - 1));
     /*将1左移m-1位找到第m位，得到000...1...000
@@ -85,5 +83,18 @@ public class BitIdiom {
         return n & ~(1 << (m - 1));
     /* 将1左移m-1位找到第m位，取反后变成111...0...1111
        n再和这个数做与运算*/
+    }
+    // 加1
+    public static int addOne(int n){
+        return -~n;
+    }
+    //减1
+    public static int minusOne(int n){
+        return  ~-n;
+    }
+
+    //去相反数
+    public static int contrariety(int n){
+        return ~n + 1;
     }
 }

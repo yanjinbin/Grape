@@ -13,7 +13,9 @@ public class MultiThreadDebug {
     public static void main(String[] args) throws InterruptedException {
         int i = atomicInteger.get();
         System.out.println(i);
+
         // 多线程名字一定要取好,这样才能调试的时候 方便切换线程d
+
         Thread t = new Thread("---哈哈--") { // 断点0
             @Override
             public void run() {
@@ -38,13 +40,7 @@ public class MultiThreadDebug {
         Thread.sleep(2000);
         System.out.println("4"); // 断点4
 
-//        while (true) {
-//            if (atomicInteger.get() > 8) {
-//                break;
-//            }
-//            t.start();
-//            atomicInteger.getAndIncrement();
-//        }
+
     }
 
     private static AtomicInteger atomicInteger = new AtomicInteger(0);

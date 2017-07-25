@@ -38,6 +38,7 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
     private static final long waitStatusOffset;
     private static final long nextOffset;
 
+
     static {
         try {
             stateOffset = unSafe.objectFieldOffset(AbstractQueuedSynchronizerTry.class.getDeclaredField("state"));

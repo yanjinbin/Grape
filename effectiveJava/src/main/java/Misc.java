@@ -1,4 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.String;
 
 /**
  * @Author Silver bullet
@@ -7,6 +6,13 @@ import com.sun.org.apache.xpath.internal.operations.String;
 public class Misc {
     public static void main(String[] args) {
         String string = new String();
-
+        int h = -1233444;
+        System.out.println(Integer.toBinaryString(h));
+        System.out.println(spread(h));
+        System.out.println(Integer.toBinaryString(HASH_BITS));
     }
+    static final int spread(int h) {
+        return (h ^ (h >>> 16)) & HASH_BITS;
+    }
+    static final int HASH_BITS = 0x7fffffff;
 }
