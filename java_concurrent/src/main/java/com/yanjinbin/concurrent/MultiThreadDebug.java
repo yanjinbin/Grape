@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * idea 多线程调试
+ * 必须全部是thread级别 否则 进不了你想进的断点1 2 3
  * http://dwz.cn/6g4gkZ
  *
  * @Author Grape
