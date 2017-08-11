@@ -64,14 +64,15 @@ class BoundedBuffer {
 }
 
 public class ConditionTest2 {
-    private static BoundedBuffer bb = new BoundedBuffer();
+
+    private static BoundedBuffer boundedBuffer = new BoundedBuffer();
 
     public static void main(String[] args) {
         // 启动10个“写线程”，向BoundedBuffer中不断的写数据(写入0-9)；
         // 启动10个“读线程”，从BoundedBuffer中不断的读数据。
         for (int i = 0; i < 10; i++) {
-            new PutThread("p" + i, i).start();
-            new TakeThread("t" + i).start();
+            new PutThread("写线程---\t\t\t" + i, i).start();
+            new TakeThread(" 读线程---\t\t\t" + i).start();
         }
     }
 
@@ -86,7 +87,7 @@ public class ConditionTest2 {
         public void run() {
             try {
                 Thread.sleep(1);    // 线程休眠1ms
-                bb.put(num);        // 向BoundedBuffer中写入数据
+                boundedBuffer.put(num);        // 向BoundedBuffer中写入数据
             } catch (InterruptedException e) {
             }
         }
@@ -100,7 +101,7 @@ public class ConditionTest2 {
         public void run() {
             try {
                 Thread.sleep(10);                    // 线程休眠1ms
-                Integer num = (Integer) bb.take();    // 从BoundedBuffer中取出数据
+                Integer num = (Integer) boundedBuffer.take();    // 从BoundedBuffer中取出数据
             } catch (InterruptedException e) {
             }
         }

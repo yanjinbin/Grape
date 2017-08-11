@@ -13,4 +13,6 @@ public class RedisTry {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
+
 }

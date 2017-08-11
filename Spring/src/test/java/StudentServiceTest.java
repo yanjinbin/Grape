@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -31,11 +32,9 @@ public class StudentServiceTest {
     @Autowired
     private StudentMapper studentMapper;
 
-    @Before
-    public void setUp() {
-        // 准备，清空user表
-        studentService.deleteAllUsers();
-    }
+    @Autowired
+    private RedisTemplate redisTemplate;
+//--0
 
     @Test
     public void test() throws Exception {
@@ -65,5 +64,11 @@ public class StudentServiceTest {
         studentMapper.deleteByName("AAA");
     }
 
+
+    @Test
+    public void redis(){
+        redisTemplate.opsForValue().set("a","中国");
+        System.out.println(redisTemplate.opsForValue().get("a").equals(" 中国"));
+    }
 }
 
