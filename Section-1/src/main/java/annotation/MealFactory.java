@@ -14,7 +14,7 @@ public class MealFactory {
         }
 
         if ("Tiramisu".equals(id)) {
-            return new TiramisuPizza();
+            return new Tiramisu();
         }
 
         if ("Margherita".equals(id)) {

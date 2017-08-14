@@ -1,16 +1,9 @@
 java 注解处理器
 ---
+参考这篇文章就可以完全理解 JAVAC 如何处理被注解标注的类了
 
-https://www.race604.com/annotation-processing/
+[戳我,:grinning:中文版](https://www.race604.com/annotation-processing/)
 
-https://github.com/sockeqwe/annotationprocessing101
+[英文版](https://github.com/sockeqwe/annotationprocessing101)
 
-
-http://blog.csdn.net/haveferrair/article/details/52182927
-
-
-http://www.cnblogs.com/wondertwo/p/6017403.html
-
-
-http://www.voidcn.com/blog/FX_SKY/article/p-6362440.html
 
