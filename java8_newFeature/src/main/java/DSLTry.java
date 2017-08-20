@@ -1,5 +1,5 @@
 /**
- * nextodo
+ * nextodo  http://it.deepinmind.com/java/2014/04/13/java-8-friday-no-more-need-for-orms.html
  * domain-specific-language DSL替代 ORM框架关系映射
  *
  * @Author Grape

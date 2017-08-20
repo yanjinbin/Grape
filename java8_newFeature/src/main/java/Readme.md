@@ -5,6 +5,8 @@ http://ebnbin.com/2015/12/20/java-8-default-methods/
 java8学习资料汇总, 收集了好多有意思的问题
 http://www.infoq.com/cn/news/2014/06/java8-learning-resources
 
+抛弃 ORM :  http://it.deepinmind.com/java/2014/04/13/java-8-friday-no-more-need-for-orms.html
+
 //这篇 lambda 讲的就已经很不错了
 https://luyiisme.github.io/2017/01/21/java8-lambda/
 https://nkcoder.github.io/2016/01/16/java-8-lambda-expression-guide/
