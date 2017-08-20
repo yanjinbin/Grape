@@ -1,6 +1,8 @@
 package Reflection.DynamicProxy;
 
 /**
+ * nextodo JDK 动态代理的实现  http://rejoy.iteye.com/blog/1627405
+ * http://www.sczyh30.com/posts/Java/java-reflection-2/
  * @author Silver & Bullet
  *         since 2016-十二月
  */

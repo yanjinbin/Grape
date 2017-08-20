@@ -47,7 +47,9 @@ Java动态代理 使用场景:
 - 自定义工厂与依赖注入容器之间的适配器
 - AOP的方法拦截器
 
-二〇一六年十二月六日 17:49:09
+以下2篇是关于 jdk 反射底层原理解析的好文章 nextodo
+http://rejoy.iteye.com/blog/1627405
+http://www.sczyh30.com/posts/Java/java-reflection-2/
 
 ----
 
