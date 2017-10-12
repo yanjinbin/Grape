@@ -35,6 +35,8 @@ public class ExceptionTry {
         }
     }
 
+//    Throwables.throwIfInstanceOf(null,RuntimeException.class);
+
     public static void throwNullEXEC(String s) throws NullPointerException {
         System.out.println("s的值   "+s);
     }

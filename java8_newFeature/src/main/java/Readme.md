@@ -17,7 +17,7 @@ https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/
 
 stream 得操作
 流的操作
-接下来，当把一个数据结构包装成 Stream 后，就要开始对里面的元素进行各类操作了。常见的操作可以归类如下。
+接下来，当把一个数据结构包装成 Stream 后，就要开始对里面的元进行各类操作了。常见的操作可以归类如下。
 **Intermediate**：
 map (mapToInt, flatMap 等)、 filter、 distinct、 sorted、 peek、 limit、 skip、 parallel、 sequential、 unordered
 **Terminal**：

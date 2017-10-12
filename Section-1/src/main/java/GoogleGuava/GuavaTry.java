@@ -1,6 +1,8 @@
 package GoogleGuava;
 
 import com.google.common.base.Function;
+import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimaps;
 
@@ -32,14 +34,17 @@ public class GuavaTry {
         list.add(personC);
         //构造map
         //Iterator iterator = list.iterator();
-        Maps.uniqueIndex(list,new Function<Person,String>(){
+
+        /*ImmutableMap immutableMap = Maps.uniqueIndex(list, new Function<Person, String>() {
 
             @Nullable
             public String apply(@Nullable Person input) {
                 return personA.getName();
             }
         });
-        Multimaps.index(list,new Function<Person,String>(){
+        System.out.println(immutableMap);*/
+
+        ImmutableListMultimap immutableListMultimap = Multimaps.index(list, new Function<Person, String>() {
 
             @Nullable
             public String apply(@Nullable Person input) {
@@ -47,7 +52,9 @@ public class GuavaTry {
             }
         });
 
-       // Maps.toMap()
+        System.out.println(immutableListMultimap);
+
+        // Maps.toMap()
 
     }
     public  static List list;

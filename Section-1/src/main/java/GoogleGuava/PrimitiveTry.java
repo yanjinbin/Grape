@@ -32,7 +32,7 @@ public class PrimitiveTry {
         //return -1 if not exist
         int i = Ints.indexOf(new int[]{1, 22, 4, 533, 22}, 23);
         System.out.println(i);
-
+        System.out.println("哈哈");
         int lastIndexOf = Ints.lastIndexOf(new int[]{2, 333, 22, 3, 45, 9, 29, 9}, 9);
         System.out.println(lastIndexOf);
         int[] ints = {2, 333, 22, 3, 45, 9, 29, 9};

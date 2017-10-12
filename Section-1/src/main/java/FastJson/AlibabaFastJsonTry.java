@@ -115,7 +115,7 @@ public class AlibabaFastJsonTry {
 
         //  Assert.assertEquals("{\"name\":\"guest\"}",JSON.toJSONString(guestUser,simplePropertyPreFilter));
 
-        //序列化属性定制参加 User 和Group类
+        //序列化属性定制 参考 User 和Group类
 
         //custom enum NIO.serializable
         System.out.println("---------enum custom srerializable ");
