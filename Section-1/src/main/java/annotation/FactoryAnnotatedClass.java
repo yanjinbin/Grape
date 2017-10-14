@@ -16,10 +16,11 @@
 package annotation;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.MirroredTypeException;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * Holds the information about a class annotated with @Factory

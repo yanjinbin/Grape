@@ -1,6 +1,6 @@
+import com.yanjinbin.springboot.PropertyValue.PropertiesValue;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.yanjinbin.springboot.PropertyValue.PropertiesValue;
 
 /**
  * @author Silver Bullet

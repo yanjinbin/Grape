@@ -1,7 +1,5 @@
 package com.yanjinbin.concurrent.excutor.callable_future;
 
-import java.util.concurrent.*;
-
 /**
  * 需要确认 是 FutureTask 真正的执行类 自行了 run()方法
  * http://www.cnblogs.com/skywang12345/p/3544116.html

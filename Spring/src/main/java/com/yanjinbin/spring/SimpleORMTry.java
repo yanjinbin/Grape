@@ -1,10 +1,5 @@
 package com.yanjinbin.spring;
 
-import org.apache.ibatis.javassist.NotFoundException;
-import org.springframework.jdbc.datasource.DataSourceUtils;
-
-import java.util.List;
-
 /**
  * @Author Grape
  * @Since 2017/7/14.

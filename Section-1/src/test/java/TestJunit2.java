@@ -1,5 +1,5 @@
 import junit.framework.TestCase;
-import org.junit.*;
+import org.junit.Before;
 
 /**
  * @author Silver & Bullet

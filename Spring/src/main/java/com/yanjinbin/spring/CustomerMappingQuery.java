@@ -1,14 +1,5 @@
 package com.yanjinbin.spring;
 
-import org.springframework.jdbc.core.SqlParameter;
-import org.springframework.jdbc.object.MappingSqlQuery;
-
-import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
-
-
 /**
  * @Author Grape
  * @Since 2017/7/13.

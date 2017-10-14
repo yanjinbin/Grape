@@ -1,15 +1,18 @@
+/*
 package annotation;
 
+*/
 /**
  * @Author Silver bullet
  * @Since 2017/7/2.
- */
+ *//*
+
 public class PizzaStore {
 
-    private MealFactory mealFactory = new MealFactory();
+ //   private MealFactory mealFactory = new MealFactory();
 
     public Meal order(String mealName) {
-        return mealFactory.create(mealName);
+       // return mealFactory.create(mealName);
 
 //        if (mealName == null) {
 //            throw new IllegalArgumentException("Name of the meal is null!");
@@ -38,3 +41,4 @@ public class PizzaStore {
         System.out.println(order.getPrice());
     }
 }
+*/

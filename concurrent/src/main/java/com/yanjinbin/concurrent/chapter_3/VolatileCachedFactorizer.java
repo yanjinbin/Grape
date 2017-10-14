@@ -2,7 +2,6 @@ package com.yanjinbin.concurrent.chapter_3;
 
 import org.springframework.web.servlet.HttpServletBean;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

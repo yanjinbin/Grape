@@ -134,6 +134,10 @@ public final class CalendarUtil {
     }
 
     public static void main(String[] args) {
+
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
+        System.out.println(LocalDateTime.now().toLocalDate());
+
         Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
         for (String s : availableZoneIds
                 ) {

@@ -2,7 +2,6 @@ package com.yanjinbin.springboot.hellomodule;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
 
 /**
  * @author Silver Bullet

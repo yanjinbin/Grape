@@ -1,8 +1,8 @@
+import com.yanjinbin.springboot.hellomodule.UserController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import com.yanjinbin.springboot.hellomodule.UserController;
 
 /**
  * @author Silver Bullet

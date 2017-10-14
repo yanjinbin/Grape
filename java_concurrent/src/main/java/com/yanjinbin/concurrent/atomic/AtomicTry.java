@@ -1,7 +1,5 @@
 package com.yanjinbin.concurrent.atomic;
 
-import java.util.concurrent.atomic.*;
-
 /**
  * http://www.cnblogs.com/skywang12345/p/3514593.html
  *

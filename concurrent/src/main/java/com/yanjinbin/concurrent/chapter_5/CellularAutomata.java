@@ -1,9 +1,5 @@
 package com.yanjinbin.concurrent.chapter_5;
 
-import lombok.Builder;
-
-import java.util.concurrent.*;
-
 /**
  * nextodo
  * CellularAutomata

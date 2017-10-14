@@ -1,7 +1,5 @@
 package com.yanjinbin.concurrent.chapter_5;
 
-import java.util.concurrent.*;
-
 /**
  * FutureTask 任务
  *
