@@ -22,6 +22,9 @@
         <module>io</module>
         <module>jvm</module>
         <module>effectiveJava</module>
+        <module>java_concurrent</module>
+        <module>java8_newFeature</module>
+        <module>concurrent</module>
 
     </modules>
     <!--统一管理版本,避免版本冲突-->

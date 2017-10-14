@@ -1,9 +1,12 @@
+/*
 package annotation;
 
+*/
 /**
  * @Author Silver bullet
  * @Since 2017/7/2.
- */
+ *//*
+
 public class MealFactory {
     public Meal create(String id) {
         if (id == null) {
@@ -24,3 +27,4 @@ public class MealFactory {
         throw new IllegalArgumentException("Unknown id = " + id);
     }
 }
+*/

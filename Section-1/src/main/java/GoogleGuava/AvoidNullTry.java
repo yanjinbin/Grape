@@ -50,6 +50,8 @@ public class AvoidNullTry {
         System.out.println("s2 is empty -----" + Strings.nullToEmpty(s2) + "----");
         //   stringOption.transform()
 
+
+
     }
 
     public static ArrayList arrayList = new ArrayList();
@@ -60,7 +62,7 @@ public class AvoidNullTry {
 
     public static String blankString = "    ";
 
-    public static String nullString = null;
+    public static String nullString ;
 
     public static String[] stringArray = {"a", "b", "n", "b"};
 
