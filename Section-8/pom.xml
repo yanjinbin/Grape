@@ -7,10 +7,5 @@
     <groupId>netty.io</groupId>
     <artifactId>netty</artifactId>
     <version>1.0-SNAPSHOT</version>
-  <parent>
-        <groupId>SilverAndBullet</groupId>
-        <artifactId>SilverBullet</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
 </project>

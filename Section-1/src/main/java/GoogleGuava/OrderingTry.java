@@ -30,6 +30,7 @@ public class OrderingTry {
         Ordering<Object> objectOrdering1 = Ordering.usingToString();
         //把给定的Comparator转换为比较器
         Ordering.from(new Comparator<Object>() {
+            @Override
             public int compare(Object o1, Object o2) {
                 return -1;
             }

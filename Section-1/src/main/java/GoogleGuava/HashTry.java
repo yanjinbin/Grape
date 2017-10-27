@@ -30,6 +30,7 @@ public class HashTry {
         Hasher hasher = hashFunction.newHasher();
 
         hasher.putInt(1).putObject(new Person(), new Funnel<Person>() {
+            @Override
             public void funnel(Person from, PrimitiveSink into) {
             }
         });
