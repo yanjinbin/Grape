@@ -11,7 +11,8 @@ import java.time.LocalDate;
  * @since 一月-05
  */
 @Data
-@JSONType//对类的序列化定制
+@JSONType()
+//对类的序列化定制
 public class User {
     //制定序列化成json的排序,默认是按照fieldName 字母排序
     @JSONField(ordinal = 11)

@@ -4,5 +4,5 @@
  */
 @FunctionalInterface
 public interface Animal {
-    void accept();
+       void accept();
 }

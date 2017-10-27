@@ -22,6 +22,8 @@ public class SeniorStreamTry {
         Stream<Integer> outputStream = inputStream.
                 flatMap((childList) -> childList.stream()); //flatmap用法
 
+
+
         Stream.of("A", "B", "C", "D", "E", "F").reduce("拼接\t\t", String::concat);
 
 
