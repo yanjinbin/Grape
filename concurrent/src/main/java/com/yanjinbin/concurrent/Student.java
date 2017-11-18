@@ -3,17 +3,18 @@ package com.yanjinbin.concurrent;
 import lombok.Builder;
 import lombok.Data;
 
-/**
- * @Author Grape
- * @Since 2017/7/5.
- */
-@Builder
-@Data
-public class Student {
 
-    private int age;
+/**
+ * Created by yanjinbin on 2017/4/29.
+ */
+@Data
+@Builder
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class Student {
+    // private Student(){}
+    private Integer id;
 
     private String name;
 
-    private int id;
+    private String phone;
 }
