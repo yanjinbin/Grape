@@ -27,11 +27,13 @@ public enum PayRollStrategy {
     private enum PayType {
         //策略枚举模式
         WEEKDAY {
+            @Override
             double overtimePay(double hours, double payRate) {
                 return hours <= HOURS_PER_SHIFT ? 0 : (hours - HOURS_PER_SHIFT) / 2;
             }
         },
         WEEKEND {
+            @Override
             double overtimePay(double hours, double payRate) {
                 return hours * payRate / 2;
             }

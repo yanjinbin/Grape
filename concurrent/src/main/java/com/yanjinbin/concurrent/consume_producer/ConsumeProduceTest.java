@@ -29,6 +29,7 @@ public class ConsumeProduceTest {
         // 两个子线程 放数据
         for (int i = 0; i < 2; i++) {
             new Thread() {
+                @Override
                 public void run() {
                     while (true) {
                         try {
@@ -49,6 +50,7 @@ public class ConsumeProduceTest {
 
         // main 主线程 取数据
         new Thread() {
+            @Override
             public void run() {
                 while (true) {
                     try {

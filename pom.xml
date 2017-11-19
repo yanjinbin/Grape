@@ -21,15 +21,11 @@
         <module>servlet</module>
         <module>spring</module>
         <module>Springboot</module>
+        <module>bugreport</module>
     </modules>
     <!--统一管理版本,避免版本冲突-->
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-parent</artifactId>
-                <version>1.1.8</version>
-            </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-parent</artifactId>

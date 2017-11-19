@@ -10,8 +10,9 @@ class MyCallable implements Callable {
     public Integer call() throws Exception {
         int sum = 0;
         // 执行任务
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++) {
             sum += i;
+        }
         //return sum; 
         return sum;
     }

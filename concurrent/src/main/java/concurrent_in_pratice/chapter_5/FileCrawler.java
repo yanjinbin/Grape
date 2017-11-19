@@ -31,7 +31,9 @@ public class FileCrawler implements Runnable {
                     files) {
                 if (item.isDirectory()) {
                     crawl(item);
-                } else fileQueue.put(item);
+                } else {
+                    fileQueue.put(item);
+                }
             }
         }
     }

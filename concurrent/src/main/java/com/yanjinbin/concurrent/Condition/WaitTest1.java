@@ -32,6 +32,7 @@ public class WaitTest1 {
             super(name);
         }
 
+        @Override
         public void run() {
             synchronized (this) { // 通过synchronized(this)获取“当前对象的同步锁”
                 System.out.println(Thread.currentThread().getName() + " wakup others");

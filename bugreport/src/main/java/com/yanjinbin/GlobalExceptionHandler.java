@@ -1,5 +1,6 @@
 package com.yanjinbin;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author 吉利不布吉
  * @since 2017/11/18
  */
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     public final static String DEFAULT_ERROR_VIEW = "error";

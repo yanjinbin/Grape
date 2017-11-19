@@ -19,6 +19,7 @@ public class OrderingTry {
 
     public static void main(String[] args) {
         Ordering<String> byLengthOrdering = new Ordering<String>() {
+            @Override
             public int compare(String left, String right) {
                 return Ints.compare(left.length(), right.length());
             }
@@ -50,6 +51,7 @@ public class OrderingTry {
 
         //基于返回值,按照当前排序器排序
         objectOrdering.onResultOf(new Function<Object, Integer>() {
+            @Override
             @Nullable
             public Integer apply(@Nullable Object input) {
 

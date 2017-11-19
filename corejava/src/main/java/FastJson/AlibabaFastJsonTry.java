@@ -146,6 +146,7 @@ public class AlibabaFastJsonTry {
 
 
         FieldTypeResolver fieldResolver = new FieldTypeResolver() {
+            @Override
             public Type resolve(Object object, String fieldName) {
                 if (fieldName.startsWith("item_")) { // 字段名称为item_开始的对象，识别类型为Item
                     return Item.class;

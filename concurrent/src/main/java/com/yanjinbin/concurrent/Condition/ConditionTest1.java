@@ -43,6 +43,7 @@ public class ConditionTest1 {
             super(name);
         }
 
+        @Override
         public void run() {
             lock.lock();    // 获取锁
             try {

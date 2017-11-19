@@ -33,8 +33,11 @@ public class Fib extends ForkJoinTask {
 
 
     private int seqFib(int n) {
-        if (n <= 1) return n;
-        else return seqFib(n - 1) + seqFib(n - 2);
+        if (n <= 1) {
+            return n;
+        } else {
+            return seqFib(n - 1) + seqFib(n - 2);
+        }
     }
 
 

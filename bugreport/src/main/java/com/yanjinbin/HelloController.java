@@ -13,8 +13,8 @@ public class HelloController {
     private HelloService helloService;
 
     @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
+    public Response index() {
+        return Response.createSuccess("哈哈哈","成功输出");
     }
 
     @RequestMapping("/npe")

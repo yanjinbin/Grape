@@ -46,6 +46,7 @@ public class GuavaTry {
 
         ImmutableListMultimap immutableListMultimap = Multimaps.index(list, new Function<Person, String>() {
 
+            @Override
             @Nullable
             public String apply(@Nullable Person input) {
                 return input.getName();

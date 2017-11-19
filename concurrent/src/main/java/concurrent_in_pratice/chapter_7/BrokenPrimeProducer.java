@@ -21,6 +21,7 @@ public class BrokenPrimeProducer extends Thread {
         cancelled = true;
     }
 
+    @Override
     public void run() {
         try {
             BigInteger p = BigInteger.ONE;

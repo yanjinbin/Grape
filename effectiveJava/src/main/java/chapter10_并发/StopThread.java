@@ -29,6 +29,7 @@ public class StopThread {
         //下面show了如何改进这个方法 用 synchronized 关键字 进行读写同步
         long before = System.currentTimeMillis();
         Thread thread = new Thread(new Runnable() {
+            @Override
             public void run() {
                 int i = 0;
                 if (!getStopReuqested()) {//读操作

@@ -19,6 +19,7 @@ public class AutoBox {
 
 
         Comparator<Integer> naturalOrder = new Comparator<Integer>() {
+            @Override
             public int compare(Integer o1, Integer o2) {
                 int first = o1;
                 int second = o2;

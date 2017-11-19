@@ -8,6 +8,7 @@ public class MyThread extends Thread {
         super(name);
     }
 
+    @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + "启动了--");
     }

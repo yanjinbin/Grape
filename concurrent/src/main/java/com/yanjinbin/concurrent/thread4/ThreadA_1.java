@@ -9,12 +9,14 @@ public class ThreadA_1 extends Thread {
         super(name);
     }
 
+    @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + " run ");
         // 死循环，不断运行。
-        while (true)
+        while (true) {
             System.out.println(Thread.currentThread().getName() + "" +
                     "\t我一直在运行噢");
+        }
     }
 
 }

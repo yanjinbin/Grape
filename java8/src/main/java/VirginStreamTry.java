@@ -38,6 +38,7 @@ public class VirginStreamTry {
 
     public void runTask() {
         new Thread(new Runnable() {
+            @Override
             public void run() {
                 System.out.println("running a task");
             }

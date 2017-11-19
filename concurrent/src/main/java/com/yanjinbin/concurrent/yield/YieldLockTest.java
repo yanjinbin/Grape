@@ -21,14 +21,16 @@ public class YieldLockTest {
             super(name);
         }
 
+        @Override
         public void run() {
             // 获取obj对象的同步锁
             synchronized (obj) {
                 for (int i = 0; i < 10; i++) {
                     System.out.printf("%s [%d]:%d\n", this.getName(), this.getPriority(), i);
                     // i整除4时，调用yield
-                    if (i % 4 == 0)
+                    if (i % 4 == 0) {
                         Thread.yield();
+                    }
                 }
             }
         }

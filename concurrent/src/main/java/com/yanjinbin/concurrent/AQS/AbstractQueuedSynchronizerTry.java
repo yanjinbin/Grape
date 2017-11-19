@@ -250,8 +250,9 @@ public class AbstractQueuedSynchronizerTry extends AbstractOwnableSynchronizer {
         for (AbstractQueuedSynchronizerTry.CLHNode p = tail; p != null; p = p.prev) {
             if (!p.isShared()) {
                 Thread t = p.thread;
-                if (t != null)
+                if (t != null) {
                     list.add(t);
+                }
             }
         }
         return list;

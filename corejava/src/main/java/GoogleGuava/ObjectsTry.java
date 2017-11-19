@@ -24,10 +24,12 @@ public class ObjectsTry {
 
         //除order之外的比较器
         ComparisonChain compare = ComparisonChain.start().compare(i, j).compare(new Comparable<Object>() {
+            @Override
             public int compareTo(Object o) {
                 return m.compareTo(n);
             }
         }, new Comparable<Object>() {
+            @Override
             public int compareTo(Object o) {
                 return n.compareTo(m);
             }

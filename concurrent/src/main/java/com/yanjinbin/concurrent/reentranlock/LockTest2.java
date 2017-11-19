@@ -42,6 +42,7 @@ class Producer_2 {
     // 消费产品：新建一个线程向仓库中生产产品。
     public void produce(final int val) {
         new Thread() {
+            @Override
             public void run() {
                 depot2.produce(val);
             }
@@ -60,6 +61,7 @@ class Customer_2 {
     // 消费产品：新建一个线程从仓库中消费产品。
     public void consume(final int val) {
         new Thread() {
+            @Override
             public void run() {
                 depot2.consume(val);
             }

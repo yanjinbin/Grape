@@ -18,6 +18,7 @@ public class DynamicSubject implements InvocationHandler {
         this.sub=sub;
     }
 
+    @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Preamble annotation = method.getAnnotation(Preamble.class);
         if (annotation!=null){

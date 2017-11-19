@@ -18,6 +18,7 @@ public class HashMapRehashIng {
     public static void main(String[] args) {
         map.put(5, 55);
         Thread t1 = new Thread("Thread_1`") {
+            @Override
             public void run() {
                 map.put(7, 77);
                 System.out.println(map);
@@ -26,6 +27,7 @@ public class HashMapRehashIng {
         t1.start();
 
         Thread t2 = new Thread("Thread_2") {
+            @Override
             public void run() {
                 map.put(3, 33);
                 System.out.println(map);

@@ -12,6 +12,7 @@ public class StopThread_1 {
     public static void main(String[] args) throws InterruptedException {
         long before = System.currentTimeMillis();
         Thread thread = new Thread(new Runnable() {
+            @Override
             public void run() {
                 int i = 0;
                 while (!stopRequested) {

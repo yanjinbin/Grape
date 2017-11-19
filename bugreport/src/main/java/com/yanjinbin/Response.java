@@ -11,7 +11,7 @@ import lombok.Data;
  * @since 二月-27
  */
 @Data
-public class Response<V> {
+public final class Response<V> {
     @JSONField(serialize = false, deserialize = false)
     public boolean isSuccess;
     private Integer code;

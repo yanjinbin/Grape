@@ -16,7 +16,8 @@ import java.util.*;
  */
 public class MultiMapTry {
     public static void main(String[] args) {
-        ImmutableMultimap<Integer, String> immutableMultimap = ImmutableMultimap.of(1, "a").of(2, "b").of(3, "c");
+        ImmutableMultimap.of(2, "b");
+        ImmutableMultimap<Integer, String> immutableMultimap = ImmutableMultimap.of(3, "c");
         //?
         boolean isExist = immutableMultimap.containsValue("b");
         boolean containsKey = immutableMultimap.containsKey(1);

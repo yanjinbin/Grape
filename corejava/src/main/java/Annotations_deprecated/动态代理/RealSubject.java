@@ -6,6 +6,7 @@ package Annotations_deprecated.动态代理;
  */
 
 public class RealSubject implements Subject {
+    @Override
     public void request() {
         System.out.println("动态代理中");
     }

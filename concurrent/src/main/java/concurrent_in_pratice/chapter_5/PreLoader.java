@@ -32,10 +32,11 @@ public class PreLoader {
             return future.get();
         } catch (ExecutionException e) {
             Throwable cause = e.getCause();
-            if (cause instanceof DataLoadException)
+            if (cause instanceof DataLoadException) {
                 throw (DataLoadException) cause;
-            else
+            } else {
                 throw LaunderThrowable.launderThrowable(cause);
+            }
         }
 
     }

@@ -25,7 +25,9 @@ public class ThreadInterruptTry {
         System.out.println(Thread.currentThread().isInterrupted());
         int a = 11;
         while (!Thread.currentThread().isInterrupted()) {
-            if (a == 15) break;
+            if (a == 15) {
+                break;
+            }
             a++;
             System.out.println("哈哈");
         }

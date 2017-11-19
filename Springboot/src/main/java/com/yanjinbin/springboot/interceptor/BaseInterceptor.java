@@ -15,6 +15,7 @@ public class BaseInterceptor implements HandlerInterceptor {
     /**
      * 在DispatcherServlet之前执行
      * */
+    @Override
     public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
         System.out.println("************BaseInterceptor preHandle executed**********");
         return true;
@@ -23,6 +24,7 @@ public class BaseInterceptor implements HandlerInterceptor {
     /**
      * 在controller执行之后的DispatcherServlet之后执行
      * */
+    @Override
     public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
             throws Exception {
         System.out.println("************BaseInterceptor postHandle executed**********");
@@ -31,6 +33,7 @@ public class BaseInterceptor implements HandlerInterceptor {
     /**
      * 在页面渲染完成返回给客户端之前执行
      * */
+    @Override
     public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
             throws Exception {
         System.out.println("************BaseInterceptor afterCompletion executed**********");
