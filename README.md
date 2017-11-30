@@ -79,3 +79,8 @@ chapter 2 : mysql 配置参数
 
 
 
+------
+http://www.fanyilun.me/2015/10/29/Java%E5%8F%8D%E5%B0%84%E5%8E%9F%E7%90%86/
+
+
+https://www.zhihu.com/question/46883050
