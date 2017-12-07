@@ -1,12 +1,14 @@
 package Reflection;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.Field;
 
 /**
  * Created by Silver & Bullet
  * since 2016-十二月
  */
-
+@Slf4j
 public class FieldTry {
     public static void main(String[] args) {
         System.out.println("setter getter for fields by Reflection");

@@ -1,4 +1,6 @@
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /** master test  2017年2月24日 10:31:50
  * @author Silver Bullet
@@ -12,13 +14,13 @@ public class Test implements Serializable {
 
 
     public static void main(String[] args) {
-   /*     String replace = UUID.randomUUID().toString().replace("-", "");
-        System.out.println(replace.length());*/
         String s1 ="ab"+"c";
         String s2 = "abc";
         System.out.println(s1==s2+":"+s1.equals(s2));
-
-
+        long fromTime = 1511254613;
+        SimpleDateFormat  sdf= new SimpleDateFormat();
+        String format = sdf.format(new Date(fromTime));
+        System.out.println(format);
 
     }
 }

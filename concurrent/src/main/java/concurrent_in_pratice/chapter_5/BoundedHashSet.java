@@ -27,7 +27,7 @@ public class BoundedHashSet<V> {
             added = set.add(v);
             return added;
         } catch (InterruptedException ex) {
-            throw new InterruptedException();
+            throw new InterruptedException(ex.getMessage());
         } finally {
             if (!added) {
                 semaphore.release();
