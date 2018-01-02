@@ -15,4 +15,6 @@ public class HelloServiceImpl implements HelloService {
         log.error("要开始抛异常了----嘿嘿");
         System.out.println(msg.toString());
     }
+
+
 }
