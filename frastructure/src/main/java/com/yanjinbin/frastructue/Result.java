@@ -32,7 +32,7 @@ public class Result<Value> implements Serializable {
 
     private
     @Getter
-    Map exts;
+    Map ext;
 
     private
     @Getter
@@ -57,7 +57,6 @@ public class Result<Value> implements Serializable {
         this.has_more =true;
     }
 
-
     public Result( Value v, String msg, int rc,boolean has_more) {
         this.msg = msg;
         this.value = v;
@@ -69,63 +68,58 @@ public class Result<Value> implements Serializable {
         this.value =v;
         this.msg = msg;
         this.rc =rc;
-        this.exts = exts;
+        this.ext = exts;
         this.has_more =true;
     }
-    public Result(String msg,int rc ,Map exts){
+
+    public Result(String msg,int rc ,Map ext){
         this.msg = msg;
         this.rc =rc;
-        this.exts = exts;
+        this.ext = ext;
         this.has_more =true;
     }
-//
-//    public Result(PageResult<Value> result, String msg, int rc) {
-//        this.result = result;
-//        this.msg = msg;
-//        this.rc = rc;
-//    }
 
     public Result(String msg, int rc) {
         this.msg = msg;
         this.rc = rc;
     }
 
-    public static <T> Result<T> createSuccess(T v, int rc) {
+    public static <T> Result<T> Success(T v, int rc) {
         return new Result(v, "SUCCESS", rc);
     }
 
-    public static <T> Result<T> createSuccess(T v) {
+    public static <T> Result<T> Success(T v) {
         return new Result(v,  SUCCESS,"success");
     }
 
-    public static <T> Result<T> createSuccess(T v, String msg) {
+    public static <T> Result<T> Success(T v, String msg) {
         return new Result<T>(v, msg, SUCCESS);
     }
 
-    public static <T> Result<T> createError(String msg, int rc) {
+    public static <T> Result<T> Error(String msg, int rc) {
         return new Result<T>(msg, rc);
     }
 
-    public static <T> Result<T> createError(String msg, int rc, T v) {
-        return new Result<T>(v, msg, rc);
+    public static <T> Result<T> Success(T  t, String msg, int rc){
+        return new Result<>(t,msg,rc);
     }
 
-
-    public static <T> Result<T> createSuccess(T  t, String msg, int rc , Map ext){
+    public static <T> Result<T> SuccessExt(T  t, String msg, int rc , Map ext){
         return new Result<>(t,msg,rc,ext);
     }
 
-    public static <T> Result<T> createSuccess(String msg, int rc , Map ext){
+    public static <T> Result<T> SuccessExt(String msg, int rc , Map ext){
         return new Result<>(msg,rc,ext);
     }
 
 
-    public static <T> Result<T> SUCCESS_PAGE(int total_record,int page_no,List<T> data){
+    public static <T> Result<T> PAGE(int total_record, int page_no, List<T> data){
 
         PageResult<T> pageResult = new PageResult<>(total_record, page_no, data);
 
         return  new Result(pageResult,"success",SUCCESS);
     }
+
     @Data
     public static class PageResult<T> {
         //总条数
