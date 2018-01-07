@@ -1,4 +1,4 @@
-package com.yanjinbin;
+package com.yanjinbin.aop;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

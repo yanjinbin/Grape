@@ -163,6 +163,15 @@ public final class CalendarUtil {
         System.out.println(now.getDayOfWeek());
         System.out.println(now.getDayOfYear());
         System.out.println(now.getSecond());
+
+        System.out.println("======");
+
+        Date date = new Date();
+        LocalDateTime start = CalendarUtil.toLocalDateTime(date);
+        System.out.println(start);
+        System.out.println(start.plusDays(1));
+        System.out.println(start);
+
     }
 
 
