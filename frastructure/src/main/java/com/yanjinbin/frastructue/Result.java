@@ -43,7 +43,7 @@ public class Result<Value> implements Serializable {
     }
 
 
-    public Result( Value v, String msg, int rc) {
+    public Result(Value v, String msg, int rc) {
         this.msg = msg;
         this.value = v;
         this.rc = rc;
@@ -54,7 +54,6 @@ public class Result<Value> implements Serializable {
         this.msg = msg;
         this.value = v;
         this.rc = rc;
-        this.has_more =true;
     }
 
     public Result( Value v, String msg, int rc,boolean has_more) {
@@ -96,12 +95,16 @@ public class Result<Value> implements Serializable {
         return new Result<T>(v, msg, SUCCESS);
     }
 
-    public static <T> Result<T> Error(String msg, int rc) {
+    public static <T> Result<T> Success(T  t, String msg, int rc){
+        return new Result<>(t,msg,rc);
+    }
+
+    public static <T> Result<T> Error(String msg,int rc){
         return new Result<T>(msg, rc);
     }
 
-    public static <T> Result<T> Success(T  t, String msg, int rc){
-        return new Result<>(t,msg,rc);
+    public static <T> Result<T> Error(String msg) {
+        return new Result<T>(msg, FAILED);
     }
 
     public static <T> Result<T> SuccessExt(T  t, String msg, int rc , Map ext){
