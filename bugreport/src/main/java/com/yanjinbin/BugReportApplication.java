@@ -55,11 +55,10 @@ public class BugReportApplication extends WebMvcConfigurerAdapter {
     }
 
     @Override
-    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        httpMessageConverter();
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.clear();
+        converters.add(httpMessageConverter());
     }
-
-
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -76,7 +75,6 @@ public class BugReportApplication extends WebMvcConfigurerAdapter {
         register.setFilter(filter2());
         register.setOrder(2);
         return register;
-
     }
 
 

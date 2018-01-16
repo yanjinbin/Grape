@@ -13,3 +13,5 @@ netty/netty.iml
 redis/redis.iml
 servlet/servlet.iml
 /frastructure/frastructure.iml
+/aop/aop.iml
+/es/es.iml

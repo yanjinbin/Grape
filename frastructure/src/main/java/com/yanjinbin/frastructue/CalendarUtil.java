@@ -69,7 +69,6 @@ public final class CalendarUtil {
         return format;
     }
 
-
     //返回2个date之间的时间间隔
     public static final int diff(Date d1, Date d2) {
         long d1Time = d1.getTime();
@@ -121,5 +120,6 @@ public final class CalendarUtil {
         return from;
 
     }
+
 
 }

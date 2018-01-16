@@ -2,6 +2,7 @@ package com.yanjinbin.frastructue;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,22 +20,27 @@ public class Result<Value> implements Serializable {
     public static final int SUCCESS = 1;
 
     private
+    @Setter
     @Getter
     String msg;
 
     private
+    @Setter
     @Getter
     Value value;
 
     private
+    @Setter
     @Getter
     int rc;
 
     private
+    @Setter
     @Getter
     Map ext;
 
     private
+    @Setter
     @Getter
     boolean has_more;
 

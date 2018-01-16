@@ -21,9 +21,10 @@ public class ExceptionHandleDemoController {
     )
     public Response index() {
         TimeDuration duration = new TimeDuration();
-        duration.setFromTime(LocalDateTime.of(2017,11,23,231,23,13));
+        duration.setFromTime(LocalDateTime.of(2017,11,23,23,23,13));
+        System.out.println(duration.getFromTime().toString());
         duration.setToTime(LocalDateTime.now());
-        duration.setGroupType(GroupType.WEEK);
+        duration.setGroupType(GroupType.DAY);
 
         return Response.createSuccess(duration,"成功输出");
     }
