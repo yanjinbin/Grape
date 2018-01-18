@@ -2,9 +2,8 @@ package com.yanjinbin.dao;
 
 import com.yanjinbin.model.AvDailyChargeEntity;
 import com.yanjinbin.model.AvDailyChargeEntityExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface AvDailyChargeEntityMapper {
     /**
