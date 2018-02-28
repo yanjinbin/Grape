@@ -21,6 +21,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.yanjinbin.frastructure</groupId>
+            <artifactId>frastructure</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!--AOP注解支持-->
         <dependency>
@@ -70,7 +75,21 @@
             <version>1.16.18</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>8.5.23</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.40</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
 
