@@ -1,20 +1,14 @@
 package com.yanjinbin.aop;
 
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.google.common.base.Charsets;
-import com.google.common.collect.Lists;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author 吉利不布吉
@@ -41,20 +35,20 @@ public class BaseApplication  extends WebMvcConfigurerAdapter{
 
         };
     }
-
-    @Bean
-    public HttpMessageConverter httpMessageConverter(){
-        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
-        fastJsonHttpMessageConverter.setDefaultCharset(Charsets.UTF_8);
-        fastJsonHttpMessageConverter.setSupportedMediaTypes(Lists.newArrayList(MediaType.APPLICATION_JSON_UTF8));
-        return fastJsonHttpMessageConverter;
-    }
-
-    @Override
-    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        httpMessageConverter();
-    }
-
+//
+//    @Bean
+//    public HttpMessageConverter httpMessageConverter(){
+//        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+//        fastJsonHttpMessageConverter.setDefaultCharset(Charsets.UTF_8);
+//        fastJsonHttpMessageConverter.setSupportedMediaTypes(Lists.newArrayList(MediaType.APPLICATION_JSON_UTF8));
+//        return fastJsonHttpMessageConverter;
+//    }
+//
+//    @Override
+//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+//        converters.clear();
+//        converters.add(httpMessageConverter());
+//    }
 
 
 }
