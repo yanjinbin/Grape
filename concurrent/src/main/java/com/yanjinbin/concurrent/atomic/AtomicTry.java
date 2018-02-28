@@ -1,5 +1,7 @@
 package com.yanjinbin.concurrent.atomic;
 
+import java.util.concurrent.atomic.*;
+
 /**
  * http://www.cnblogs.com/skywang12345/p/3514593.html
  *
@@ -55,7 +57,7 @@ public class AtomicTry {
 
         Class<Person> personClass = Person.class;
         AtomicIntegerFieldUpdater<Person> aifu = AtomicIntegerFieldUpdater.newUpdater(personClass, "age");
-        Person person_1 = new Person("哈哈", 11);
+        Person person_1 = new Person(11,"哈哈");
         boolean b = aifu.compareAndSet(person_1, 11, 12);
         System.out.println(person_1.getAge());
 

@@ -1,4 +1,4 @@
-package FutureTask;
+package com.yanjinbin.concurrent.FutureTask;
 
 /**
  * todo  和guava 的 ListenableFuture 和 Service 一同学习

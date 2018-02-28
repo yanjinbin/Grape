@@ -1,5 +1,8 @@
 package concurrent_in_pratice.chapter_5;
 
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+
 /**
  * nextodo
  * CellularAutomata

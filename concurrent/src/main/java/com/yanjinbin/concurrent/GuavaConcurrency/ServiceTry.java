@@ -1,4 +1,4 @@
-package GuavaConcurrency;
+package com.yanjinbin.concurrent.GuavaConcurrency;
 
 /**
  * @Author Silver bullet
