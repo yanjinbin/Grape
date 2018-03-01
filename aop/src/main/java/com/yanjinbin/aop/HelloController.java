@@ -42,12 +42,14 @@ public class HelloController {
         return Result.Success("服务一切正常");
     }
 
+    // 最常用的AOP实现
     @AuthChecker
     @RequestMapping("/aop/http/user_info")
     public Result callSomeInterface() {
         return Result.Success("调用了 user_info 接口.");
     }
 
+    // 方法前后切面
     @RequestMapping("/test")
     public void test() {
         needLogService.logMethod("xys");
@@ -56,12 +58,11 @@ public class HelloController {
         } catch (Exception e) {
             // Ignore
         }
-        helloService.hello("哈哈哈哈啊😝");
+        System.out.println(helloService.hello("哈哈哈哈啊😝"));
         normalService.someMethod();
     }
 
-
-
+    // 统计方法耗时
     @RequestMapping("/some")
     public Result some() {
         someService.someMethod();
