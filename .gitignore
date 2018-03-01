@@ -15,3 +15,4 @@ servlet/servlet.iml
 /frastructure/frastructure.iml
 /aop/aop.iml
 /es/es.iml
+**/target/
