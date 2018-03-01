@@ -21,7 +21,14 @@ public class BasicInfoTry {
             Class<Person> another = Person.class;
             System.out.println("is Class equal ?========" + another.equals(personClass));
             System.out.println("super class is =====" + another.getSuperclass().getName());
-            System.out.println("implemented interfaces are ====" + another.getInterfaces());
+            Class<?>[] interfaces = another.getInterfaces();
+            System.out.println("interfaces is ===== start");
+            System.out.println(interfaces.length);
+            for (Class<?> anInterface : interfaces) {
+                System.out.println(anInterface.getCanonicalName());
+            }
+            System.out.println("interfaces is ===== end");
+            System.out.println("implemented interfaces are ====" + interfaces);
             System.out.println("package info ====" + another.getPackage());
             Constructor<?>[] constructors = another.getConstructors();
             System.out.println("constructor info is shown bellow ");
@@ -30,11 +37,11 @@ public class BasicInfoTry {
             }
 
 
-            System.out.println("simple name =====" + personClass.getSimpleName());
+            System.out.println("simple name ===== \t" + personClass.getSimpleName());
             ClassLoader classLoader = personClass.getClassLoader();
 
 
-            System.out.println("ClassLoader名字====" + classLoader.getClass().getName());
+            System.out.println("ClassLoader名字====\t" + classLoader.getClass().getName());
             Method[] methods = personClass.getDeclaredMethods();
             Method[] allMethods = personClass.getMethods();
             for (Method item :
