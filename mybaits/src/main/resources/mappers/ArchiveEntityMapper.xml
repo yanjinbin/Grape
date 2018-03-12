@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanjinbin.dao.ArchiveEntityMapper">
+  <resultMap id="BaseResultMap" type="com.yanjinbin.model.ArchiveEntity">
+    <!--
+    @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="ArchiveId" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="typeid" jdbcType="SMALLINT" property="typeid" />
+    <result column="humanrank_delete" jdbcType="INTEGER" property="humanrankDelete" />
+    <result column="click_delete" jdbcType="INTEGER" property="clickDelete" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="src_title_delete" jdbcType="VARCHAR" property="srcTitleDelete" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="duration" jdbcType="INTEGER" property="duration" />
+    <result column="reject_reason" jdbcType="VARCHAR" property="rejectReason" />
+    <result column="attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="copyright" jdbcType="TINYINT" property="copyright" />
+    <result column="arealimit" jdbcType="TINYINT" property="arealimit" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="access" jdbcType="INTEGER" property="access" />
+    <result column="round" jdbcType="TINYINT" property="round" />
+    <result column="forward" jdbcType="INTEGER" property="forward" />
+    <result column="pubtime" jdbcType="TIMESTAMP" property="pubtime" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <result column="mtime" jdbcType="TIMESTAMP" property="mtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+    @mbg.generated
+    -->
+    id, mid, typeid, humanrank_delete, click_delete, title, src_title_delete, author, 
+    cover, note, content, tag, duration, reject_reason, `attribute`, copyright, arealimit, 
+    `state`, `access`, round, `forward`, pubtime, ctime, mtime
+  </sql>
+  <select id="selectByExample" parameterType="com.yanjinbin.model.ArchiveEntityExample" resultMap="BaseResultMap">
+    <!--
+    @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from archive
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="offset != null">
+      <if test="limit != null">
+        limit ${limit}, ${offset}
+      </if>
+      <if test="offset == null">
+        limit ${offset}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--
+    @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from archive
+    where id = #{ArchiveId,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.yanjinbin.model.ArchiveEntity">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="ArchiveId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into archive (mid, typeid, humanrank_delete, 
+      click_delete, title, src_title_delete, 
+      author, cover, note, 
+      content, tag, duration, 
+      reject_reason, `attribute`, copyright, 
+      arealimit, `state`, `access`, 
+      round, `forward`, pubtime, 
+      ctime, mtime)
+    values (#{mid,jdbcType=INTEGER}, #{typeid,jdbcType=SMALLINT}, #{humanrankDelete,jdbcType=INTEGER}, 
+      #{clickDelete,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{srcTitleDelete,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
+      #{rejectReason,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, #{copyright,jdbcType=TINYINT}, 
+      #{arealimit,jdbcType=TINYINT}, #{state,jdbcType=INTEGER}, #{access,jdbcType=INTEGER}, 
+      #{round,jdbcType=TINYINT}, #{forward,jdbcType=INTEGER}, #{pubtime,jdbcType=TIMESTAMP}, 
+      #{ctime,jdbcType=TIMESTAMP}, #{mtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanjinbin.model.ArchiveEntity">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="ArchiveId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into archive
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        mid,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="humanrankDelete != null">
+        humanrank_delete,
+      </if>
+      <if test="clickDelete != null">
+        click_delete,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="srcTitleDelete != null">
+        src_title_delete,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="cover != null">
+        cover,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+      <if test="rejectReason != null">
+        reject_reason,
+      </if>
+      <if test="attribute != null">
+        `attribute`,
+      </if>
+      <if test="copyright != null">
+        copyright,
+      </if>
+      <if test="arealimit != null">
+        arealimit,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="access != null">
+        `access`,
+      </if>
+      <if test="round != null">
+        round,
+      </if>
+      <if test="forward != null">
+        `forward`,
+      </if>
+      <if test="pubtime != null">
+        pubtime,
+      </if>
+      <if test="ctime != null">
+        ctime,
+      </if>
+      <if test="mtime != null">
+        mtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=SMALLINT},
+      </if>
+      <if test="humanrankDelete != null">
+        #{humanrankDelete,jdbcType=INTEGER},
+      </if>
+      <if test="clickDelete != null">
+        #{clickDelete,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="srcTitleDelete != null">
+        #{srcTitleDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="copyright != null">
+        #{copyright,jdbcType=TINYINT},
+      </if>
+      <if test="arealimit != null">
+        #{arealimit,jdbcType=TINYINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="access != null">
+        #{access,jdbcType=INTEGER},
+      </if>
+      <if test="round != null">
+        #{round,jdbcType=TINYINT},
+      </if>
+      <if test="forward != null">
+        #{forward,jdbcType=INTEGER},
+      </if>
+      <if test="pubtime != null">
+        #{pubtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtime != null">
+        #{mtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yanjinbin.model.ArchiveEntityExample" resultType="java.lang.Long">
+    <!--
+    @mbg.generated
+    -->
+    select count(*) from archive
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update archive
+    <set>
+      <if test="record.ArchiveId != null">
+        id = #{record.ArchiveId,jdbcType=INTEGER},
+      </if>
+      <if test="record.mid != null">
+        mid = #{record.mid,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeid != null">
+        typeid = #{record.typeid,jdbcType=SMALLINT},
+      </if>
+      <if test="record.humanrankDelete != null">
+        humanrank_delete = #{record.humanrankDelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.clickDelete != null">
+        click_delete = #{record.clickDelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.srcTitleDelete != null">
+        src_title_delete = #{record.srcTitleDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cover != null">
+        cover = #{record.cover,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tag != null">
+        tag = #{record.tag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.duration != null">
+        duration = #{record.duration,jdbcType=INTEGER},
+      </if>
+      <if test="record.rejectReason != null">
+        reject_reason = #{record.rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attribute != null">
+        `attribute` = #{record.attribute,jdbcType=INTEGER},
+      </if>
+      <if test="record.copyright != null">
+        copyright = #{record.copyright,jdbcType=TINYINT},
+      </if>
+      <if test="record.arealimit != null">
+        arealimit = #{record.arealimit,jdbcType=TINYINT},
+      </if>
+      <if test="record.state != null">
+        `state` = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.access != null">
+        `access` = #{record.access,jdbcType=INTEGER},
+      </if>
+      <if test="record.round != null">
+        round = #{record.round,jdbcType=TINYINT},
+      </if>
+      <if test="record.forward != null">
+        `forward` = #{record.forward,jdbcType=INTEGER},
+      </if>
+      <if test="record.pubtime != null">
+        pubtime = #{record.pubtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ctime != null">
+        ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mtime != null">
+        mtime = #{record.mtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update archive
+    set id = #{record.ArchiveId,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=INTEGER},
+      typeid = #{record.typeid,jdbcType=SMALLINT},
+      humanrank_delete = #{record.humanrankDelete,jdbcType=INTEGER},
+      click_delete = #{record.clickDelete,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      src_title_delete = #{record.srcTitleDelete,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
+      cover = #{record.cover,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      duration = #{record.duration,jdbcType=INTEGER},
+      reject_reason = #{record.rejectReason,jdbcType=VARCHAR},
+      `attribute` = #{record.attribute,jdbcType=INTEGER},
+      copyright = #{record.copyright,jdbcType=TINYINT},
+      arealimit = #{record.arealimit,jdbcType=TINYINT},
+      `state` = #{record.state,jdbcType=INTEGER},
+      `access` = #{record.access,jdbcType=INTEGER},
+      round = #{record.round,jdbcType=TINYINT},
+      `forward` = #{record.forward,jdbcType=INTEGER},
+      pubtime = #{record.pubtime,jdbcType=TIMESTAMP},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      mtime = #{record.mtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanjinbin.model.ArchiveEntity">
+    <!--
+    @mbg.generated
+    -->
+    update archive
+    <set>
+      <if test="mid != null">
+        mid = #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        typeid = #{typeid,jdbcType=SMALLINT},
+      </if>
+      <if test="humanrankDelete != null">
+        humanrank_delete = #{humanrankDelete,jdbcType=INTEGER},
+      </if>
+      <if test="clickDelete != null">
+        click_delete = #{clickDelete,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="srcTitleDelete != null">
+        src_title_delete = #{srcTitleDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        duration = #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        `attribute` = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="copyright != null">
+        copyright = #{copyright,jdbcType=TINYINT},
+      </if>
+      <if test="arealimit != null">
+        arealimit = #{arealimit,jdbcType=TINYINT},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="access != null">
+        `access` = #{access,jdbcType=INTEGER},
+      </if>
+      <if test="round != null">
+        round = #{round,jdbcType=TINYINT},
+      </if>
+      <if test="forward != null">
+        `forward` = #{forward,jdbcType=INTEGER},
+      </if>
+      <if test="pubtime != null">
+        pubtime = #{pubtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtime != null">
+        mtime = #{mtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{ArchiveId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanjinbin.model.ArchiveEntity">
+    <!--
+    @mbg.generated
+    -->
+    update archive
+    set mid = #{mid,jdbcType=INTEGER},
+      typeid = #{typeid,jdbcType=SMALLINT},
+      humanrank_delete = #{humanrankDelete,jdbcType=INTEGER},
+      click_delete = #{clickDelete,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      src_title_delete = #{srcTitleDelete,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=INTEGER},
+      reject_reason = #{rejectReason,jdbcType=VARCHAR},
+      `attribute` = #{attribute,jdbcType=INTEGER},
+      copyright = #{copyright,jdbcType=TINYINT},
+      arealimit = #{arealimit,jdbcType=TINYINT},
+      `state` = #{state,jdbcType=INTEGER},
+      `access` = #{access,jdbcType=INTEGER},
+      round = #{round,jdbcType=TINYINT},
+      `forward` = #{forward,jdbcType=INTEGER},
+      pubtime = #{pubtime,jdbcType=TIMESTAMP},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      mtime = #{mtime,jdbcType=TIMESTAMP}
+    where id = #{ArchiveId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanjinbin.dao.ArchiveAdditEntityMapper">
+  <resultMap id="BaseResultMap" type="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="ArchiveAdditId" />
+    <result column="aid" jdbcType="BIGINT" property="aid" />
+    <result column="mission_id" jdbcType="INTEGER" property="missionId" />
+    <result column="up_from" jdbcType="TINYINT" property="upFrom" />
+    <result column="from_ip" jdbcType="INTEGER" property="fromIp" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <result column="mtime" jdbcType="TIMESTAMP" property="mtime" />
+    <result column="redirect_url" jdbcType="VARCHAR" property="redirectUrl" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="flow_id" jdbcType="INTEGER" property="flowId" />
+    <result column="advertiser" jdbcType="VARCHAR" property="advertiser" />
+    <result column="flow_remark" jdbcType="VARCHAR" property="flowRemark" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="desc_format_id" jdbcType="INTEGER" property="descFormatId" />
+    <result column="dynamic" jdbcType="VARCHAR" property="dynamic" />
+    <result column="thumbnails" jdbcType="VARCHAR" property="thumbnails" />
+    <result column="channel_id" jdbcType="SMALLINT" property="channelId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    <result column="recheck_reason" jdbcType="LONGVARCHAR" property="recheckReason" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--
+    @mbg.generated
+    -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--
+    @mbg.generated
+    -->
+    id, aid, mission_id, up_from, from_ip, ctime, mtime, redirect_url, `source`, order_id, 
+    flow_id, advertiser, flow_remark, description, desc_format_id, `dynamic`, thumbnails, 
+    channel_id
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+    @mbg.generated
+    -->
+    recheck_reason
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.yanjinbin.model.ArchiveAdditEntityExample" resultMap="ResultMapWithBLOBs">
+    <!--
+    @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from archive_addit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="offset != null">
+      <if test="limit != null">
+        limit ${limit}, ${offset}
+      </if>
+      <if test="offset == null">
+        limit ${offset}
+      </if>
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.yanjinbin.model.ArchiveAdditEntityExample" resultMap="BaseResultMap">
+    <!--
+    @mbg.generated
+    -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from archive_addit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="offset != null">
+      <if test="limit != null">
+        limit ${limit}, ${offset}
+      </if>
+      <if test="offset == null">
+        limit ${offset}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    <!--
+    @mbg.generated
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from archive_addit
+    where id = #{ArchiveAdditId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="ArchiveAdditId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into archive_addit (aid, mission_id, up_from, 
+      from_ip, ctime, mtime, 
+      redirect_url, `source`, order_id, 
+      flow_id, advertiser, flow_remark, 
+      description, desc_format_id, `dynamic`, 
+      thumbnails, channel_id, recheck_reason
+      )
+    values (#{aid,jdbcType=BIGINT}, #{missionId,jdbcType=INTEGER}, #{upFrom,jdbcType=TINYINT}, 
+      #{fromIp,jdbcType=INTEGER}, #{ctime,jdbcType=TIMESTAMP}, #{mtime,jdbcType=TIMESTAMP}, 
+      #{redirectUrl,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{orderId,jdbcType=INTEGER}, 
+      #{flowId,jdbcType=INTEGER}, #{advertiser,jdbcType=VARCHAR}, #{flowRemark,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{descFormatId,jdbcType=INTEGER}, #{dynamic,jdbcType=VARCHAR}, 
+      #{thumbnails,jdbcType=VARCHAR}, #{channelId,jdbcType=SMALLINT}, #{recheckReason,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    <selectKey keyProperty="ArchiveAdditId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into archive_addit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="missionId != null">
+        mission_id,
+      </if>
+      <if test="upFrom != null">
+        up_from,
+      </if>
+      <if test="fromIp != null">
+        from_ip,
+      </if>
+      <if test="ctime != null">
+        ctime,
+      </if>
+      <if test="mtime != null">
+        mtime,
+      </if>
+      <if test="redirectUrl != null">
+        redirect_url,
+      </if>
+      <if test="source != null">
+        `source`,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="flowId != null">
+        flow_id,
+      </if>
+      <if test="advertiser != null">
+        advertiser,
+      </if>
+      <if test="flowRemark != null">
+        flow_remark,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="descFormatId != null">
+        desc_format_id,
+      </if>
+      <if test="dynamic != null">
+        `dynamic`,
+      </if>
+      <if test="thumbnails != null">
+        thumbnails,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="recheckReason != null">
+        recheck_reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="missionId != null">
+        #{missionId,jdbcType=INTEGER},
+      </if>
+      <if test="upFrom != null">
+        #{upFrom,jdbcType=TINYINT},
+      </if>
+      <if test="fromIp != null">
+        #{fromIp,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtime != null">
+        #{mtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="redirectUrl != null">
+        #{redirectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="flowId != null">
+        #{flowId,jdbcType=INTEGER},
+      </if>
+      <if test="advertiser != null">
+        #{advertiser,jdbcType=VARCHAR},
+      </if>
+      <if test="flowRemark != null">
+        #{flowRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="descFormatId != null">
+        #{descFormatId,jdbcType=INTEGER},
+      </if>
+      <if test="dynamic != null">
+        #{dynamic,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnails != null">
+        #{thumbnails,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=SMALLINT},
+      </if>
+      <if test="recheckReason != null">
+        #{recheckReason,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yanjinbin.model.ArchiveAdditEntityExample" resultType="java.lang.Long">
+    <!--
+    @mbg.generated
+    -->
+    select count(*) from archive_addit
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    <set>
+      <if test="record.ArchiveAdditId != null">
+        id = #{record.ArchiveAdditId,jdbcType=BIGINT},
+      </if>
+      <if test="record.aid != null">
+        aid = #{record.aid,jdbcType=BIGINT},
+      </if>
+      <if test="record.missionId != null">
+        mission_id = #{record.missionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.upFrom != null">
+        up_from = #{record.upFrom,jdbcType=TINYINT},
+      </if>
+      <if test="record.fromIp != null">
+        from_ip = #{record.fromIp,jdbcType=INTEGER},
+      </if>
+      <if test="record.ctime != null">
+        ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mtime != null">
+        mtime = #{record.mtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.redirectUrl != null">
+        redirect_url = #{record.redirectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null">
+        `source` = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.flowId != null">
+        flow_id = #{record.flowId,jdbcType=INTEGER},
+      </if>
+      <if test="record.advertiser != null">
+        advertiser = #{record.advertiser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flowRemark != null">
+        flow_remark = #{record.flowRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.descFormatId != null">
+        desc_format_id = #{record.descFormatId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dynamic != null">
+        `dynamic` = #{record.dynamic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thumbnails != null">
+        thumbnails = #{record.thumbnails,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelId != null">
+        channel_id = #{record.channelId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.recheckReason != null">
+        recheck_reason = #{record.recheckReason,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    set id = #{record.ArchiveAdditId,jdbcType=BIGINT},
+      aid = #{record.aid,jdbcType=BIGINT},
+      mission_id = #{record.missionId,jdbcType=INTEGER},
+      up_from = #{record.upFrom,jdbcType=TINYINT},
+      from_ip = #{record.fromIp,jdbcType=INTEGER},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      mtime = #{record.mtime,jdbcType=TIMESTAMP},
+      redirect_url = #{record.redirectUrl,jdbcType=VARCHAR},
+      `source` = #{record.source,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      flow_id = #{record.flowId,jdbcType=INTEGER},
+      advertiser = #{record.advertiser,jdbcType=VARCHAR},
+      flow_remark = #{record.flowRemark,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      desc_format_id = #{record.descFormatId,jdbcType=INTEGER},
+      `dynamic` = #{record.dynamic,jdbcType=VARCHAR},
+      thumbnails = #{record.thumbnails,jdbcType=VARCHAR},
+      channel_id = #{record.channelId,jdbcType=SMALLINT},
+      recheck_reason = #{record.recheckReason,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    set id = #{record.ArchiveAdditId,jdbcType=BIGINT},
+      aid = #{record.aid,jdbcType=BIGINT},
+      mission_id = #{record.missionId,jdbcType=INTEGER},
+      up_from = #{record.upFrom,jdbcType=TINYINT},
+      from_ip = #{record.fromIp,jdbcType=INTEGER},
+      ctime = #{record.ctime,jdbcType=TIMESTAMP},
+      mtime = #{record.mtime,jdbcType=TIMESTAMP},
+      redirect_url = #{record.redirectUrl,jdbcType=VARCHAR},
+      `source` = #{record.source,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      flow_id = #{record.flowId,jdbcType=INTEGER},
+      advertiser = #{record.advertiser,jdbcType=VARCHAR},
+      flow_remark = #{record.flowRemark,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      desc_format_id = #{record.descFormatId,jdbcType=INTEGER},
+      `dynamic` = #{record.dynamic,jdbcType=VARCHAR},
+      thumbnails = #{record.thumbnails,jdbcType=VARCHAR},
+      channel_id = #{record.channelId,jdbcType=SMALLINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    <set>
+      <if test="aid != null">
+        aid = #{aid,jdbcType=BIGINT},
+      </if>
+      <if test="missionId != null">
+        mission_id = #{missionId,jdbcType=INTEGER},
+      </if>
+      <if test="upFrom != null">
+        up_from = #{upFrom,jdbcType=TINYINT},
+      </if>
+      <if test="fromIp != null">
+        from_ip = #{fromIp,jdbcType=INTEGER},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtime != null">
+        mtime = #{mtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="redirectUrl != null">
+        redirect_url = #{redirectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        `source` = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="flowId != null">
+        flow_id = #{flowId,jdbcType=INTEGER},
+      </if>
+      <if test="advertiser != null">
+        advertiser = #{advertiser,jdbcType=VARCHAR},
+      </if>
+      <if test="flowRemark != null">
+        flow_remark = #{flowRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="descFormatId != null">
+        desc_format_id = #{descFormatId,jdbcType=INTEGER},
+      </if>
+      <if test="dynamic != null">
+        `dynamic` = #{dynamic,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnails != null">
+        thumbnails = #{thumbnails,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=SMALLINT},
+      </if>
+      <if test="recheckReason != null">
+        recheck_reason = #{recheckReason,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{ArchiveAdditId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    set aid = #{aid,jdbcType=BIGINT},
+      mission_id = #{missionId,jdbcType=INTEGER},
+      up_from = #{upFrom,jdbcType=TINYINT},
+      from_ip = #{fromIp,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      mtime = #{mtime,jdbcType=TIMESTAMP},
+      redirect_url = #{redirectUrl,jdbcType=VARCHAR},
+      `source` = #{source,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=INTEGER},
+      flow_id = #{flowId,jdbcType=INTEGER},
+      advertiser = #{advertiser,jdbcType=VARCHAR},
+      flow_remark = #{flowRemark,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      desc_format_id = #{descFormatId,jdbcType=INTEGER},
+      `dynamic` = #{dynamic,jdbcType=VARCHAR},
+      thumbnails = #{thumbnails,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=SMALLINT},
+      recheck_reason = #{recheckReason,jdbcType=LONGVARCHAR}
+    where id = #{ArchiveAdditId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanjinbin.model.ArchiveAdditEntity">
+    <!--
+    @mbg.generated
+    -->
+    update archive_addit
+    set aid = #{aid,jdbcType=BIGINT},
+      mission_id = #{missionId,jdbcType=INTEGER},
+      up_from = #{upFrom,jdbcType=TINYINT},
+      from_ip = #{fromIp,jdbcType=INTEGER},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      mtime = #{mtime,jdbcType=TIMESTAMP},
+      redirect_url = #{redirectUrl,jdbcType=VARCHAR},
+      `source` = #{source,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=INTEGER},
+      flow_id = #{flowId,jdbcType=INTEGER},
+      advertiser = #{advertiser,jdbcType=VARCHAR},
+      flow_remark = #{flowRemark,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      desc_format_id = #{descFormatId,jdbcType=INTEGER},
+      `dynamic` = #{dynamic,jdbcType=VARCHAR},
+      thumbnails = #{thumbnails,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=SMALLINT}
+    where id = #{ArchiveAdditId,jdbcType=BIGINT}
+  </update>
+</mapper>

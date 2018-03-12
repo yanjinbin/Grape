@@ -63,6 +63,15 @@ public class LimitPlugin extends BasePlugin {
     public boolean modelExampleClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         PrimitiveTypeWrapper integerWrapper = FullyQualifiedJavaType.getIntInstance().getPrimitiveTypeWrapper();
         // 添加offset和rows字段
+        Field limitField = JavaElementGeneratorTools.generateField(
+                "limit",
+                JavaVisibility.PROTECTED,
+                integerWrapper,
+                null
+        );
+        commentGenerator.addFieldComment(limitField, introspectedTable);
+        topLevelClass.addField(limitField);
+
         Field offsetField = JavaElementGeneratorTools.generateField(
                 "offset",
                 JavaVisibility.PROTECTED,
@@ -71,31 +80,22 @@ public class LimitPlugin extends BasePlugin {
         );
         commentGenerator.addFieldComment(offsetField, introspectedTable);
         topLevelClass.addField(offsetField);
-
-        Field rowsField = JavaElementGeneratorTools.generateField(
-                "rows",
-                JavaVisibility.PROTECTED,
-                integerWrapper,
-                null
-        );
-        commentGenerator.addFieldComment(rowsField, introspectedTable);
-        topLevelClass.addField(rowsField);
-        log.debug("(MySQL分页插件):"+topLevelClass.getType().getShortName()+"增加offset和rows字段");
+        log.debug("(MySQL分页插件):"+topLevelClass.getType().getShortName()+"增加offset和offset字段");
 
         // 增加getter && setter 方法
-        Method mSetOffset = JavaElementGeneratorTools.generateSetterMethod(offsetField);
+        Method mSetOffset = JavaElementGeneratorTools.generateSetterMethod(limitField);
         commentGenerator.addGeneralMethodComment(mSetOffset, introspectedTable);
         topLevelClass.addMethod(mSetOffset);
 
-        Method mGetOffset = JavaElementGeneratorTools.generateGetterMethod(offsetField);
+        Method mGetOffset = JavaElementGeneratorTools.generateGetterMethod(limitField);
         commentGenerator.addGeneralMethodComment(mGetOffset, introspectedTable);
         topLevelClass.addMethod(mGetOffset);
 
-        Method mSetRows = JavaElementGeneratorTools.generateSetterMethod(rowsField);
+        Method mSetRows = JavaElementGeneratorTools.generateSetterMethod(offsetField);
         commentGenerator.addGeneralMethodComment(mSetRows, introspectedTable);
         topLevelClass.addMethod(mSetRows);
 
-        Method mGetRows = JavaElementGeneratorTools.generateGetterMethod(rowsField);
+        Method mGetRows = JavaElementGeneratorTools.generateGetterMethod(offsetField);
         commentGenerator.addGeneralMethodComment(mGetRows, introspectedTable);
         topLevelClass.addMethod(mGetRows);
         log.debug("itfsw(MySQL分页插件):"+topLevelClass.getType().getShortName()+"增加offset和rows的getter和setter实现。");
@@ -105,12 +105,12 @@ public class LimitPlugin extends BasePlugin {
                 "limit",
                 JavaVisibility.PUBLIC,
                 topLevelClass.getType(),
-                new Parameter(integerWrapper, "rows")
+                new Parameter(integerWrapper, "offset")
         );
         commentGenerator.addGeneralMethodComment(setLimit, introspectedTable);
         setLimit = JavaElementGeneratorTools.generateMethodBody(
                 setLimit,
-                "this.rows = rows;",
+                "this.offset = offset;",
                 "return this;"
         );
         topLevelClass.addMethod(setLimit);
@@ -119,18 +119,18 @@ public class LimitPlugin extends BasePlugin {
                 "limit",
                 JavaVisibility.PUBLIC,
                 topLevelClass.getType(),
-                new Parameter(integerWrapper, "offset"),
-                new Parameter(integerWrapper, "rows")
+                new Parameter(integerWrapper, "limit"),
+                new Parameter(integerWrapper, "offset")
         );
         commentGenerator.addGeneralMethodComment(setLimit2, introspectedTable);
         setLimit2 = JavaElementGeneratorTools.generateMethodBody(
                 setLimit2,
+                "this.limit = limit;",
                 "this.offset = offset;",
-                "this.rows = rows;",
                 "return this;"
         );
         topLevelClass.addMethod(setLimit2);
-        log.debug("itfsw(MySQL分页插件):"+topLevelClass.getType().getShortName()+"增加limit方法。");
+        log.debug("(MySQL分页插件):"+topLevelClass.getType().getShortName()+"增加limit方法。");
 
         Method setPage = JavaElementGeneratorTools.generateMethod(
                 "page",
@@ -142,8 +142,8 @@ public class LimitPlugin extends BasePlugin {
         commentGenerator.addGeneralMethodComment(setPage, introspectedTable);
         setPage = JavaElementGeneratorTools.generateMethodBody(
                 setPage,
-                "this.offset = page * pageSize;",
-                "this.rows = pageSize;",
+                "this.limit = page * pageSize;",
+                "this.offset = pageSize;",
                 "return this;"
         );
         topLevelClass.addMethod(setPage);
@@ -153,9 +153,9 @@ public class LimitPlugin extends BasePlugin {
         List<Method> methodList = topLevelClass.getMethods();
         for (Method method: methodList){
             if (method.getName().equals("clear")){
-                method.addBodyLine("rows = null;");
                 method.addBodyLine("offset = null;");
-                log.debug("itfsw(MySQL分页插件):"+topLevelClass.getType().getShortName()+"修改clear方法,增加rows和offset字段的清空");
+                method.addBodyLine("limit = null;");
+                log.debug("itfsw(MySQL分页插件):"+topLevelClass.getType().getShortName()+"修改clear方法,增加offset和limit字段的清空");
             }
         }
 
@@ -198,16 +198,16 @@ public class LimitPlugin extends BasePlugin {
      */
     public void generateLimitElement(XmlElement element, IntrospectedTable introspectedTable){
         XmlElement ifLimitNotNullElement = new XmlElement("if");
-        ifLimitNotNullElement.addAttribute(new Attribute("test", "rows != null"));
+        ifLimitNotNullElement.addAttribute(new Attribute("test", "offset != null"));
 
         XmlElement ifOffsetNotNullElement = new XmlElement("if");
-        ifOffsetNotNullElement.addAttribute(new Attribute("test", "offset != null"));
-        ifOffsetNotNullElement.addElement(new TextElement("limit ${offset}, ${rows}"));
+        ifOffsetNotNullElement.addAttribute(new Attribute("test", "limit != null"));
+        ifOffsetNotNullElement.addElement(new TextElement("limit ${limit}, ${offset}"));
         ifLimitNotNullElement.addElement(ifOffsetNotNullElement);
 
         XmlElement ifOffsetNullElement = new XmlElement("if");
         ifOffsetNullElement.addAttribute(new Attribute("test", "offset == null"));
-        ifOffsetNullElement.addElement(new TextElement("limit ${rows}"));
+        ifOffsetNullElement.addElement(new TextElement("limit ${offset}"));
         ifLimitNotNullElement.addElement(ifOffsetNullElement);
 
         element.addElement(ifLimitNotNullElement);
