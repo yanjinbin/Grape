@@ -10,16 +10,19 @@
     <description>支持读取 DDL comment内容,分页,丢去默认的xml追加的方式,</description>
 
     <dependencies>
+
         <dependency>
-            <groupId>com.itfsw</groupId>
-            <artifactId>mybatis-generator-plugin</artifactId>
-            <version>1.1.0</version>
+            <groupId>com.yanjinbin.mybatis</groupId>
+            <artifactId>MybatisGeneratorSupportZhCN</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.4.4</version>
         </dependency>
+
 
     </dependencies>
 
@@ -45,14 +48,56 @@
                         <version>5.1.40</version>
                     </dependency>
                     <dependency>
-                        <groupId>com.itfsw</groupId>
-                        <artifactId>mybatis-generator-plugin</artifactId>
-                        <version>1.1.0</version>
+                        <groupId>com.yanjinbin.mybatis</groupId>
+                        <artifactId>MybatisGeneratorSupportZhCN</artifactId>
+                        <version>1.0-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
             </plugin>
         </plugins>
     </build>
+
+
+
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <name>maven-public</name>
+            <url>http://118.25.50.34:8081/repository/maven-public/</url>
+            <!--<url>http://nexus.bilibili.co/content/groups/public</url>-->
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <!--<id>bili-nexus-release-server</id>-->
+            <url>http://118.25.50.34:8081/repository/maven-releases/</url>
+            <!--<url>http://nexus.bilibili.co/content/repositories/releases/</url>-->
+        </repository>
+
+
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <!--<id>bili-nexus-snapshots-server</id>-->
+            <!--<url>http://nexus.bilibili.co/content/repositories/snapshots/</url>-->
+            <url>http://118.25.50.34:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>maven-public</id>-->
+            <!--&lt;!&ndash;<name>Nexus</name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<url>http://nexus.bilibili.co/content/groups/public</url>&ndash;&gt;-->
+            <!--<name>maven-public</name>-->
+            <!--<url>http://118.25.50.34:8081/repository/maven-public/</url>-->
+            <!--<releases><enabled>true</enabled></releases>-->
+            <!--<snapshots><enabled>true</enabled></snapshots>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 
 
 <!--

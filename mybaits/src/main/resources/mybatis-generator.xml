@@ -10,27 +10,28 @@
     <context id="MysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
 
 
-        <property name="autoDelimitKeywords" value="true" />
-        <property name="beginningDelimiter" value="`" />
-        <property name="endingDelimiter" value="`" />
-        <property name="javaFileEncoding" value="utf-8" />
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="utf-8"/>
         <!--false 的话是覆盖xml 文件 ,默认的是 true 就是追加啦-->
         <property name="mergeable" value="false"></property>
         <!--<plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin"></plugin>-->
-        <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin"/>
+        <plugin type="com.yanjinbin.mybatis.LimitPlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
-        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin"/>
+        <plugin type="com.yanjinbin.mybatis.BatchInsertPlugin"/>
 
-        <!-- 注释 -->
-        <commentGenerator>
-            <!-- 定义是否生成原生注释，我们这里自定义了，所以选择false -->
-            <property name="suppressAllComments" value="false"/>
-            <!-- This property is used to specify whether MBG will include the generation timestamp in the generated comments -->
-            <property name="suppressDate" value="true"/>
+        <!--使用自定义的类DG2CommentGenerator-->
+        <commentGenerator type="com.yanjinbin.mybatis.DG2CommentGenerator">
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false" />
+            <property name="suppressDate" value="true" />
         </commentGenerator>
+
         <!-- jdbc连接 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/bilibili_business_up" userId="root" password="12345" />
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${jdbc_url}" userId="root" password="12345"/>
 
         <!-- 类型转换 -->
         <javaTypeResolver>
@@ -39,40 +40,126 @@
         </javaTypeResolver>
 
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="com.yanjinbin.model" targetProject="${project}" >
+        <javaModelGenerator targetPackage="com.yanjinbin.model" targetProject="${project}">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成mapxml文件 -->
-        <sqlMapGenerator targetPackage="mappers" targetProject="${resources}" >
-            <property name="enableSubPackages" value="false" />
+        <sqlMapGenerator targetPackage="mappers" targetProject="${resources}">
+            <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
-        <javaClientGenerator targetPackage="com.yanjinbin.dao" targetProject="${project}" type="XMLMAPPER" >
-            <property name="enableSubPackages" value="false" />
+        <javaClientGenerator targetPackage="com.yanjinbin.dao" targetProject="${project}" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
-
 
 
         <!--默认都是 true-->
 
 
-        <table tableName="av_daily_charge"
+        <table tableName="archive_video"
                enableInsert="true"
                enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
-               domainObjectName="AvDailyChargeEntity"
+               domainObjectName="ArchiveVideoEntity"
                enableDeleteByPrimaryKey="false"
                enableDeleteByExample="false">
             <!--//也就是 A_B 编程 AB形式-->
-
-            <property name="useActualColumnNames" value="false" />
-            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean" />
-            <columnOverride column="is_original" property="original" javaType="Integer" />
-            <columnOverride column="id" property="avDailyChargeId" />
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveVideoId"/>
         </table>
+
+        <table tableName="archive_video_track"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveVideoTrackEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveVideoTrackId"/>
+        </table>
+
+
+        <table tableName="archive_addit"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveAdditEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveAdditId"/>
+        </table>
+
+        <table tableName="archive"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveId"/>
+        </table>
+
+
+        <table tableName="archive_video_relation"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveVideoRelationEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveVideoRelationId"/>
+        </table>
+
+
+        <table tableName="archive_stat"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveStatEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveStatId"/>
+        </table>
+
+        <table tableName="archive_stage_conf"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveStageConfEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveStageConfId"/>
+        </table>
+
 
     </context>
 
