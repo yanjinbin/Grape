@@ -59,6 +59,20 @@
         <!--默认都是 true-->
 
 
+        <table tableName="archive_track"
+               enableInsert="true"
+               enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
+               domainObjectName="ArchiveTrackEntity"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false">
+            <!--//也就是 A_B 编程 AB形式-->
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
+            <columnOverride column="is_original" property="original" javaType="Integer"/>
+            <columnOverride column="id" property="ArchiveTrackID"/>
+        </table>
+
         <table tableName="archive_video"
                enableInsert="true"
                enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
@@ -70,7 +84,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoId"/>
+            <columnOverride column="id" property="ArchiveVideoID"/>
         </table>
 
         <table tableName="archive_video_track"
@@ -84,7 +98,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoTrackId"/>
+            <columnOverride column="id" property="ArchiveVideoTrackID"/>
         </table>
 
 
@@ -99,7 +113,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveAdditId"/>
+            <columnOverride column="id" property="ArchiveAdditID"/>
         </table>
 
         <table tableName="archive"
@@ -113,7 +127,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveId"/>
+            <columnOverride column="id" property="ArchiveID"/>
         </table>
 
 
@@ -128,7 +142,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoRelationId"/>
+            <columnOverride column="id" property="ArchiveVideoRelationID"/>
         </table>
 
 
@@ -143,7 +157,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveStatId"/>
+            <columnOverride column="id" property="ArchiveStatID"/>
         </table>
 
         <table tableName="archive_stage_conf"
@@ -157,7 +171,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveStageConfId"/>
+            <columnOverride column="id" property="ArchiveStageConfID"/>
         </table>
 
 

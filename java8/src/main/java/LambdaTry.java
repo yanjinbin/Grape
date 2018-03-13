@@ -48,6 +48,15 @@ public class LambdaTry {
             System.out.println(x + var);
         });
 
+        // int counter = 0;
+        //JavaRDD<Integer> rdd = sc.parallelize(data);
+        //
+        //// Wrong: Don't do this!!
+        //rdd.foreach(x -> counter += x);
+        //
+        //println("Counter value: " + counter);
+//
+
 //        this 引用 在 lambda 表达式中行不通
 
         integers.forEach(x -> {
@@ -75,12 +84,10 @@ public class LambdaTry {
 
             //        System.out.println(new Integer("11"));
 
-            Function<String,Integer> s2i=Integer::new;
+            Function<String, Integer> s2i = Integer::new;
             System.out.println(s2i.apply("11"));
 
         });
-
-
 
 
     }

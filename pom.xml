@@ -23,6 +23,7 @@
         <module>Springboot</module>
         <module>bugreport</module>
         <module>es</module>
+        <module>mybaits</module>
     </modules>
     <!--统一管理版本,避免版本冲突-->
     <dependencyManagement>
