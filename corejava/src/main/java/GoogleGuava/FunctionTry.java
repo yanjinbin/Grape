@@ -85,8 +85,7 @@ public class FunctionTry {
         Predicate<CharSequence> pattetnPredicate = Predicates.contains(Pattern.compile("a*a"));
 
 
-
-
+        Predicates.or((Predicate<Integer>) input -> input>=0).or()
 
 
     }

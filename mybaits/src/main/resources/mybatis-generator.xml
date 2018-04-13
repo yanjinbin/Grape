@@ -18,16 +18,16 @@
         <property name="mergeable" value="false"></property>
         <!--<plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin"></plugin>-->
         <plugin type="com.yanjinbin.mybatis.LimitPlugin"/>
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         <plugin type="com.yanjinbin.mybatis.BatchInsertPlugin"/>
 
         <!--使用自定义的类DG2CommentGenerator-->
         <commentGenerator type="com.yanjinbin.mybatis.DG2CommentGenerator">
             <property name="javaFileEncoding" value="UTF-8"/>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-            <property name="suppressAllComments" value="false" />
-            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
         </commentGenerator>
 
         <!-- jdbc连接 -->
@@ -57,8 +57,6 @@
 
 
         <!--默认都是 true-->
-
-
         <table tableName="archive_track"
                enableInsert="true"
                enableUpdateByExample="true" enableUpdateByPrimaryKey="true"
@@ -68,9 +66,10 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveTrackID"/>
+            <columnOverride column="id" property="ArchiveTrackID" javaType="long"/>
+            <columnOverride column="state" javaType="int"/>
+            <columnOverride column="round" javaType="int"/>
+            <columnOverride column="aid" javaType="long"/>
         </table>
 
         <table tableName="archive_video"
@@ -79,12 +78,13 @@
                domainObjectName="ArchiveVideoEntity"
                enableDeleteByPrimaryKey="false"
                enableDeleteByExample="false">
-            <!--//也就是 A_B 编程 AB形式-->
+            <!--//也就是 A_B 变成 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoID"/>
+            <columnOverride column="id" property="ArchiveVideoID" javaType="long"/>
+            <columnOverride column="aid" javaType="long"/>
+            <columnOverride column="failinfo" javaType="int"/>
+            <columnOverride column="xcode_state" javaType="int"/>
         </table>
 
         <table tableName="archive_video_track"
@@ -96,11 +96,10 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoTrackID"/>
+            <columnOverride column="id" property="ArchiveVideoTrackID" javaType="long"/>
+            <columnOverride column="xcode_state" javaType="int"/>
+            <columnOverride column="status" javaType="int"/>
         </table>
-
 
         <table tableName="archive_addit"
                enableInsert="true"
@@ -111,9 +110,9 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveAdditID"/>
+            <columnOverride column="id" property="ArchiveAdditID" javaType="long"/>
+            <columnOverride column="up_from" javaType="int"/>
+            <columnOverride column="channel_id" javaType="int"/>
         </table>
 
         <table tableName="archive"
@@ -125,11 +124,12 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveID"/>
+            <columnOverride column="id" property="ArchiveID" javaType="long"/>
+            <columnOverride column="typeid" javaType="int"/>
+            <columnOverride column="copyright" javaType="int"/>
+            <columnOverride column="arealimit" javaType="int"/>
+            <columnOverride column="round" javaType="int"/>
         </table>
-
 
         <table tableName="archive_video_relation"
                enableInsert="true"
@@ -140,11 +140,9 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveVideoRelationID"/>
+            <columnOverride column="id" property="ArchiveVideoRelationID" javaType="long"/>
+            <columnOverride column="state" javaType="int"/>
         </table>
-
 
         <table tableName="archive_stat"
                enableInsert="true"
@@ -155,9 +153,7 @@
             <!--//也就是 A_B 编程 AB形式-->
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
-            <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveStatID"/>
+            <columnOverride column="id" property="ArchiveStatID" javaType="long"/>
         </table>
 
         <table tableName="archive_stage_conf"
@@ -171,7 +167,7 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <columnOverride column="is_deleted" property="deleted" javaType="boolean"/>
             <columnOverride column="is_original" property="original" javaType="Integer"/>
-            <columnOverride column="id" property="ArchiveStageConfID"/>
+            <columnOverride column="id" property="ArchiveStageConfID" javaType="long"/>
         </table>
 
 

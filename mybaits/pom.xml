@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yanjinbin.supportZhCn</groupId>
-    <artifactId>mybaits_suppoerZhCN</artifactId>
+    <groupId>com.yanjinbin.mybatis</groupId>
+    <artifactId>mybaits</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>支持读取 DDL comment内容,分页,丢去默认的xml追加的方式,</description>
 
@@ -20,10 +20,9 @@
 
 
     <dependencies>
-
         <dependency>
             <groupId>com.yanjinbin.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
+            <artifactId>mybaits-generator-support-cn</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -57,7 +56,7 @@
                     </dependency>
                     <dependency>
                         <groupId>com.yanjinbin.mybatis</groupId>
-                        <artifactId>MybatisGeneratorSupportZhCN</artifactId>
+                        <artifactId>mybaits-generator-support-cn</artifactId>
                         <version>1.0-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
