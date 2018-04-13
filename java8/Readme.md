@@ -27,3 +27,15 @@ anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 limit
 我们下面看一下 Stream 的比较典型用法
 
 最后看下 Stream 的操作特点 
+
+http://blog.oneapm.com/apm-tech/226.html
+
+https://www.cnblogs.com/dolphin0520/p/3811445.html
+
+为什么需要 lambda 表达式
+因为需要实现匿名函数才有的功能,避免写更多的模板类
+http://blog.oneapm.com/apm-tech/226.html
+
+匿名函数和内部类 不是同一个概念哦
+
+内部类 介绍: https://www.cnblogs.com/dolphin0520/p/3811445.html

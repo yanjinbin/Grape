@@ -1,7 +1,13 @@
+import lombok.val;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -14,13 +20,23 @@ import java.util.stream.Stream;
  */
 public class SeniorStreamTry {
     public static void main(String[] args) {
+
+        Runnable r = () -> System.out.println("hello world");
+        Consumer<Integer> c = (x) ->  System.out.println(x);
+
+        BiConsumer<Integer, String> b = (x,  y) -> System.out.println(x + " : " + y);
+
+        Predicate<String> p = (String s) -> s == null;
+
         Stream<List<Integer>> inputStream = Stream.of(
                 Arrays.asList(1),
                 Arrays.asList(2, 3),
                 Arrays.asList(4, 5, 6)
         );
         Stream<Integer> outputStream = inputStream.
-                flatMap((childList) -> childList.stream()); //flatmap用法
+                flatMap((childList) -> childList.stream());//flatmap用法
+        final List<Integer> collect = outputStream.collect(Collectors.toList());
+        System.out.printf(collect.toString());
 
 
 
