@@ -20,6 +20,13 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/com.itfsw/mybatis-generator-plugin -->
+        <dependency>
+            <groupId>com.itfsw</groupId>
+            <artifactId>mybatis-generator-plugin</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -54,45 +61,38 @@
 
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>maven-public</id>
-            <name>maven-public</name>
-            <url>http://118.25.50.34:8081/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>http://118.25.50.34:8081/repository/maven-releases/</url>
-        </repository>
+    <!--    <repositories>
+            <repository>
+                <id>bili-nexus</id>
+                <name>Nexus</name>
+                <url>http://nexus.bilibili.co/content/groups/public</url>
+                <releases><enabled>true</enabled></releases>
+                <snapshots><enabled>true</enabled></snapshots>
+            </repository>
+        </repositories>
 
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://118.25.50.34:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+        <distributionManagement>
+            <repository>
+                <id>bili-nexus-release-server</id>
+                <url>http://nexus.bilibili.co/content/repositories/releases/</url>
+            </repository>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven-public</id>
-            <name>maven-public</name>
-            <url>http://118.25.50.34:8081/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+            <snapshotRepository>
+                <id>bili-nexus-snapshots-server</id>
+                <url>http://nexus.bilibili.co/content/repositories/snapshots/</url>
+            </snapshotRepository>
+        </distributionManagement>
+
+        <pluginRepositories>
+            <pluginRepository>
+                <id>bili-nexus</id>
+                <name>Nexus</name>
+                <url>http://nexus.bilibili.co/content/groups/public</url>
+                <releases><enabled>true</enabled></releases>
+                <snapshots><enabled>true</enabled></snapshots>
+            </pluginRepository>
+        </pluginRepositories>-->
 
 
 </project>
