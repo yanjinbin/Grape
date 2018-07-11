@@ -1,10 +1,12 @@
 package GoogleGuava;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Function;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.Multimaps;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +55,8 @@ public class GuavaTry {
             }
         });
 
+
+        Splitter.on(CharMatcher.INVISIBLE);
         System.out.println(immutableListMultimap);
 
         // Maps.toMap()

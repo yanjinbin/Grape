@@ -6,7 +6,7 @@
 
     <groupId>com.yanjinbin.mybatis</groupId>
     <artifactId>mybatis-generator-support-cn</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
     <description>mybatis support page and comment field with sql comment</description>
 
 
@@ -62,37 +62,6 @@
     </dependencies>
 
 
-    <!--    <repositories>
-            <repository>
-                <id>bili-nexus</id>
-                <name>Nexus</name>
-                <url>http://nexus.bilibili.co/content/groups/public</url>
-                <releases><enabled>true</enabled></releases>
-                <snapshots><enabled>true</enabled></snapshots>
-            </repository>
-        </repositories>
-
-        <distributionManagement>
-            <repository>
-                <id>bili-nexus-release-server</id>
-                <url>http://nexus.bilibili.co/content/repositories/releases/</url>
-            </repository>
-
-            <snapshotRepository>
-                <id>bili-nexus-snapshots-server</id>
-                <url>http://nexus.bilibili.co/content/repositories/snapshots/</url>
-            </snapshotRepository>
-        </distributionManagement>
-
-        <pluginRepositories>
-            <pluginRepository>
-                <id>bili-nexus</id>
-                <name>Nexus</name>
-                <url>http://nexus.bilibili.co/content/groups/public</url>
-                <releases><enabled>true</enabled></releases>
-                <snapshots><enabled>true</enabled></snapshots>
-            </pluginRepository>
-        </pluginRepositories>-->
 
 
 </project>

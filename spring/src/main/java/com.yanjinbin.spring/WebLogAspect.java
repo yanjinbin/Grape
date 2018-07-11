@@ -1,4 +1,3 @@
-/*
 package com.yanjinbin.spring;
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,13 +13,14 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
-*/
 /**
  * 需要好好理解以下几个类 ProxyFactoryBean  ReflectiveMethodInterceptor AopProxy  getObject() proceed() AdviceSupport   JDK OR CGLIB  AopProxy invoke() 方法 MethodPointCunt MethodMatcher
  *
  * @Author Silver bullet
  * @Since 2017/5/31.
- *//*
+ *
+ */
+
 
 @Aspect
 @Component
@@ -51,4 +51,3 @@ public class WebLogAspect {
     }
 
 }
-*/

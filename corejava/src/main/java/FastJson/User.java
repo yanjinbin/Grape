@@ -22,9 +22,11 @@ public class User {
 
     @JSONField(name = "ID啊你大野")
     private String name;
+
     //指定时间格式
     @JSONField(format = "yyyy/MM/dd")
     private LocalDate localDate;
+
     //支持不需要对json字符串进行再次json化
     //@JSONField(jsonDirect = true)  https://github.com/alibaba/fastjson/wiki/JSONField_jsonDirect_cn
     private String defaultJsonStr = "{ \"name\":\"菜鸟教程\" , \"url\":\"www.runoob.com\" }";

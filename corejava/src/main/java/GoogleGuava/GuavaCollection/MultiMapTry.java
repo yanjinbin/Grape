@@ -1,10 +1,7 @@
 package GoogleGuava.GuavaCollection;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multiset;
+import com.google.common.collect.*;
 
 import java.util.*;
 
@@ -108,6 +105,13 @@ public class MultiMapTry {
         multimap.clear();
         System.out.println("is Empty ?   " + multimap.isEmpty());
         //  ImmutableMultimap.copyOf()
+
+        ListMultimap<Integer, String> build = MultimapBuilder.hashKeys(11).arrayListValues().build();
+        build.put(1, "a");
+        build.put(1, "b");
+        build.put(2, "c");
+        build.put(3, "4");
+        System.out.println(build.get(1));
 
 
     }

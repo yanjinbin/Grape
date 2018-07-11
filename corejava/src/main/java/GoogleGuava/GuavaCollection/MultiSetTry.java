@@ -1,7 +1,9 @@
 package GoogleGuava.GuavaCollection;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.*;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -47,6 +49,14 @@ public class MultiSetTry {
         System.out.println("ratio is  "+comparableSortedMultiset.size()+"/"+treeMultiset.size() );
 
 
+        Set<Integer> set1 = Sets.newHashSet(1, 2, 3);
+        Set<Integer> set2 = Sets.newHashSet(4, 5, 6);
+        Set<List<Integer>> lists = Sets.cartesianProduct(set1, set2);
+        System.out.println("====set 笛卡尔====");
+        System.out.println(JSON.toJSONString(lists));
+        for (List<Integer> item : lists) {
+            System.out.println(item.get(0));
+        }
 
 
     }

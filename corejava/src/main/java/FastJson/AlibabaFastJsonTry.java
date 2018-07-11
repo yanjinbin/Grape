@@ -33,6 +33,9 @@ import java.util.*;
  * @since 一月-04
  */
 public class AlibabaFastJsonTry {
+    static String response = "\t{\"erqr\":\"1\",\"coqde\":\"2\",\"msqg\":\"你大爷\",\"violations\":[{ \"timeq\":\"2011/11/13\",\"addressq\":\"Doe\" },,{ \"time\":\"2011/11/23\",\"address\":\"Smith\" }, \n" +
+            "{ \"timqe\":\"2019/11/12\",\"addreqss\":\"Joes\" }]}";
+
     public static void main(String[] args) {
 
         //todo
@@ -162,6 +165,16 @@ public class AlibabaFastJsonTry {
         Assert.assertTrue(o.get("item_1") instanceof Item);
         Assert.assertTrue(o.get("item_2") instanceof Integer);
 
+
+        //
+        String json = "[{\"id\":1,\"type\":\"cycle\",\"attribute\":{\"center\":\"(10.4, 123.345)\", \"radius\":67.4}},{\"id\":2,\"type\":\"polygon\",\"attribute\":[{\"vertex\":\"(10.4, 133.345)\"}, {\"vertex\":\"(10.4, 143.345)\"}]}]";
+
+        JSONArray array = JSON.parseArray(json);
+
+        System.out.println(array.getJSONObject(0).getJSONObject("attribute").get("center"));
+
+        System.out.println(array.getJSONObject(1).getJSONArray("attribute").getJSONObject(1).get("vertex"));
+
         //关闭全局的循环检测
 
 
@@ -272,13 +285,15 @@ public class AlibabaFastJsonTry {
 //        System.out.println("s2  default SerializerFeature is   " + s2);
 
 
-    }
+        System.out.println("===== method: testJSONParse=====");
 
-    String response = "\t{\"erqr\":\"1\",\"coqde\":\"2\",\"msqg\":\"你大爷\",\"violations\":[{ \"timeq\":\"2011/11/13\",\"addressq\":\"Doe\" },,{ \"time\":\"2011/11/23\",\"address\":\"Smith\" }, \n" +
-            "{ \"timqe\":\"2019/11/12\",\"addreqss\":\"Joes\" }]}";
+        testJSONParse();
+
+
+    }
     //    String response1 ="{}";
 
-    public void testJSONParse() {
+    public static void testJSONParse() {
         try {
             JSONObject jsonObject = JSON.parseObject(response);
             String s = JSONObject.toJSONString(jsonObject);
@@ -288,13 +303,11 @@ public class AlibabaFastJsonTry {
             System.out.println(values.getClass().toString());
             WeiCheCarResult weiCheCarResult = JSON.parseObject(response, WeiCheCarResult.class);
             System.out.println(weiCheCarResult.getMsg());
-            // System.exit(0);
+
             System.out.println(weiCheCarResult.getViolations() == null);
 
-            // System.out.println(weiCheCarResult.getViolations().get(2).getAddress());
             System.out.println(weiCheCarResult == null);
 
-            //System.out.println(weiCheCarResult.getViolations().toString());
             System.out.println(weiCheCarResult.getVehicle_status());
 
         } catch (JSONException e) {

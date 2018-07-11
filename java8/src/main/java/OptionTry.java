@@ -1,10 +1,7 @@
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 /**
  * @author xiaobin
@@ -15,6 +12,5 @@ public class OptionTry {
         final List<String> list = Lists.newArrayList();
         System.out.println(list.isEmpty());
          Optional.ofNullable(list).filter(strings1 -> strings1.isEmpty()).ifPresent(strings -> System.out.println(strings.size()));
-
     }
 }
