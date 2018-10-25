@@ -15,13 +15,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-/** 函数式编程风格
+/**
+ * 函数式编程风格
+ *
  * @author Silver & Bullet
- *         on 十二月-25
+ * on 十二月-25
  */
 public class FunctionTry {
     public static void main(String[] args) {
-        Function function = new Function<Student,String>(){
+        Function function = new Function<Student, String>() {
 
             @Nullable
             @Override
@@ -35,7 +37,7 @@ public class FunctionTry {
             @Nullable
             @Override
             public String apply(@Nullable Parent input) {
-              return   input.getParentname();
+                return input.getParentname();
             }
         }, new Function<Person, Parent>() {
             @Nullable
@@ -49,10 +51,10 @@ public class FunctionTry {
 
         Function<Object, Object> objectFunction = Functions.identity();
 
-        Map<String,Integer>  hashMap = new HashMap<String,Integer>();
-        hashMap.put("a",1);
-        hashMap.put("b",2);
-        hashMap.put("c",3);
+        Map<String, Integer> hashMap = new HashMap<String, Integer>();
+        hashMap.put("a", 1);
+        hashMap.put("b", 2);
+        hashMap.put("c", 3);
 
         Function<String, Integer> forMapFunction = Functions.forMap(hashMap);
 
@@ -64,7 +66,7 @@ public class FunctionTry {
 
 
         Predicate<Class<?>> classPredicate = Predicates.subtypeOf(Family.class);
-        Predicate<Parent> parentPredicate = Predicates.equalTo(new Parent(1,2));
+        Predicate<Parent> parentPredicate = Predicates.equalTo(new Parent(1, 2));
 
         List<Integer> list = new ArrayList<Integer>(5);
         list.add(1);
@@ -90,5 +92,5 @@ public class FunctionTry {
 
     }
 
-    public static final  int HEIGHT =10;
+    public static final int HEIGHT = 10;
 }

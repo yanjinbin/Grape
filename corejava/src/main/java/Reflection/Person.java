@@ -13,10 +13,4 @@ public class Person extends Parent {
 
     private int age;
 
-    private void print(){
-        System.out.println("print函数");
-    }
-
-
-
 }

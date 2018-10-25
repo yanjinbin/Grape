@@ -3,7 +3,7 @@ package com.yanjinbin.aop;
 import org.springframework.stereotype.Service;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/3/1
  */
 @Service

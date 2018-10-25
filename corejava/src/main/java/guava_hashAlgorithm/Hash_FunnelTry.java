@@ -13,13 +13,7 @@ public class Hash_FunnelTry {
     public static void main(String[] args) {
 
 
-        Funnel<Person> personFunnel = new Funnel<Person>() {
-            @Override
-            public void funnel(Person from, PrimitiveSink into) {
-                into.putInt(from.getId()).putInt(from.getBirthYear()).putString(from.getFirstName(), Charsets.UTF_8).putString(from.getLastName(), Charsets.UTF_8);
-
-            }
-        };
+        Funnel<Person> personFunnel = (Funnel<Person>) (from, into) -> into.putInt(from.getId()).putInt(from.getBirthYear()).putString(from.getFirstName(), Charsets.UTF_8).putString(from.getLastName(), Charsets.UTF_8);
 
         HashFunction hashFunction = Hashing.md5();
         Hasher hasher = hashFunction.newHasher();

@@ -1,7 +1,7 @@
 package com.yanjinbin.aop;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/3/1
  */
 public interface HelloService {

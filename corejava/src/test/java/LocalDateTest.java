@@ -3,7 +3,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2017/12/30
  */
 public class LocalDateTest {

@@ -30,7 +30,7 @@ public class UnsafeCachingFactorizer extends HttpServletBean {
             encodeIntoResponse(res, lastFactors.get());
         } else {
             BigInteger[] factor = factor(i);
-            lastNumber.set(i);// 尽管使用了院子应用 但是无法确保 2次更新 是同步的 ，也就无法保证竞态条件（也就是说 factor 的乘积 应该就是 lastNumber 的值）
+            lastNumber.set(i);// 尽管使用了原子应用 但是无法确保 2次更新 是同步的 ，也就无法保证竞态条件（也就是说 factor 的乘积 应该就是 lastNumber 的值）
             lastFactors.set(factor);
             encodeIntoResponse(res, factor);
         }

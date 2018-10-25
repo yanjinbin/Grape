@@ -4,7 +4,7 @@ import com.yanjinbin.frastructue.Result;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/2/28
  */
 @RestController

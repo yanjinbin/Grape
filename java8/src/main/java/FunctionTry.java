@@ -1,10 +1,8 @@
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * nextodo  研究下 java.util.function 包下的
@@ -36,12 +34,9 @@ public class FunctionTry {
         }).toArray();
 
         final ArrayList<Integer> integers = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
-        integers.stream().map(new Function<Integer, Integer>() {
-            @Override
-            public Integer apply(@Nullable Integer input) {
-                System.out.println(input);
-                return input + 1;
-            }
+        integers.stream().map((Function<Integer, Integer>) input -> {
+            System.out.println(input);
+            return input + 1;
         });
 
     }

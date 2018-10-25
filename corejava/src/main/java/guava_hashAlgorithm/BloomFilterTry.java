@@ -4,7 +4,6 @@ import CommonUtil.Alphabet;
 import com.google.common.base.Charsets;
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnel;
-import com.google.common.hash.PrimitiveSink;
 
 import java.util.Random;
 
@@ -22,22 +21,16 @@ import java.util.Random;
  */
 public class BloomFilterTry {
     public static void main(String[] args) {
-        Funnel<Person> personFunnel = new Funnel<Person>() {
-            @Override
-            public void funnel(Person from, PrimitiveSink into) {
-                into.putInt(from.getId()).putInt(from.getBirthYear()).putString(from.getFirstName(), Charsets.UTF_8).putString(from.getLastName(), Charsets.UTF_8);
+        Funnel<Person> personFunnel = (Funnel<Person>) (from, into) -> into.putInt(from.getId()).putString(from.getFirstName(), Charsets.UTF_8).putString(from.getLastName(), Charsets.UTF_8);
 
-            }
-        };
-
-        BloomFilter<Person> friendsFilter = BloomFilter.create(personFunnel, 5000, 0.01);
+        BloomFilter<Person> friendsFilter = BloomFilter.create(personFunnel,1000000,0.01);
         Person p1 = Person.builder().id(1).birthYear(1990).lastName("Yan").firstName("Jinbin").build();
 
         friendsFilter.put(p1);
 
 
         int i = 0;
-        while (i < 500) {
+        while (i <1000000) {
             i++;
             int j = new Random(10).nextInt(27);
             String c = Character.toString(Alphabet.LOWERCASE.toChar(j));
@@ -48,12 +41,15 @@ public class BloomFilterTry {
             friendsFilter.put(m);
         }
 
-        Person p2 = Person.builder().id(10000).lastName("嘿嘿").firstName("嘻嘻").birthYear(19901116).build();
-        System.out.println(friendsFilter.mightContain(p1));
+        Person p3 = Person.builder().id(1).birthYear(1991).lastName("Yan").firstName("Jinbin").build();
+
+        System.out.println(friendsFilter.mightContain(p3));
         // 利用 bloomfilter 我们可以实现异步加载 合理规划资源
 //        简而言之，布鲁姆过滤器是一种概率数据结构，它允许你检测某个对象是一定不在过滤器中，还是可能已经添加到过滤器了
-
+        Person p2 = Person.builder().id(10000).lastName("嘿嘿").firstName("嘻嘻").birthYear(19901116).build();
         System.out.println(friendsFilter.mightContain(p2));
+
+
 
 
     }

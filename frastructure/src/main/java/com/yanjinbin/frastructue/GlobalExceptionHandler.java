@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2017/11/18
  */
 @Slf4j

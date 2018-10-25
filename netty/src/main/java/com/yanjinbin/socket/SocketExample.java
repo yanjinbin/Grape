@@ -8,12 +8,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/1/18
  */
 public class SocketExample {
     public void wtf() throws IOException {
+        // 创建一个新的socket 监听接口
         ServerSocket serverSocket = new ServerSocket(8081);
+        //
         Socket clientSocket = serverSocket.accept();
         BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 

@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/3/1
  */
 @Aspect

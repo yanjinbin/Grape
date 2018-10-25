@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import java.util.Arrays;
 
 /**
- * @author 吉利不布吉
+ * @author xiaobin
  * @since 2018/1/7
  */
 @SpringBootApplication(scanBasePackages = {"com.yanjinbin"})

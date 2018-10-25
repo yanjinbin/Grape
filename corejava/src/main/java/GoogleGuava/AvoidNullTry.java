@@ -48,9 +48,6 @@ public class AvoidNullTry {
         System.out.println("s2 is null?  " + StringUtils.isEmpty(s2));
         System.out.println("s2 is null or empty " + Strings.isNullOrEmpty(s2));
         System.out.println("s2 is empty -----" + Strings.nullToEmpty(s2) + "----");
-        //   stringOption.transform()
-
-
 
     }
 
