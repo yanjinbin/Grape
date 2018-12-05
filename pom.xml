@@ -23,7 +23,6 @@
         <module>spring</module>
         <module>Springboot</module>
         <module>mybatis-generator-support-cn</module>
-        <module>mybatis-generator-support-cn</module>
     </modules>
 
     <properties>
@@ -72,12 +71,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.itfsw</groupId>
-            <artifactId>mybatis-generator-plugin</artifactId>
-            <version>1.2.10</version>
         </dependency>
 
     </dependencies>
