@@ -18,7 +18,6 @@
         <module>frastructure</module>
         <module>java8</module>
         <module>jvm</module>
-        <module>netty</module>
         <module>spi</module>
         <module>spring</module>
         <module>Springboot</module>

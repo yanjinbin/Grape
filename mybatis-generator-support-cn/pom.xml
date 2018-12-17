@@ -15,6 +15,13 @@
     </parent>
 
     <dependencies>
+        <dependency>
+        <groupId>com.itfsw</groupId>
+        <artifactId>mybatis-generator-plugin</artifactId>
+        <version>1.2.12</version>
+    </dependency>
+
+
 
         <!-- mybatis generator -->
         <dependency>

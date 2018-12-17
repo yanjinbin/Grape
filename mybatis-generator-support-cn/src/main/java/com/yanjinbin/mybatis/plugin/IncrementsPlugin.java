@@ -19,6 +19,7 @@ package com.yanjinbin.mybatis.plugin;
 import com.itfsw.mybatis.generator.plugins.utils.*;
 import com.itfsw.mybatis.generator.plugins.utils.hook.IIncrementsPluginHook;
 import com.itfsw.mybatis.generator.plugins.utils.hook.IModelBuilderPluginHook;
+import com.yanjinbin.mybatis.plugin.util.IncrementsPluginTools;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
