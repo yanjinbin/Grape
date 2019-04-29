@@ -22,12 +22,7 @@ public class CellularAutomata {
     public CellularAutomata(Board board) {
         this.mainBoard = board;
         int count = Runtime.getRuntime().availableProcessors();
-        this.cyclicBarrier = new CyclicBarrier(count, new Runnable() {
-            @Override
-            public void run() {
-                mainBoard.commitNewValues();
-            }
-        });
+        this.cyclicBarrier = new CyclicBarrier(count, () -> mainBoard.commitNewValues());
         this.workerQueue = new Worker[count];
         for (int i = 0; i < count; i++) {
             //workerQueue[i] = Worker.builder().board(mainBoard.getSubBoard(count, i)).build();

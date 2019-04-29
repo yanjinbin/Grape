@@ -30,22 +30,19 @@ public class TestHarness {
         final CountDownLatch startGate = new CountDownLatch(1);
         final CountDownLatch endGate = new CountDownLatch(threads_count);
         for (int i = 0; i < threads_count; i++) {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
+            Thread t = new Thread(() -> {
+                try {
+                    startGate.await();
                     try {
-                        startGate.await();
-                        try {
-                            task.run();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            System.out.println(endGate.getCount());
-                            endGate.countDown();
-                        }
-                    } catch (InterruptedException e) {
+                        task.run();
+                    } catch (Exception e) {
                         e.printStackTrace();
+                    } finally {
+                        System.out.println(endGate.getCount());
+                        endGate.countDown();
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             });
             t.start();
