@@ -15,7 +15,7 @@ public class WaitTest1 {
 
                 // 主线程等待t1通过notify()唤醒 或 notifyAll()唤醒，或超过3000ms延时；然后才被唤醒。
                 System.out.println(Thread.currentThread().getName() + " call wait ");
-                t1.wait(5000);//等待5秒之后 进入就绪状态runnable()
+                t1.wait(10);//等待1秒之后 进入就绪状态runnable()
                 System.out.println(Thread.currentThread().getName() + " continue");
 
             } catch (InterruptedException e) {

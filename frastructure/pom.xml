@@ -11,7 +11,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.3.13.RELEASE</version>
+            <version>4.3.6.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.0.0.RELEASE</version>
+            <version>4.3.6.RELEASE</version>
         </dependency>
     </dependencies>
     <packaging>jar</packaging>

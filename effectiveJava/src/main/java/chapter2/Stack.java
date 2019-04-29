@@ -15,6 +15,8 @@ public class Stack<V> {
     }
 
     public Object pop(){
+        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        stack.pop();
         if (size == 0) {
             throw  new RuntimeException("为空");
         }

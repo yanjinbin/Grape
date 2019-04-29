@@ -1,6 +1,5 @@
 package concurrent_in_pratice.chapter_5;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
@@ -15,14 +14,10 @@ import java.util.concurrent.FutureTask;
 
 public class PreLoader {
     private final FutureTask<ProductInfo> future =
-            new FutureTask<ProductInfo>(new Callable<ProductInfo>() {
-                public ProductInfo call() throws DataLoadException {
-                    return loadProductInfo();
-                }
-            });
+            new FutureTask<ProductInfo>(() -> loadProductInfo());
     private final Thread thread = new Thread(future);
 
-    ProductInfo loadProductInfo() throws DataLoadException {
+    ProductInfo loadProductInfo() {
         return null;
     }
 

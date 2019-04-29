@@ -18,9 +18,7 @@ import java.util.List;
 public class ChineseCommentGenerator extends DefaultCommentGenerator {
     private static final Logger log = LoggerFactory.getLogger(ChineseCommentGenerator.class);
 
-    public ChineseCommentGenerator() {
-    }
-
+    @Override
     public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
         StringBuilder sb = new StringBuilder();
         method.addJavaDocLine("/**");
@@ -101,6 +99,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         method.addJavaDocLine(" */");
     }
 
+    @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
         String shortName = innerClass.getType().getShortName();
         innerClass.addJavaDocLine("/**");
@@ -110,6 +109,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         innerClass.addJavaDocLine(" */");
     }
 
+    @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable, boolean markAsDoNotDelete) {
         String shortName = innerClass.getType().getShortName();
         innerClass.addJavaDocLine("/**");
@@ -119,6 +119,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         innerClass.addJavaDocLine(" */");
     }
 
+    @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         StringBuffer sb = new StringBuffer();
         field.addJavaDocLine("/**");
@@ -134,6 +135,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         field.addJavaDocLine(" */");
     }
 
+    @Override
     public void addGetterComment(Method method, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         StringBuilder sb = new StringBuilder();
         method.addJavaDocLine("/**");
@@ -155,6 +157,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         method.addJavaDocLine(" */");
     }
 
+    @Override
     public void addSetterComment(Method method, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         StringBuilder sb = new StringBuilder();
         method.addJavaDocLine("/**");
@@ -179,6 +182,7 @@ public class ChineseCommentGenerator extends DefaultCommentGenerator {
         method.addJavaDocLine(" */");
     }
 
+    @Override
     public void addComment(XmlElement xmlElement) {
         xmlElement.addElement(new TextElement("<!--"));
         StringBuilder sb = new StringBuilder();
